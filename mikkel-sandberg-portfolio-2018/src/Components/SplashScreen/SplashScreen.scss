@@ -1,16 +1,34 @@
-// splashscreen
-h1 {
-	font-size: 6.25rem;
-	line-height: 1.25;
-	text-align: center;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+@import 'utilities/variables';
 
-	a:link,
-	a:visited {
-		color: #fff;
-		text-decoration: none;
+// splashscreen
+#splashScreenWrapper {
+	width: 100%;
+	height: 100vh;
+
+	h1 {
+		font-size: 8vmin;
+		line-height: 1.3;
+		text-align: left;
+		padding-top: 85px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		> span {
+			display: block;
+			white-space: nowrap;
+
+			&:not(:last-child):after {
+				content: ' &';
+			}
+		}
+
+		a:link,
+		a:visited {
+			color: $lightGray;
+			text-decoration: none;
+			display: inline-block;
+		}
 	}
 }

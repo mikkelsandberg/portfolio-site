@@ -1,0 +1,78 @@
+@import 'utilities/variables';
+
+// my work
+#myWorkWrapper {
+	padding-top: 115px;
+
+	header {
+		h2 {
+			font-size: 4.4rem;
+			line-height: 1;
+			text-align: center;
+		}
+	}
+
+	nav {
+		margin: 20px 0;
+
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			max-width: 1024px;
+			margin: 0 auto;
+
+			li {
+				font-size: 1.25rem;
+				line-height: 1;
+				border: 1px solid $lightGray;
+				padding: 10px;
+				margin: 10px;
+				cursor: pointer;
+
+				&.active {
+					color: $darkGray;
+					background-color: $lightGray;
+				}
+
+				&::selection {
+					background: transparent;
+				}
+			}
+		}
+	}
+
+	#workItems {
+		display: flex;
+		flex-wrap: wrap;
+
+		.workItem {
+			flex: 0 1 auto;
+			border: 1px solid $lightGray;
+			margin: -1px;
+			width: calc(25% + 1.75px);
+			min-height: 320px;
+			position: relative;
+			cursor: pointer;
+
+			header {
+				text-align: center;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			.tags {
+				position: absolute;
+				right: 30px;
+				bottom: 30px;
+
+				ul {
+					display: flex;
+					flex-wrap: wrap;
+				}
+			}
+		}
+	}
+}

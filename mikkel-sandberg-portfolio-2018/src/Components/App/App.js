@@ -3,30 +3,27 @@ import { Switch, Route } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
 import SplashScreen from '../SplashScreen/SplashScreen';
 import MyWork from '../MyWork/MyWork';
+import 'smoothscroll';
 import './App.css';
 
 class App extends React.Component {
 	render() {
 		return (
-			<div className="App">
+			<main id="App">
 				<NavBar />
 				<Switch>
 					<Route exact path='/'
 						render={() => {
 							return (
-								<SplashScreen />
-							);
-						}}
-					/>
-					<Route exact path='/my-work'
-						render={() => {
-							return (
-								<MyWork />
+								<div id="mainContentWrapper">
+									<SplashScreen />
+									<MyWork />
+								</div>
 							);
 						}}
 					/>
 				</Switch>
-			</div>
+			</main>
 		);
 	}
 }

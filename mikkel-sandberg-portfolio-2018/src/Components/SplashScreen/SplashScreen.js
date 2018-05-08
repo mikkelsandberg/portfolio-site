@@ -1,12 +1,11 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import './SplashScreen.css';
 
 class SplashScreen extends React.Component {
 	render() {
 		return (
-			<div>
-				<h1><NavLink exact to='/my-work'>Web development</NavLink><br/>+<br/>Podcasting<br/>+<br/>Coffee</h1>
+			<div id="splashScreenWrapper">
+				<h1><span><a href="#myWorkWrapper" rel="nofollow">Web development</a></span><span><a href="#myWorkWrapper" ref="nofollow">Podcasting</a></span><span>Coffee</span></h1>
 			</div>
 		);
 	}

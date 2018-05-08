@@ -1,11 +1,26 @@
+@import 'utilities/variables';
+
 // master styles
 * {
 	box-sizing: border-box;
 }
 
 body {
-	font-family: "kepler-std", serif;
+	// font-family: "kepler-std", serif;
+	font-family: "fira-sans",sans-serif;
 	font-size: 16px;
-	color: #fff;
-	background-color: #000;
+	color: $lightGray;
+	background-color: $darkGray;
+}
+
+a {
+	&:link,
+	&:visited {
+		color: $lightGray;
+		text-decoration: none;
+	}
+
+	&:hover {
+		color: $lightGray;
+	}
 }
