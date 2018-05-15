@@ -38,6 +38,45 @@
 				&::selection {
 					background: transparent;
 				}
+
+				// filter hover fx
+				&[class*='filterTab'] {
+					transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+
+					&:hover {
+						color: $darkGray;
+					}
+
+					&[class*='_redColor']:hover {
+						background-color: $redColor;
+						border-color: $redColor;
+					}
+
+					&[class*='_yellowColor']:hover {
+						background-color: $yellowColor;
+						border-color: $yellowColor;
+					}
+
+					&[class*='_purpleColor']:hover {
+						background-color: $purpleColor;
+						border-color: $purpleColor;
+					}
+
+					&[class*='_greenColor']:hover {
+						background-color: $greenColor;
+						border-color: $greenColor;
+					}
+
+					&[class*='_blueColor']:hover {
+						background-color: $blueColor;
+						border-color: $blueColor;
+					}
+
+					&[class*='_orangeColor']:hover {
+						background-color: $orangeColor;
+						border-color: $orangeColor;
+					}
+				}
 			}
 		}
 	}
@@ -45,32 +84,91 @@
 	#workItems {
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: center;
 
 		.workItem {
-			flex: 0 1 auto;
+			flex: 0 0 auto;
 			border: 1px solid $lightGray;
-			margin: -1px;
-			width: calc(25% + 1.75px);
-			min-height: 320px;
+			width: 480px;
+			height: 480px;
 			position: relative;
 			cursor: pointer;
 
+			.workLabel {
+				font-size: 1.15rem;
+				text-align: center;
+				padding: 20px;
+			}
+
 			header {
 				text-align: center;
+				width: 100%;
+				padding: 0 10px;
 				position: absolute;
 				left: 50%;
 				top: 50%;
 				transform: translate(-50%, -50%);
+
+				h3 {
+					font-size: 3rem;
+					line-height: 1.15em;
+				}
 			}
 
 			.tags {
 				position: absolute;
-				right: 30px;
-				bottom: 30px;
+				left: 0;
+				bottom: 0;
+				padding: 15px;
+				width: 100%;
 
 				ul {
 					display: flex;
 					flex-wrap: wrap;
+					justify-content: flex-end;
+
+					li {
+						border: 1px solid $lightGray;
+						border-left: none;
+						padding: 5px;
+						margin: 5px 5px 5px 23px;
+						position: relative;
+
+						.tagPoint {
+							&:before {
+								content: '';
+								position: absolute;
+								left: -18px;
+								top: 50%;
+								transform: translateY(-50%);
+								border-right: 18px solid $lightGray;
+								border-top: 14px solid transparent;
+								border-bottom: 14px solid transparent;
+							}
+
+							&:after {
+								content: '';
+								position: absolute;
+								left: -16px;
+								top: 50%;
+								transform: translateY(-50%);
+								border-right: 16px solid $darkGray;
+								border-top: 12px solid transparent;
+								border-bottom: 12px solid transparent;
+							}
+						}
+
+						.tagHold {
+							position: absolute;
+							left: -7px;
+							top: 50%;
+							transform: translateY(-50%);
+							border: 1px solid $lightGray;
+							border-radius: 7px;
+							width: 7px;
+							height: 7px;
+						}
+					}
 				}
 			}
 		}
