@@ -1,4 +1,5 @@
 import React from 'react';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 import './SplashScreen.css';
 
 class SplashScreen extends React.Component {
@@ -7,14 +8,14 @@ class SplashScreen extends React.Component {
 			<div id="splashScreenWrapper">
 				<h1>
 					<span>
-						<a href="#myWorkWrapper" onClick={this.props.handleFilterClick} rel="nofollow">
+						<AnchorLink offset="0" href="#myWorkWrapper" onClick={this.props.handleFilterClick} rel="nofollow">
 							Web development
-						</a>
+						</AnchorLink>
 					</span>
 					<span>
-						<a href="#myWorkWrapper" onClick={this.props.handleFilterClick} ref="nofollow">
+						<AnchorLink offset="0" href="#myWorkWrapper" onClick={this.props.handleFilterClick} ref="nofollow">
 							Podcast production
-						</a>
+						</AnchorLink>
 					</span>
 					<span>Coffee</span>
 				</h1>

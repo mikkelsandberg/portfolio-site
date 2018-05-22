@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
 import SplashScreen from '../SplashScreen/SplashScreen';
 import MyWork from '../MyWork/MyWork';
-import 'smoothscroll';
 import './App.css';
 import WorkData from '../../Util/WorkData';
 

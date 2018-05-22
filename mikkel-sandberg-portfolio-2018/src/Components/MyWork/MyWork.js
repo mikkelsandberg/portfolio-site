@@ -42,7 +42,7 @@ class MyWork extends React.Component {
 									<ul>
 										{item.tags.map((tag, key = 0) => {
 											return (
-												<li key={key++}>
+												<li key={key++} className={tag.toLowerCase().replace(/\s/g, '-')}>
 													<span className="tagPoint" />
 													<span className="tagHole" />
 													{tag}

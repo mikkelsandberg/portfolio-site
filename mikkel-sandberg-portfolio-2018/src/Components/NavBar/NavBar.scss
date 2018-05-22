@@ -16,8 +16,12 @@
 			display: flex;
 		}
 
-		#navLinks {
+		.navLinks {
 			li {
+				&.is-current {
+					text-decoration: underline;
+				}
+
 				a:link,
 				a:visited {
 					font-size: 1.25rem;

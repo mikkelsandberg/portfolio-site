@@ -1,4 +1,6 @@
 import React from 'react';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+import Scrollspy from 'react-scrollspy';
 import githubLogo from './github-100.png';
 import linkedinLogo from './linkedin-100.png';
 import twitterLogo from './twitter-100.png';
@@ -10,12 +12,32 @@ class NavBar extends React.Component {
 		return (
 			<div id="mainNavWrapper">
 				<nav>
-					<ul id="navLinks">
-						<li><a href="#splashScreenWrapper">Home</a></li>
-						<li><a href="#myWorkWrapper">My work</a></li>
-						<li><a href="/">About me</a></li>
-						<li><a href="/">Contact</a></li>
-					</ul>
+					<Scrollspy
+						className="navLinks"
+						items={['splashScreenWrapper', 'myWorkWrapper']}
+						currentClassName="is-current"
+					>
+						<li>
+							<AnchorLink offset="0" href="#splashScreenWrapper">
+								Home
+							</AnchorLink>
+						</li>
+						<li>
+							<AnchorLink offset="0" href="#myWorkWrapper">
+								My work
+							</AnchorLink>
+						</li>
+						<li>
+							<AnchorLink offset="0" href="/">
+								About me
+							</AnchorLink>
+						</li>
+						<li>
+							<AnchorLink offset="0" href="/">
+								Contact
+							</AnchorLink>
+						</li>
+					</Scrollspy>
 					<ul id="socialMediaIcons">
 						<li id="github">
 							<a href="https://github.com/MikkelSandbag" target="_blank" rel="noopener noreferrer">
