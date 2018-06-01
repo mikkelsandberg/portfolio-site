@@ -21,7 +21,11 @@ class App extends Component {
 		this.filters = document.querySelectorAll('#myWorkWrapper nav ul li');
 	}
 
-	formatText = text => text.toLowerCase().replace(/\s/g, '-');
+	formatText = text =>
+		text
+			.toLowerCase()
+			.replace(/\s/g, '-')
+			.replace(/[^a-z\d-]/g, '');
 
 	handleFilterClick = e => {
 		this.removeActiveClass();
@@ -80,7 +84,11 @@ class App extends Component {
 								<div id="mainContentWrapper">
 									<NavBar />
 									<SplashScreen handleFilterClick={this.handleFilterClick} />
-									<MyWork workData={filteredWork} handleFilterClick={this.handleFilterClick} />
+									<MyWork
+										formatText={this.formatText}
+										workData={filteredWork}
+										handleFilterClick={this.handleFilterClick}
+									/>
 								</div>
 							);
 						}}
@@ -88,7 +96,7 @@ class App extends Component {
 					<Route
 						path="/:workName"
 						render={props => {
-							return <WorkDetails {...props} workData={this.state.work} />;
+							return <WorkDetails {...props} formatText={this.formatText} workData={this.state.work} />;
 						}}
 					/>
 				</Switch>

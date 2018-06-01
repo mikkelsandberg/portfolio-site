@@ -5,6 +5,8 @@ import Filters from '../../Util/Filters';
 
 class MyWork extends React.Component {
 	render() {
+		const { formatText, workData, handleFilterClick } = this.props;
+
 		return (
 			<section id="myWorkWrapper">
 				<header>
@@ -16,7 +18,7 @@ class MyWork extends React.Component {
 							return (
 								<li
 									key={filter.id}
-									onClick={this.props.handleFilterClick}
+									onClick={handleFilterClick}
 									className={`${filter.id === 0 ? 'active ' : ''}filterTab_${filter.color}Color`}
 								>
 									{filter.name}
@@ -26,16 +28,12 @@ class MyWork extends React.Component {
 					</ul>
 				</nav>
 				<section id="workItems">
-					{this.props.workData.map(item => {
+					{workData.map(item => {
 						return (
 							<Link
 								key={item.id}
-								to={`/${item.workLabel.toLowerCase().replace(/\s/g, '-')}-${item.workTitle
-									.toLowerCase()
-									.replace(/\s/g, '-')}`}
-								id={`${item.workLabel.toLowerCase().replace(/\s/g, '-')}-${item.workTitle
-									.toLowerCase()
-									.replace(/\s/g, '-')}`}
+								to={`/${formatText(item.workLabel)}-${formatText(item.workTitle)}`}
+								id={`${formatText(item.workLabel)}-${formatText(item.workTitle)}`}
 								className="workItem"
 							>
 								<p className="workLabel">{item.workLabel}</p>
@@ -46,7 +44,7 @@ class MyWork extends React.Component {
 									<ul>
 										{item.tags.map((tag, key = 0) => {
 											return (
-												<li key={key++} className={tag.toLowerCase().replace(/\s/g, '-')}>
+												<li key={key++} className={formatText(tag)}>
 													<span className="tagPoint" />
 													<span className="tagHole" />
 													{tag}

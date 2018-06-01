@@ -7,7 +7,12 @@ const WorkData = [
 		skills: ['Bootstrap', 'HTML', 'CSS'],
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.',
-		images: ['https://nationalmortgageprofessional.com/sites/default/files/CoreLogic_Logo_13.jpg'],
+		images: [
+			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-new.png',
+			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab1-old.png',
+			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab2-old.png',
+			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab3-old.png'
+		],
 		repoLink: '',
 		liveLink: 'https://www.corelogic.com/'
 	},
