@@ -25,14 +25,14 @@
 			li {
 				font-size: 1.25rem;
 				line-height: 1;
-				border: 1px solid $lightGray;
+				border: 1px solid $darkGray;
 				padding: 10px;
 				margin: 10px;
 				cursor: pointer;
 
 				&.active {
-					color: $darkGray;
-					background-color: $lightGray;
+					color: $lightGray;
+					background-color: $darkGray;
 				}
 
 				&::selection {
@@ -88,7 +88,7 @@
 
 		.workItem {
 			flex: 0 0 auto;
-			border: 1px solid $lightGray;
+			border: 1px solid $darkGray;
 			width: 480px;
 			height: 480px;
 			position: relative;
@@ -128,7 +128,7 @@
 					justify-content: flex-end;
 
 					li {
-						border: 1px solid $lightGray;
+						border: 1px solid $darkGray;
 						border-left: none;
 						padding: 5px;
 						margin: 5px 5px 5px 23px;
@@ -142,7 +142,7 @@
 								left: -18px;
 								top: 50%;
 								transform: translateY(-50%);
-								border-right: 18px solid $lightGray;
+								border-right: 18px solid $darkGray;
 								border-top: 14px solid transparent;
 								border-bottom: 14px solid transparent;
 								transition: all 0.2s ease-in-out;
@@ -154,7 +154,7 @@
 								left: -16px;
 								top: 50%;
 								transform: translateY(-50%);
-								border-right: 16px solid $darkGray;
+								border-right: 16px solid $lightGray;
 								border-top: 12px solid transparent;
 								border-bottom: 12px solid transparent;
 								transition: all 0.2s ease-in-out;
@@ -166,7 +166,7 @@
 							left: -7px;
 							top: 50%;
 							transform: translateY(-50%);
-							border: 1px solid $lightGray;
+							border: 1px solid $darkGray;
 							border-radius: 7px;
 							width: 7px;
 							height: 7px;
@@ -177,7 +177,7 @@
 							color: $darkGray;
 
 							.tagHole {
-								border-color: $darkGray;
+								background-color: $lightGray;
 							}
 
 							&.web-development {

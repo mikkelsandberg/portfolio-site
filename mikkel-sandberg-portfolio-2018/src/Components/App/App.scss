@@ -7,20 +7,20 @@
 
 body {
 	// font-family: "kepler-std", serif;
-	font-family: "fira-sans",sans-serif;
+	font-family: 'fira-sans', sans-serif;
 	font-size: 16px;
-	color: $lightGray;
-	background-color: $darkGray;
+	color: $darkGray;
+	background-color: $lightGray;
 }
 
 a {
 	&:link,
 	&:visited {
-		color: $lightGray;
+		color: $darkGray;
 		text-decoration: none;
 	}
 
 	&:hover {
-		color: $lightGray;
+		color: $darkGray;
 	}
 }

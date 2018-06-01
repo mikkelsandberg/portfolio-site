@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './MyWork.css';
 import Filters from '../../Util/Filters';
 
 class MyWork extends React.Component {
 	render() {
 		return (
-			<div id="myWorkWrapper">
+			<section id="myWorkWrapper">
 				<header>
 					<h2>My work</h2>
 				</header>
@@ -27,8 +28,11 @@ class MyWork extends React.Component {
 				<section id="workItems">
 					{this.props.workData.map(item => {
 						return (
-							<div
+							<Link
 								key={item.id}
+								to={`/${item.workLabel.toLowerCase().replace(/\s/g, '-')}-${item.workTitle
+									.toLowerCase()
+									.replace(/\s/g, '-')}`}
 								id={`${item.workLabel.toLowerCase().replace(/\s/g, '-')}-${item.workTitle
 									.toLowerCase()
 									.replace(/\s/g, '-')}`}
@@ -51,11 +55,11 @@ class MyWork extends React.Component {
 										})}
 									</ul>
 								</footer>
-							</div>
+							</Link>
 						);
 					})}
 				</section>
-			</div>
+			</section>
 		);
 	}
 }

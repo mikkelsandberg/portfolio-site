@@ -5,8 +5,8 @@
 	nav {
 		display: flex;
 		justify-content: space-between;
-		border-bottom: 1px solid $lightGray;
-		background-color: $darkGray;
+		border-bottom: 1px solid $darkGray;
+		background-color: $lightGray;
 		padding: 30px;
 		width: 100%;
 		position: fixed;
@@ -19,7 +19,9 @@
 		.navLinks {
 			li {
 				&.is-current {
-					text-decoration: underline;
+					a {
+						text-decoration: underline;
+					}
 				}
 
 				a:link,

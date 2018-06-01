@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
 import SplashScreen from '../SplashScreen/SplashScreen';
 import MyWork from '../MyWork/MyWork';
+import WorkDetails from '../WorkDetails/WorkDetails';
 import './App.css';
 import WorkData from '../../Util/WorkData';
 
@@ -70,7 +71,6 @@ class App extends Component {
 
 		return (
 			<main id="App">
-				<NavBar />
 				<Switch>
 					<Route
 						exact
@@ -78,10 +78,17 @@ class App extends Component {
 						render={() => {
 							return (
 								<div id="mainContentWrapper">
+									<NavBar />
 									<SplashScreen handleFilterClick={this.handleFilterClick} />
 									<MyWork workData={filteredWork} handleFilterClick={this.handleFilterClick} />
 								</div>
 							);
+						}}
+					/>
+					<Route
+						path="/:workName"
+						render={props => {
+							return <WorkDetails {...props} workData={this.state.work} />;
 						}}
 					/>
 				</Switch>

@@ -10,7 +10,7 @@ import './NavBar.css';
 class NavBar extends React.Component {
 	render() {
 		return (
-			<div id="mainNavWrapper">
+			<section id="mainNavWrapper">
 				<nav>
 					<Scrollspy
 						className="navLinks"
@@ -61,7 +61,7 @@ class NavBar extends React.Component {
 						</li>
 					</ul>
 				</nav>
-			</div>
+			</section>
 		);
 	}
 }

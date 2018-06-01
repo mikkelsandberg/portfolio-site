@@ -5,7 +5,7 @@ import './SplashScreen.css';
 class SplashScreen extends React.Component {
 	render() {
 		return (
-			<div id="splashScreenWrapper">
+			<section id="splashScreenWrapper">
 				<h1>
 					<span>
 						<AnchorLink offset="0" href="#myWorkWrapper" onClick={this.props.handleFilterClick} rel="nofollow">
@@ -19,7 +19,7 @@ class SplashScreen extends React.Component {
 					</span>
 					<span>Coffee</span>
 				</h1>
-			</div>
+			</section>
 		);
 	}
 }
