@@ -48,12 +48,40 @@ class WorkDetails extends Component {
 						})}
 					</section>
 					<section id="descriptionWrapper">
-						<p>{filteredWork().description}</p>
-						<ul id="tags">
-							{filteredWork().skills.map((skill, key = 0) => {
-								return <li key={key++}>{skill}</li>;
-							})}
-						</ul>
+						<article className="descriptionText" dangerouslySetInnerHTML={{ __html: filteredWork().description }} />
+						<footer className="tags">
+							<ul>
+								{filteredWork().skills.map((skill, key = 0) => {
+									return (
+										<li key={key++}>
+											<span className="tagPoint" />
+											<span className="tagHole" />
+											{skill}
+										</li>
+									);
+								})}
+							</ul>
+							<section id="linksWrapper">
+								{filteredWork().repoLink !== '' ? (
+									<p id="repoLink">
+										<a href={filteredWork().repoLink} target="_blank" rel="noopener">
+											Repository
+										</a>
+									</p>
+								) : (
+									''
+								)}
+								{filteredWork().liveLink !== '' ? (
+									<p id="liveLink">
+										<a href={filteredWork().liveLink} target="_blank" rel="noopener">
+											Live site
+										</a>
+									</p>
+								) : (
+									''
+								)}
+							</section>
+						</footer>
 					</section>
 				</section>
 			</section>

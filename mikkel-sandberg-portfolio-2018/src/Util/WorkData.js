@@ -1,12 +1,12 @@
 const WorkData = [
 	{
-		id: 0,
+		id: 'corelogic-site-migration',
 		workLabel: 'CoreLogic',
 		workTitle: 'Site migration',
 		tags: ['Web development'],
 		skills: ['Bootstrap', 'HTML', 'CSS'],
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.',
+			'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.</p>',
 		images: [
 			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-new.png',
 			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab1-old.png',
@@ -17,121 +17,135 @@ const WorkData = [
 		liveLink: 'https://www.corelogic.com/'
 	},
 	{
-		id: 1,
+		id: 'experts-exchange-profile-page-redesign',
 		workLabel: 'Experts Exchange',
 		workTitle: 'Profile page redesign',
 		tags: ['Design', 'Web development'],
-		skills: ['Bootstrap', 'HTML', 'CSS'],
+		skills: ['HTML', 'CSS', 'JavaScript'],
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.',
-		images: ['https://nationalmortgageprofessional.com/sites/default/files/CoreLogic_Logo_13.jpg'],
+			'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.</p>',
+		images: ['https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/ee/ee-profile-page.jpg'],
 		repoLink: '',
-		liveLink: 'https://www.corelogic.com/'
+		liveLink: 'https://www.experts-exchange.com/members/MikkelSandberg.html'
 	},
 	{
-		id: 2,
+		id: 'experts-exchange-live-product-redesign',
 		workLabel: 'Experts Exchange',
 		workTitle: 'Live product redesign',
 		tags: ['Design', 'Web development'],
-		skills: ['Bootstrap', 'HTML', 'CSS'],
+		skills: ['HTML', 'CSS'],
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.',
-		images: ['https://nationalmortgageprofessional.com/sites/default/files/CoreLogic_Logo_13.jpg'],
+			'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.</p>',
+		images: [
+			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/ee/ee-live-landing-logged-in.jpg',
+			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/ee/ee-live-help-request.jpg'
+		],
 		repoLink: '',
-		liveLink: 'https://www.corelogic.com/'
+		liveLink: 'https://www.experts-exchange.com/live/'
 	},
 	{
-		id: 3,
+		id: 'experts-exchange-live-landing-page',
 		workLabel: 'Experts Exchange',
 		workTitle: 'Live landing page',
 		tags: ['Web development'],
-		skills: ['Bootstrap', 'HTML', 'CSS'],
+		skills: ['HTML', 'CSS'],
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.',
-		images: ['https://nationalmortgageprofessional.com/sites/default/files/CoreLogic_Logo_13.jpg'],
+			'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.</p>',
+		images: ['https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/ee/ee-live-landing-logged-out.jpg'],
 		repoLink: '',
-		liveLink: 'https://www.corelogic.com/'
+		liveLink: 'https://www.experts-exchange.com/live/'
 	},
 	{
-		id: 4,
+		id: 'udemy-complete-web-developer-in-2018-face-detect-app',
 		workLabel: 'Udemy: Complete Web Developer in 2018',
-		workTitle: 'Face Detect App',
+		workTitle: 'Face detect app',
 		tags: ['Web development'],
-		skills: ['Bootstrap', 'HTML', 'CSS'],
+		skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Express.js', 'PostgreSQL'],
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.',
-		images: ['https://nationalmortgageprofessional.com/sites/default/files/CoreLogic_Logo_13.jpg'],
+			'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.</p>',
+		images: [
+			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/face-detect/face-detect-login.png',
+			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/face-detect/face-detect-home.png'
+		],
 		repoLink: '',
-		liveLink: 'https://www.corelogic.com/'
+		liveLink: 'https://face-detect-mikkel.herokuapp.com/'
 	},
 	{
-		id: 5,
+		id: 'codecademy-intensive-jammming',
 		workLabel: 'Codecademy Intensive',
 		workTitle: 'Jammming',
 		tags: ['Design', 'Web development'],
 		skills: ['Bootstrap', 'HTML', 'CSS'],
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.',
+			'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.</p>',
 		images: ['https://nationalmortgageprofessional.com/sites/default/files/CoreLogic_Logo_13.jpg'],
 		repoLink: '',
 		liveLink: 'https://www.corelogic.com/'
 	},
 	{
-		id: 6,
+		id: 'codecademy-intensive-ravenous',
 		workLabel: 'Codecademy Intensive',
 		workTitle: 'Ravenous',
 		tags: ['Web development'],
 		skills: ['Bootstrap', 'HTML', 'CSS'],
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.',
+			'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.</p>',
 		images: ['https://nationalmortgageprofessional.com/sites/default/files/CoreLogic_Logo_13.jpg'],
 		repoLink: '',
 		liveLink: 'https://www.corelogic.com/'
 	},
 	{
-		id: 7,
+		id: 'apc-entertainment-website-design-and-development',
 		workLabel: 'APC Entertainment',
 		workTitle: 'Website design and development',
 		tags: ['Design', 'Web development'],
 		skills: ['Bootstrap', 'HTML', 'CSS'],
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.',
-		images: ['https://nationalmortgageprofessional.com/sites/default/files/CoreLogic_Logo_13.jpg'],
+			'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.</p>',
+		images: [
+			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/1-splashpage.png',
+			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/2-booking.png',
+			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/3-services.png',
+			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/4-testimonial.png',
+			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/5-pricing.png',
+			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/6-media.png',
+			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/7-contact.png'
+		],
 		repoLink: '',
-		liveLink: 'https://www.corelogic.com/'
+		liveLink: 'http://apcentertainment.net'
 	},
 	{
-		id: 8,
+		id: 'friend-quest-podcast-production',
 		workLabel: 'Friend Quest',
 		workTitle: 'Podcast production',
 		tags: ['Podcast production', 'Video production'],
 		skills: ['Bootstrap', 'HTML', 'CSS'],
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.',
+			'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.</p>',
 		images: ['https://nationalmortgageprofessional.com/sites/default/files/CoreLogic_Logo_13.jpg'],
 		repoLink: '',
 		liveLink: 'https://www.corelogic.com/'
 	},
 	{
-		id: 9,
+		id: 'class-project-a-rude-awakening',
 		workLabel: 'Class project',
 		workTitle: 'A Rude Awakening',
 		tags: ['Animation', 'Video production'],
 		skills: ['Bootstrap', 'HTML', 'CSS'],
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.',
+			'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.</p>',
 		images: ['https://nationalmortgageprofessional.com/sites/default/files/CoreLogic_Logo_13.jpg'],
 		repoLink: '',
 		liveLink: 'https://www.corelogic.com/'
 	},
 	{
-		id: 10,
+		id: 'class-project-memories-of-mississippi',
 		workLabel: 'Class project',
 		workTitle: 'Memories of Mississippi',
 		tags: ['Video production'],
 		skills: ['Bootstrap', 'HTML', 'CSS'],
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.',
+			'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.</p>',
 		images: ['https://nationalmortgageprofessional.com/sites/default/files/CoreLogic_Logo_13.jpg'],
 		repoLink: '',
 		liveLink: 'https://www.corelogic.com/'

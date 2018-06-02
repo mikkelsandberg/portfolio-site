@@ -4,6 +4,10 @@ import './MyWork.css';
 import Filters from '../../Util/Filters';
 
 class MyWork extends React.Component {
+	componentDidMount(resetWorkFilter = this.props.resetWorkFilter) {
+		// resetWorkFilter();
+	}
+
 	render() {
 		const { formatText, workData, handleFilterClick } = this.props;
 
@@ -19,7 +23,7 @@ class MyWork extends React.Component {
 								<li
 									key={filter.id}
 									onClick={handleFilterClick}
-									className={`${filter.id === 0 ? 'active ' : ''}filterTab_${filter.color}Color`}
+									className={`${filter.id === 0 ? 'active' : ''} filterTab_${filter.color}Color`}
 								>
 									{filter.name}
 								</li>

@@ -13,13 +13,19 @@ class App extends Component {
 
 		this.state = {
 			work: WorkData,
-			workFilter: 'show-all'
+			workFilter: ''
 		};
 	}
 
 	componentDidMount() {
 		this.filters = document.querySelectorAll('#myWorkWrapper nav ul li');
 	}
+
+	resetWorkFilter = () => {
+		this.setState({
+			workFilter: 'show-all'
+		});
+	};
 
 	formatText = text =>
 		text
@@ -34,6 +40,7 @@ class App extends Component {
 	};
 
 	removeActiveClass = (filters = this.filters) => {
+		console.log('here');
 		filters.forEach(item => {
 			item.classList.remove('active');
 		});
@@ -55,13 +62,14 @@ class App extends Component {
 			if (this.formatText(filter.innerHTML) === this.state.workFilter) {
 				filter.classList.add('active');
 			}
+			console.log(filters);
 		});
 	};
 
 	render() {
 		let filteredWork;
 
-		if (this.state.workFilter === 'show-all') {
+		if (this.state.workFilter === 'show-all' || this.state.workFilter === '') {
 			filteredWork = this.state.work;
 		} else {
 			filteredWork = this.state.work.filter(item => {
@@ -85,6 +93,7 @@ class App extends Component {
 									<NavBar />
 									<SplashScreen handleFilterClick={this.handleFilterClick} />
 									<MyWork
+										resetWorkFilter={this.resetWorkFilter}
 										formatText={this.formatText}
 										workData={filteredWork}
 										handleFilterClick={this.handleFilterClick}
