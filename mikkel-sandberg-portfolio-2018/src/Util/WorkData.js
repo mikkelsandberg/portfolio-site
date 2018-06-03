@@ -8,10 +8,26 @@ const WorkData = [
 		description:
 			'<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident aperiam ipsum doloribus alias sapiente, ipsa possimus assumenda laborum et ea fugiat esse autem nesciunt, quasi, corporis unde cumque expedita eos.</p>',
 		images: [
-			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-new.png',
-			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab1-old.png',
-			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab2-old.png',
-			'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab3-old.png'
+			{
+				subTitle: 'Rebranded page',
+				url: 'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-new.png',
+				description: 'The final page after migrating the content into the new CMS and new template.'
+			},
+			{
+				subTitle: 'Previous overview tab',
+				url: 'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab1-old.png',
+				description: 'The old page used a tabbed navigation to separate the content'
+			},
+			{
+				subtitle: 'Previous product details tab',
+				url: 'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab2-old.png',
+				description: 'The old page used a tabbed navigation to separate the content'
+			},
+			{
+				subTitle: 'Previous contact tab',
+				url: 'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab3-old.png',
+				description: 'The old page used a tabbed navigation to separate the content'
+			}
 		],
 		repoLink: '',
 		liveLink: 'https://www.corelogic.com/'

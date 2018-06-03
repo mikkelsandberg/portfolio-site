@@ -13,7 +13,7 @@ class App extends Component {
 
 		this.state = {
 			work: WorkData,
-			workFilter: ''
+			workFilter: 'show-all'
 		};
 	}
 
@@ -69,7 +69,7 @@ class App extends Component {
 	render() {
 		let filteredWork;
 
-		if (this.state.workFilter === 'show-all' || this.state.workFilter === '') {
+		if (this.state.workFilter === 'show-all') {
 			filteredWork = this.state.work;
 		} else {
 			filteredWork = this.state.work.filter(item => {

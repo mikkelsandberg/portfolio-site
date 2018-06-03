@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 import './WorkDetails.css';
 
 class WorkDetails extends Component {
+	constructor() {
+		super();
+
+		this.state = {
+			photoIndex: 0,
+			isOpen: false
+		};
+	}
+
 	goBack = e => {
 		e.preventDefault();
 
@@ -28,6 +39,8 @@ class WorkDetails extends Component {
 			});
 			return workItem;
 		};
+		const { workLabel, workTitle, images, description, skills, repoLink, liveLink } = filteredWork();
+		const { photoIndex, isOpen } = this.state;
 
 		return (
 			<section id="workDetailsWrapper">
@@ -37,21 +50,43 @@ class WorkDetails extends Component {
 							Back to home
 						</a>
 					</nav>
-					<h2>{filteredWork().workLabel}</h2>
-					<h1>{filteredWork().workTitle}</h1>
+					<h2>{workLabel}</h2>
+					<h1>{workTitle}</h1>
 				</header>
 
 				<section id="contentWrapper">
 					<section id="imagesWrapper">
-						{filteredWork().images.map((image, key = 0) => {
-							return image === '' ? '' : <img key={key++} src={image} alt={`${filteredWork().workTitle}`} />;
+						{images.map((image, key = 0) => {
+							return image === '' ? (
+								''
+							) : (
+								<img
+									key={key++}
+									src={image.url}
+									onClick={e => this.setState({ isOpen: true, photoIndex: (key - 1) % images.length })}
+									alt={`${workLabel}-${workTitle}`}
+								/>
+							);
 						})}
+						{isOpen && (
+							<Lightbox
+								mainSrc={images[photoIndex]}
+								nextSrc={images[(photoIndex + 1) % images.length]}
+								prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+								onCloseRequest={() => this.setState({ isOpen: false })}
+								onMovePrevRequest={() =>
+									this.setState({ photoIndex: (photoIndex + images.length - 1) % images.length })
+								}
+								onMoveNextRequest={() => this.setState({ photoIndex: (photoIndex + 1) % images.length })}
+								imageTitle={`${workLabel} | ${workTitle}`}
+							/>
+						)}
 					</section>
 					<section id="descriptionWrapper">
-						<article className="descriptionText" dangerouslySetInnerHTML={{ __html: filteredWork().description }} />
+						<article className="descriptionText" dangerouslySetInnerHTML={{ __html: description }} />
 						<footer className="tags">
 							<ul>
-								{filteredWork().skills.map((skill, key = 0) => {
+								{skills.map((skill, key = 0) => {
 									return (
 										<li key={key++}>
 											<span className="tagPoint" />
@@ -62,23 +97,19 @@ class WorkDetails extends Component {
 								})}
 							</ul>
 							<section id="linksWrapper">
-								{filteredWork().repoLink !== '' ? (
+								{repoLink !== '' && (
 									<p id="repoLink">
-										<a href={filteredWork().repoLink} target="_blank" rel="noopener">
+										<a href={repoLink} target="_blank" rel="noopener">
 											Repository
 										</a>
 									</p>
-								) : (
-									''
 								)}
-								{filteredWork().liveLink !== '' ? (
+								{liveLink !== '' && (
 									<p id="liveLink">
-										<a href={filteredWork().liveLink} target="_blank" rel="noopener">
+										<a href={liveLink} target="_blank" rel="noopener">
 											Live site
 										</a>
 									</p>
-								) : (
-									''
 								)}
 							</section>
 						</footer>
