@@ -116,69 +116,57 @@
 				}
 			}
 
-			.tags {
+			#tags {
 				position: absolute;
 				left: 0;
 				bottom: 0;
 				width: 100%;
 
-				ul {
-					li {
-						&:hover {
-							color: $darkGray;
+				li {
+					&:hover {
+						color: $darkGray;
 
-							.tagHole {
-								background-color: $lightGray;
-							}
+						.tagHole {
+							background-color: $lightGray;
+						}
 
-							&.web-development {
+						&.web-development {
+							background-color: $yellowColor;
+
+							.tagPoint {
 								background-color: $yellowColor;
-								border-color: $yellowColor;
-
-								.tagPoint {
-									background-color: $yellowColor;
-									border-color: $yellowColor;
-								}
 							}
+						}
 
-							&.design {
+						&.design {
+							background-color: $purpleColor;
+
+							.tagPoint {
 								background-color: $purpleColor;
-								border-color: $purpleColor;
-
-								.tagPoint {
-									background-color: $purpleColor;
-									border-color: $purpleColor;
-								}
 							}
+						}
 
-							&.podcast-production {
+						&.podcast-production {
+							background-color: $greenColor;
+
+							.tagPoint {
 								background-color: $greenColor;
-								border-color: $greenColor;
-
-								.tagPoint {
-									background-color: $greenColor;
-									border-color: $greenColor;
-								}
 							}
+						}
 
-							&.video-production {
+						&.video-production {
+							background-color: $blueColor;
+
+							.tagPoint {
 								background-color: $blueColor;
-								border-color: $blueColor;
-
-								.tagPoint {
-									background-color: $blueColor;
-									border-color: $blueColor;
-								}
 							}
+						}
 
-							&.animation {
+						&.animation {
+							background-color: $orangeColor;
+
+							.tagPoint {
 								background-color: $orangeColor;
-								border-color: $orangeColor;
-
-								.tagPoint {
-									background-color: $orangeColor;
-									border-color: $orangeColor;
-								}
 							}
 						}
 					}

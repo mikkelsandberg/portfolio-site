@@ -91,7 +91,7 @@ class App extends Component {
 							return (
 								<div id="mainContentWrapper">
 									<NavBar />
-									<SplashScreen handleFilterClick={this.handleFilterClick} />
+									<SplashScreen />
 									<MyWork
 										resetWorkFilter={this.resetWorkFilter}
 										formatText={this.formatText}

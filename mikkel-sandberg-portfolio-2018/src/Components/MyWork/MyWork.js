@@ -44,8 +44,8 @@ class MyWork extends React.Component {
 								<header>
 									<h3>{item.workTitle}</h3>
 								</header>
-								<footer className="tags">
-									<ul>
+								<footer>
+									<ul id="tags">
 										{item.tags.map((tag, key = 0) => {
 											return (
 												<li key={key++} className={formatText(tag)}>

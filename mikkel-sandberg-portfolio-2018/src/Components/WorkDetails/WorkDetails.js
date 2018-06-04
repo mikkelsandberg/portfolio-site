@@ -39,7 +39,7 @@ class WorkDetails extends Component {
 			});
 			return workItem;
 		};
-		const { workLabel, workTitle, images, description, skills, repoLink, liveLink } = filteredWork();
+		const { workLabel, workTitle, images, description, skills, links } = filteredWork();
 		const { photoIndex, isOpen } = this.state;
 
 		return (
@@ -70,22 +70,25 @@ class WorkDetails extends Component {
 						})}
 						{isOpen && (
 							<Lightbox
-								mainSrc={images[photoIndex]}
-								nextSrc={images[(photoIndex + 1) % images.length]}
-								prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+								mainSrc={images[photoIndex].url}
+								nextSrc={images.length > 1 ? images[(photoIndex + 1) % images.length].url : undefined}
+								prevSrc={images.length > 1 ? images[(photoIndex + images.length - 1) % images.length].url : undefined}
 								onCloseRequest={() => this.setState({ isOpen: false })}
 								onMovePrevRequest={() =>
 									this.setState({ photoIndex: (photoIndex + images.length - 1) % images.length })
 								}
 								onMoveNextRequest={() => this.setState({ photoIndex: (photoIndex + 1) % images.length })}
-								imageTitle={`${workLabel} | ${workTitle}`}
+								imageTitle={`${workLabel} | ${workTitle} | ${images[photoIndex].subTitle}`}
+								imageCaption={images[photoIndex].caption}
 							/>
 						)}
 					</section>
 					<section id="descriptionWrapper">
-						<article className="descriptionText" dangerouslySetInnerHTML={{ __html: description }} />
-						<footer className="tags">
-							<ul>
+						<article id="descriptionText">
+							<p>{description}</p>
+						</article>
+						<footer>
+							<ul id="tags">
 								{skills.map((skill, key = 0) => {
 									return (
 										<li key={key++}>
@@ -97,20 +100,15 @@ class WorkDetails extends Component {
 								})}
 							</ul>
 							<section id="linksWrapper">
-								{repoLink !== '' && (
-									<p id="repoLink">
-										<a href={repoLink} target="_blank" rel="noopener">
-											Repository
-										</a>
-									</p>
-								)}
-								{liveLink !== '' && (
-									<p id="liveLink">
-										<a href={liveLink} target="_blank" rel="noopener">
-											Live site
-										</a>
-									</p>
-								)}
+								{links.map((link, key = 0) => {
+									return (
+										<p key={key++}>
+											<a href={link.url} target="_blank" rel="noopener">
+												{link.title}
+											</a>
+										</p>
+									);
+								})}
 							</section>
 						</footer>
 					</section>

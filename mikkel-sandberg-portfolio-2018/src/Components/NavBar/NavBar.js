@@ -12,16 +12,7 @@ class NavBar extends React.Component {
 		return (
 			<section id="mainNavWrapper">
 				<nav>
-					<Scrollspy
-						className="navLinks"
-						items={['splashScreenWrapper', 'myWorkWrapper']}
-						currentClassName="is-current"
-					>
-						<li>
-							<AnchorLink offset="0" href="#splashScreenWrapper">
-								Home
-							</AnchorLink>
-						</li>
+					<Scrollspy className="navLinks" items={['myWorkWrapper']} currentClassName="is-current">
 						<li>
 							<AnchorLink offset="0" href="#myWorkWrapper">
 								My work
