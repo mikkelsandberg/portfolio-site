@@ -1,0 +1,24 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+/mikkel-sandberg-portfolio-2018/node_modules
+
+# testing
+/mikkel-sandberg-portfolio-2018/coverage
+
+# production
+/mikkel-sandberg-portfolio-2018/build
+
+# generated css
+/mikkel-sandberg-portfolio-2018/src/**/*.css*
+
+# misc
+/mikkel-sandberg-portfolio-2018/.DS_Store
+/mikkel-sandberg-portfolio-2018/.env.local
+/mikkel-sandberg-portfolio-2018/.env.development.local
+/mikkel-sandberg-portfolio-2018/.env.test.local
+/mikkel-sandberg-portfolio-2018/.env.production.local
+
+/mikkel-sandberg-portfolio-2018/npm-debug.log*
+/mikkel-sandberg-portfolio-2018/yarn-debug.log*
+/mikkel-sandberg-portfolio-2018/yarn-error.log*
