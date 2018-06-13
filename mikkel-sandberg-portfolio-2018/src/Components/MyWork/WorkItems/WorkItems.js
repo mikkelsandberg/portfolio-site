@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import WorkItem from './WorkItem/WorkItem';
+import React, { Component } from "react";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import WorkItem from "./WorkItem/WorkItem";
 
 class WorkItems extends Component {
 	render() {
@@ -7,9 +8,19 @@ class WorkItems extends Component {
 
 		return (
 			<section id="workItems">
-				{workData.map(item => {
-					return <WorkItem key={item.id} item={item} formatText={formatText} />;
-				})}
+				<ReactCSSTransitionGroup
+					component="div"
+					id="workItemsInner"
+					transitionName="workItems"
+					transitionEnterTimeout={500}
+					transitionLeaveTimeout={500}
+				>
+					{workData.map(item => {
+						return (
+							<WorkItem key={item.id} item={item} formatText={formatText} />
+						);
+					})}
+				</ReactCSSTransitionGroup>
 			</section>
 		);
 	}

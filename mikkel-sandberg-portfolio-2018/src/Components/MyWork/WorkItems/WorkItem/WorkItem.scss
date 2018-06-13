@@ -1,6 +1,6 @@
 @import 'utilities/variables';
 
-#workItems {
+#workItemsInner {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -43,7 +43,7 @@
 		}
 
 		&:hover:before {
-			transform: scale(0);
+			transform: scaleY(0);
 			// top: 100%;
 		}
 
@@ -124,6 +124,24 @@
 					}
 				}
 			}
+		}
+
+		&.workItems-enter {
+		  opacity: 0.01;
+		}
+
+		&.workItems-enter.workItems-enter-active {
+		  opacity: 1;
+		  transition: opacity 500ms ease-in;
+		}
+
+		&.workItems-leave {
+		  opacity: 1;
+		}
+
+		&.workItems-leave.workItems-leave-active {
+		  opacity: 0.01;
+		  transition: opacity 300ms ease-in;
 		}
 	}
 }
