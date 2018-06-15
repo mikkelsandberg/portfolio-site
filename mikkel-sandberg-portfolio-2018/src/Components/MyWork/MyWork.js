@@ -1,9 +1,17 @@
-import React, { Component } from 'react';
-import WorkFilters from './WorkFilters/WorkFilters';
-import WorkItems from './WorkItems/WorkItems';
-import './MyWork.css';
+import React, { Component } from "react";
+import { withLastLocation } from "react-router-last-location";
+import WorkFilters from "./WorkFilters/WorkFilters";
+import WorkItems from "./WorkItems/WorkItems";
+import "./MyWork.css";
 
 class MyWork extends Component {
+	componentDidMount() {
+		console.log("lastLocation", this.props.lastLocation);
+		if (this.props.lastLocation !== null) {
+			this.props.scrollToSection("myWorkWrapper");
+		}
+	}
+
 	render() {
 		const { handleFilterClick, workData, formatText } = this.props;
 
@@ -19,4 +27,4 @@ class MyWork extends Component {
 	}
 }
 
-export default MyWork;
+export default withLastLocation(MyWork);

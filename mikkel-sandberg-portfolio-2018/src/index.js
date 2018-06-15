@@ -1,12 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import App from './Components/App/App';
-import registerServiceWorker from './registerServiceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import { LastLocationProvider } from "react-router-last-location";
+import App from "./Components/App/App";
+import registerServiceWorker from "./registerServiceWorker";
 
-ReactDOM.render((
+ReactDOM.render(
 	<BrowserRouter>
-		<App />
-	</BrowserRouter>
-	), document.getElementById('root'));
+		<LastLocationProvider>
+			<App />
+		</LastLocationProvider>
+	</BrowserRouter>,
+	document.getElementById("root")
+);
 registerServiceWorker();

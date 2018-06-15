@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css';
+import React, { Component } from "react";
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 
 class WorkImages extends Component {
 	constructor() {
@@ -18,7 +18,6 @@ class WorkImages extends Component {
 
 		return (
 			<section id="imagesWrapper">
-				{console.log(images)}
 				{images.map((image, key = 0) => {
 					return (
 						<img
@@ -37,12 +36,28 @@ class WorkImages extends Component {
 				{isOpen && (
 					<Lightbox
 						mainSrc={images[photoIndex].url}
-						nextSrc={images.length > 1 ? images[(photoIndex + 1) % images.length].url : undefined}
-						prevSrc={images.length > 1 ? images[(photoIndex + images.length - 1) % images.length].url : undefined}
+						nextSrc={
+							images.length > 1
+								? images[(photoIndex + 1) % images.length].url
+								: undefined
+						}
+						prevSrc={
+							images.length > 1
+								? images[(photoIndex + images.length - 1) % images.length].url
+								: undefined
+						}
 						onCloseRequest={() => this.setState({ isOpen: false })}
-						onMovePrevRequest={() => this.setState({ photoIndex: (photoIndex + images.length - 1) % images.length })}
-						onMoveNextRequest={() => this.setState({ photoIndex: (photoIndex + 1) % images.length })}
-						imageTitle={`${workLabel} | ${workTitle} | ${images[photoIndex].subTitle}`}
+						onMovePrevRequest={() =>
+							this.setState({
+								photoIndex: (photoIndex + images.length - 1) % images.length
+							})
+						}
+						onMoveNextRequest={() =>
+							this.setState({ photoIndex: (photoIndex + 1) % images.length })
+						}
+						imageTitle={`${workLabel} | ${workTitle} | ${
+							images[photoIndex].subTitle
+						}`}
 						imageCaption={images[photoIndex].caption}
 					/>
 				)}

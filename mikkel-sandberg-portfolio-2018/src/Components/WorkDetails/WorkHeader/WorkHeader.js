@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class WorkHeader extends Component {
 	render() {
-		const { goBack, workLabel, workTitle } = this.props;
+		const { workLabel, workTitle } = this.props;
 
 		return (
 			<header>
 				<nav>
-					<a href="/" onClick={goBack}>
-						Back to home
-					</a>
+					<Link to="/">Back to home</Link>
 				</nav>
 				<h2>{workLabel}</h2>
 				<h1>{workTitle}</h1>

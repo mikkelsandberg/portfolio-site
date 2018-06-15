@@ -1,16 +1,18 @@
 @import 'utilities/variables';
 
-#workItemsInner {
+.workItemsInner {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
+
+	> div {
+		flex: 0 0 auto;
+	}
 
 	.workItem {
-		flex: 0 0 auto;
 		background-size: cover;
 		background-position: center top;
 		border: 1px solid $darkGray;
-		width: 480px;
+		display: block;
 		height: 480px;
 		position: relative;
 		cursor: pointer;
@@ -124,24 +126,6 @@
 					}
 				}
 			}
-		}
-
-		&.workItems-enter {
-		  opacity: 0.01;
-		}
-
-		&.workItems-enter.workItems-enter-active {
-		  opacity: 1;
-		  transition: opacity 500ms ease-in;
-		}
-
-		&.workItems-leave {
-		  opacity: 1;
-		}
-
-		&.workItems-leave.workItems-leave-active {
-		  opacity: 0.01;
-		  transition: opacity 300ms ease-in;
 		}
 	}
 }

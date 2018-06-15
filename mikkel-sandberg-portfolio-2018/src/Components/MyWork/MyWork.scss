@@ -42,40 +42,49 @@
 
 				// filter hover fx
 				&[class*='filterTab'] {
-					transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+					position: relative;
+					overflow: hidden;
 
-					&:hover {
-						color: $darkGray;
+					&:hover:after {
+						transform: scaleX(1);
+						transform-origin: center left;
 					}
 
-					&[class*='_redColor']:hover {
+					&:after {
+						content: '';
+						width: 100%;
+						height: 100%;
+						position: absolute;
+						left: 0;
+						top: 0;
+						transform: scaleX(0);
+						transform-origin: center right;
+						transition: transform .35s ease-in-out;
+						z-index: -1; 
+					}
+
+					&[class*='_redColor']:after {
 						background-color: $redColor;
-						border-color: $redColor;
 					}
 
-					&[class*='_yellowColor']:hover {
+					&[class*='_yellowColor']:after {
 						background-color: $yellowColor;
-						border-color: $yellowColor;
 					}
 
-					&[class*='_purpleColor']:hover {
+					&[class*='_purpleColor']:after {
 						background-color: $purpleColor;
-						border-color: $purpleColor;
 					}
 
-					&[class*='_greenColor']:hover {
+					&[class*='_greenColor']:after {
 						background-color: $greenColor;
-						border-color: $greenColor;
 					}
 
-					&[class*='_blueColor']:hover {
+					&[class*='_blueColor']:after {
 						background-color: $blueColor;
-						border-color: $blueColor;
 					}
 
-					&[class*='_orangeColor']:hover {
+					&[class*='_orangeColor']:after {
 						background-color: $orangeColor;
-						border-color: $orangeColor;
 					}
 				}
 			}

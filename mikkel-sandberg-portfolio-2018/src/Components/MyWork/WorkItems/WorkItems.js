@@ -1,26 +1,32 @@
 import React, { Component } from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import StackGrid, { transitions } from "react-stack-grid";
 import WorkItem from "./WorkItem/WorkItem";
 
 class WorkItems extends Component {
 	render() {
 		const { workData, formatText } = this.props;
+		const { fade } = transitions;
 
 		return (
 			<section id="workItems">
-				<ReactCSSTransitionGroup
-					component="div"
-					id="workItemsInner"
-					transitionName="workItems"
-					transitionEnterTimeout={500}
-					transitionLeaveTimeout={500}
+				<StackGrid
+					className="workItemsInner"
+					itemComponent="div"
+					columnWidth={480}
+					gutterWidth={-1}
+					gutterHeight={-1}
+					appear={fade.appear}
+					appeared={fade.appeared}
+					enter={fade.enter}
+					entered={fade.entered}
+					leaved={fade.leaved}
 				>
 					{workData.map(item => {
 						return (
 							<WorkItem key={item.id} item={item} formatText={formatText} />
 						);
 					})}
-				</ReactCSSTransitionGroup>
+				</StackGrid>
 			</section>
 		);
 	}

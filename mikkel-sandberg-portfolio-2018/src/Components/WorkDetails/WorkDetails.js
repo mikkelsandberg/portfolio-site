@@ -1,16 +1,10 @@
-import React, { Component } from 'react';
-import WorkHeader from './WorkHeader/WorkHeader';
-import WorkImages from './WorkImages/WorkImages';
-import WorkDescription from './WorkDescription/WorkDescription';
-import './WorkDetails.css';
+import React, { Component } from "react";
+import WorkHeader from "./WorkHeader/WorkHeader";
+import WorkImages from "./WorkImages/WorkImages";
+import WorkDescription from "./WorkDescription/WorkDescription";
+import "./WorkDetails.css";
 
 class WorkDetails extends Component {
-	goBack = e => {
-		e.preventDefault();
-
-		window.history.back();
-	};
-
 	setInitialScroll = () => {
 		return window.scroll({ top: 0 });
 	};
@@ -25,21 +19,42 @@ class WorkDetails extends Component {
 		const filteredWork = () => {
 			let workItem = {};
 			workData.find(item => {
-				let formattedItem = `${formatText(item.workLabel)}-${formatText(item.workTitle)}`;
+				let formattedItem = `${formatText(item.workLabel)}-${formatText(
+					item.workTitle
+				)}`;
 				workItem = item;
 				return formattedItem === workName;
 			});
 			return workItem;
 		};
-		const { workLabel, workTitle, images, description, skills, links } = filteredWork();
+		const {
+			workLabel,
+			workTitle,
+			images,
+			description,
+			skills,
+			links
+		} = filteredWork();
 
 		return (
 			<section id="workDetailsWrapper">
-				<WorkHeader goBack={this.goBack} workLabel={workLabel} workTitle={workTitle} />
+				<WorkHeader
+					goBack={this.goBack}
+					workLabel={workLabel}
+					workTitle={workTitle}
+				/>
 
 				<section id="contentWrapper">
-					<WorkImages images={images} workLabel={workLabel} workTitle={workTitle} />
-					<WorkDescription description={description} skills={skills} links={links} />
+					<WorkImages
+						images={images}
+						workLabel={workLabel}
+						workTitle={workTitle}
+					/>
+					<WorkDescription
+						description={description}
+						skills={skills}
+						links={links}
+					/>
 					{/*<section id="descriptionWrapper">
 						<article id="descriptionText">
 							<p>{description}</p>

@@ -1,37 +1,37 @@
-import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import NavBar from '../NavBar/NavBar';
-import SplashScreen from '../SplashScreen/SplashScreen';
-import MyWork from '../MyWork/MyWork';
-import WorkDetails from '../WorkDetails/WorkDetails';
-import './App.css';
-import WorkData from '../../Util/WorkData';
+import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
+import NavBar from "../NavBar/NavBar";
+import SplashScreen from "../SplashScreen/SplashScreen";
+import MyWork from "../MyWork/MyWork";
+import WorkDetails from "../WorkDetails/WorkDetails";
+import "./App.css";
+import WorkData from "../../Util/WorkData";
 
 class App extends Component {
-	constructor() {
-		super();
+	constructor(lastLocation) {
+		super(lastLocation);
 
 		this.state = {
 			work: WorkData,
-			workFilter: 'show-all'
+			workFilter: "show-all"
 		};
 	}
 
 	componentDidMount() {
-		this.filters = document.querySelectorAll('#myWorkWrapper nav ul li');
+		this.filters = document.querySelectorAll("#myWorkWrapper nav ul li");
 	}
 
 	resetWorkFilter = () => {
 		this.setState({
-			workFilter: 'show-all'
+			workFilter: "show-all"
 		});
 	};
 
 	formatText = text =>
 		text
 			.toLowerCase()
-			.replace(/\s/g, '-')
-			.replace(/[^a-z\d-]/g, '');
+			.replace(/\s/g, "-")
+			.replace(/[^a-z\d-]/g, "");
 
 	handleFilterClick = e => {
 		this.removeActiveClass();
@@ -40,9 +40,8 @@ class App extends Component {
 	};
 
 	removeActiveClass = (filters = this.filters) => {
-		console.log('here');
 		filters.forEach(item => {
-			item.classList.remove('active');
+			item.classList.remove("active");
 		});
 	};
 
@@ -60,16 +59,24 @@ class App extends Component {
 	iterateThroughFilters = (filters = this.filters) => {
 		return filters.forEach(filter => {
 			if (this.formatText(filter.innerHTML) === this.state.workFilter) {
-				filter.classList.add('active');
+				filter.classList.add("active");
 			}
-			console.log(filters);
 		});
+	};
+
+	scrollToSection = sectionId => {
+		const target = document.getElementById(sectionId);
+		console.log("target", target);
+		console.log("target.offsetTop", target.offsetTop);
+
+		// console.log(target.offsetTop);
+		window.scroll({ top: target.offsetTop });
 	};
 
 	render() {
 		let filteredWork;
 
-		if (this.state.workFilter === 'show-all') {
+		if (this.state.workFilter === "show-all") {
 			filteredWork = this.state.work;
 		} else {
 			filteredWork = this.state.work.filter(item => {
@@ -97,6 +104,7 @@ class App extends Component {
 										formatText={this.formatText}
 										workData={filteredWork}
 										handleFilterClick={this.handleFilterClick}
+										scrollToSection={this.scrollToSection}
 									/>
 								</div>
 							);
@@ -105,7 +113,13 @@ class App extends Component {
 					<Route
 						path="/:workName"
 						render={props => {
-							return <WorkDetails {...props} formatText={this.formatText} workData={this.state.work} />;
+							return (
+								<WorkDetails
+									{...props}
+									formatText={this.formatText}
+									workData={this.state.work}
+								/>
+							);
 						}}
 					/>
 				</Switch>
