@@ -1,17 +1,17 @@
-@import 'utilities/variables';
+@import "utilities/variables";
 
 #workDetailsWrapper {
-	max-width: 1024px;
-	margin: 0 auto;
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-rows: 112px auto;
 
 	header {
+		grid-column-start: 1;
+		grid-column-end: 3;
 		border-bottom: 1px solid $darkGray;
 		background-color: $lightGray;
 		padding: 10px 0;
-		width: 100%;
-		position: fixed;
-		top: 0;
-		left: 0;
+		position: relative;
 
 		nav {
 			position: absolute;
@@ -34,7 +34,7 @@
 			text-align: center;
 
 			&:after {
-				content: '';
+				content: "";
 				background-color: $darkGray;
 				display: block;
 				width: 5ex;
@@ -50,59 +50,54 @@
 		}
 	}
 
-	#contentWrapper {
-		padding: 0 10px;
+	#imagesWrapper {
+		justify-self: right;
+		width: auto;
+		min-width: 300px;
+		max-width: 480px;
+		min-height: calc(100vh - 112px - 40px);
+		padding: 20px;
+		border-right: 1px solid $darkGray;
+		box-sizing: content-box;
 
-		#imagesWrapper {
+		img {
 			width: 100%;
-			max-width: 480px;
-			padding: 20px 0;
-			margin-top: 112px;
+			box-shadow: 0px 3px 10px 0px rgba(25, 25, 25, 0.2);
+			cursor: pointer;
 
-			img {
-				width: 100%;
-				box-shadow: 0px 3px 10px 0px rgba(25, 25, 25, 0.2);
-				cursor: pointer;
+			&:not(:first-child) {
+				margin-top: 30px;
+			}
+		}
+	}
 
-				&:not(:first-child) {
-					margin-top: 30px;
-				}
+	#descriptionWrapper {
+		padding: 20px;
+		width: auto;
+		max-width: 480px;
+		box-sizing: content-box;
+
+		#descriptionText {
+			p {
+				font-size: 1.2rem;
+				line-height: 1.45;
 			}
 		}
 
-		#descriptionWrapper {
-			border-left: 1px solid $darkGray;
-			padding: 20px 0 0 20px;
-			margin-left: 249px;
-			width: 501px;
-			height: 100%;
-			position: fixed;
-			top: 112px;
-			left: 50%;
-			transform: translateX(-50%);
+		footer {
+			padding: 0;
+			margin-top: 30px;
 
-			#descriptionText {
-				p {
+			#linksWrapper {
+				text-align: right;
+				margin-top: 15px;
+
+				a:link,
+				a:hover,
+				a:visited {
 					font-size: 1.2rem;
 					line-height: 1.45;
-				}
-			}
-
-			footer {
-				padding: 0;
-				margin-top: 30px;
-
-				#linksWrapper {
-					text-align: right;
-					margin-top: 15px;
-
-					a:link,
-					a:hover,
-					a:visited {
-						font-size: 1.2rem;
-						line-height: 1.45;
-						text-decoration: underline;
-					}
+					text-decoration: underline;
 				}
 			}
 		}

@@ -43,48 +43,16 @@ class WorkDetails extends Component {
 					workLabel={workLabel}
 					workTitle={workTitle}
 				/>
-
-				<section id="contentWrapper">
-					<WorkImages
-						images={images}
-						workLabel={workLabel}
-						workTitle={workTitle}
-					/>
-					<WorkDescription
-						description={description}
-						skills={skills}
-						links={links}
-					/>
-					{/*<section id="descriptionWrapper">
-						<article id="descriptionText">
-							<p>{description}</p>
-						</article>
-						<footer>
-							<ul id="tags">
-								{skills.map((skill, key = 0) => {
-									return (
-										<li key={key++}>
-											<span className="tagPoint" />
-											<span className="tagHole" />
-											{skill}
-										</li>
-									);
-								})}
-							</ul>
-							<section id="linksWrapper">
-								{links.map((link, key = 0) => {
-									return (
-										<p key={key++}>
-											<a href={link.url} target="_blank" rel="noopener">
-												{link.title}
-											</a>
-										</p>
-									);
-								})}
-							</section>
-						</footer>
-					</section>*/}
-				</section>
+				<WorkImages
+					images={images}
+					workLabel={workLabel}
+					workTitle={workTitle}
+				/>
+				<WorkDescription
+					description={description}
+					skills={skills}
+					links={links}
+				/>
 			</section>
 		);
 	}
