@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import Filters from '../../../Util/Filters';
+import React, { Component } from "react";
+import Filters from "../../../Util/Filters";
 
 class WorkFilters extends Component {
 	render() {
-		const { handleFilterClick } = this.props;
+		const { activeFilter, formatText, handleFilterClick } = this.props;
 
 		return (
 			<nav>
@@ -13,7 +13,9 @@ class WorkFilters extends Component {
 							<li
 								key={filter.id}
 								onClick={handleFilterClick}
-								className={`${filter.id === 0 ? 'active' : ''} filterTab_${filter.color}Color`}
+								className={`${
+									activeFilter === formatText(filter.name) ? "active" : ""
+								} filterTab_${filter.color}Color`}
 							>
 								{filter.name}
 							</li>

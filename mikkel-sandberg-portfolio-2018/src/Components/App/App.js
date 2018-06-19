@@ -64,15 +64,6 @@ class App extends Component {
 		});
 	};
 
-	scrollToSection = sectionId => {
-		const target = document.getElementById(sectionId);
-		console.log("target", target);
-		console.log("target.offsetTop", target.offsetTop);
-
-		// console.log(target.offsetTop);
-		window.scroll({ top: target.offsetTop });
-	};
-
 	render() {
 		let filteredWork;
 
@@ -100,11 +91,10 @@ class App extends Component {
 									<NavBar />
 									<SplashScreen />
 									<MyWork
-										resetWorkFilter={this.resetWorkFilter}
 										formatText={this.formatText}
+										activeFilter={this.state.workFilter}
 										workData={filteredWork}
 										handleFilterClick={this.handleFilterClick}
-										scrollToSection={this.scrollToSection}
 									/>
 								</div>
 							);

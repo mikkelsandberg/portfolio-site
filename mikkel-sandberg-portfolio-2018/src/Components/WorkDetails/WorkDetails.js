@@ -38,11 +38,7 @@ class WorkDetails extends Component {
 
 		return (
 			<section id="workDetailsWrapper">
-				<WorkHeader
-					goBack={this.goBack}
-					workLabel={workLabel}
-					workTitle={workTitle}
-				/>
+				<WorkHeader workLabel={workLabel} workTitle={workTitle} />
 				<WorkImages
 					images={images}
 					workLabel={workLabel}

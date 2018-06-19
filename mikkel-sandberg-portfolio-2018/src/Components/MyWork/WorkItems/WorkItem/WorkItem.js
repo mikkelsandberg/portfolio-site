@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import './WorkItem.css';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "./WorkItem.css";
 
 class WorkItem extends Component {
 	render() {
