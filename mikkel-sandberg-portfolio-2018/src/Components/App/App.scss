@@ -1,4 +1,7 @@
-@import 'utilities/variables';
+@import "utilities/structure";
+@import "utilities/tags";
+@import "utilities/structure";
+@import "utilities/variables";
 
 // master styles
 * {
@@ -7,7 +10,7 @@
 
 body {
 	// font-family: "kepler-std", serif;
-	font-family: 'fira-sans', sans-serif;
+	font-family: "fira-sans", sans-serif;
 	font-size: 16px;
 	color: $darkGray;
 	background-color: $lightGray;

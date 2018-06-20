@@ -4,9 +4,9 @@ import "./AboutMe.css";
 class AboutMe extends Component {
 	render() {
 		return (
-			<section id="aboutMeWrapper">
-				<header>
-					<h1>About Me</h1>
+			<section className="mainContentWrapper">
+				<header className="header">
+					<h1 className="header__text">About Me</h1>
 				</header>
 			</section>
 		);

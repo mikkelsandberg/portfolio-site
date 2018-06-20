@@ -8,13 +8,14 @@ class WorkItems extends Component {
 		const { fade } = transitions;
 
 		return (
-			<section id="workItems">
+			<section className="work__wrapper">
 				<StackGrid
-					className="workItemsInner"
+					className="work__inner"
 					itemComponent="div"
 					columnWidth={480}
 					gutterWidth={-1}
 					gutterHeight={-1}
+					appearDelay={0}
 					appear={fade.appear}
 					appeared={fade.appeared}
 					enter={fade.enter}

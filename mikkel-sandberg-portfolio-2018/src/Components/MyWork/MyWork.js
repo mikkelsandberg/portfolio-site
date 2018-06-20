@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import WorkFilters from "./WorkFilters/WorkFilters";
 import WorkItems from "./WorkItems/WorkItems";
-import "./MyWork.css";
 
 class MyWork extends Component {
 	render() {
@@ -13,9 +12,9 @@ class MyWork extends Component {
 		} = this.props;
 
 		return (
-			<section id="myWorkWrapper">
-				<header>
-					<h1>My work</h1>
+			<section className="mainContentWrapper">
+				<header className="header">
+					<h1 className="header__text">My Work</h1>
 				</header>
 				<WorkFilters
 					activeFilter={activeFilter}
