@@ -15,7 +15,7 @@ class MyWork extends Component {
 		return (
 			<section id="myWorkWrapper">
 				<header>
-					<h2>My work</h2>
+					<h1>My work</h1>
 				</header>
 				<WorkFilters
 					activeFilter={activeFilter}

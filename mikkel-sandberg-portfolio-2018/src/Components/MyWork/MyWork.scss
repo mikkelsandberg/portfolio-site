@@ -1,17 +1,10 @@
-@import 'utilities/variables';
-@import 'utilities/tags';
+@import "utilities/variables";
+@import "utilities/sectionHeader";
+@import "utilities/tags";
 
 // my work
 #myWorkWrapper {
-	padding-top: 115px;
-
-	header {
-		h2 {
-			font-size: 4.4rem;
-			line-height: 1;
-			text-align: center;
-		}
-	}
+	padding-top: 105px;
 
 	nav {
 		margin: 20px 0;
@@ -41,7 +34,7 @@
 				}
 
 				// filter hover fx
-				&[class*='filterTab'] {
+				&[class*="filterTab"] {
 					position: relative;
 					overflow: hidden;
 
@@ -51,7 +44,7 @@
 					}
 
 					&:after {
-						content: '';
+						content: "";
 						width: 100%;
 						height: 100%;
 						position: absolute;
@@ -59,31 +52,31 @@
 						top: 0;
 						transform: scaleX(0);
 						transform-origin: center right;
-						transition: transform .35s ease-in-out;
-						z-index: -1; 
+						transition: transform 0.35s ease-in-out;
+						z-index: -1;
 					}
 
-					&[class*='_redColor']:after {
+					&[class*="_redColor"]:after {
 						background-color: $redColor;
 					}
 
-					&[class*='_yellowColor']:after {
+					&[class*="_yellowColor"]:after {
 						background-color: $yellowColor;
 					}
 
-					&[class*='_purpleColor']:after {
+					&[class*="_purpleColor"]:after {
 						background-color: $purpleColor;
 					}
 
-					&[class*='_greenColor']:after {
+					&[class*="_greenColor"]:after {
 						background-color: $greenColor;
 					}
 
-					&[class*='_blueColor']:after {
+					&[class*="_blueColor"]:after {
 						background-color: $blueColor;
 					}
 
-					&[class*='_orangeColor']:after {
+					&[class*="_orangeColor"]:after {
 						background-color: $orangeColor;
 					}
 				}

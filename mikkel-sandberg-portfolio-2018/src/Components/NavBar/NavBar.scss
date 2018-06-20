@@ -1,4 +1,4 @@
-@import 'utilities/variables';
+@import "utilities/variables";
 
 // navbar
 #mainNavWrapper {
@@ -18,10 +18,8 @@
 
 		.navLinks {
 			li {
-				&.is-current {
-					a {
-						text-decoration: underline;
-					}
+				.is-current {
+					text-decoration: underline;
 				}
 
 				a:link,

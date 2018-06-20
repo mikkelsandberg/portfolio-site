@@ -1,21 +1,14 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class WorkHeader extends Component {
-	goBack = e => {
-		e.preventDefault();
-
-		window.history.back();
-	};
-
 	render() {
 		const { workLabel, workTitle } = this.props;
 
 		return (
 			<header>
 				<nav>
-					<a href="/" onClick={this.goBack}>
-						Back to home
-					</a>
+					<Link to="/my-work">Back to my work</Link>
 				</nav>
 				<h2>{workLabel}</h2>
 				<h1>{workTitle}</h1>

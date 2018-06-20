@@ -1,21 +1,25 @@
 @import "utilities/variables";
 
+#mainNavWrapper.hidden {
+	display: none;
+}
+
 #workDetailsWrapper {
 	display: grid;
 	grid-template-columns: auto auto;
-	grid-template-rows: 112px auto;
+	grid-template-rows: auto auto;
 
 	header {
 		grid-column-start: 1;
 		grid-column-end: 3;
 		border-bottom: 1px solid $darkGray;
 		background-color: $lightGray;
-		padding: 10px 0;
+		padding: 5px 0;
 		position: relative;
 
 		nav {
 			position: absolute;
-			left: 20px;
+			left: 30px;
 			top: 50%;
 			transform: translateY(-50%);
 
@@ -23,6 +27,8 @@
 				&:link,
 				&:visited,
 				&:hover {
+					font-size: 1.25rem;
+					line-height: 1;
 					text-decoration: underline;
 				}
 			}
@@ -39,12 +45,12 @@
 				display: block;
 				width: 5ex;
 				height: 1px;
-				margin: 10px auto 0;
+				margin: 5px auto 0;
 			}
 		}
 
 		h1 {
-			font-size: 2.5rem;
+			font-size: 2rem;
 			line-height: normal;
 			text-align: center;
 		}

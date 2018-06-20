@@ -3,18 +3,22 @@ import { Switch, Route } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import SplashScreen from "../SplashScreen/SplashScreen";
 import MyWork from "../MyWork/MyWork";
+import AboutMe from "../AboutMe/AboutMe";
+import Contact from "../Contact/Contact";
 import WorkDetails from "../WorkDetails/WorkDetails";
 import "./App.css";
 import WorkData from "../../Util/WorkData";
 
 class App extends Component {
-	constructor(lastLocation) {
-		super(lastLocation);
+	constructor() {
+		super();
 
 		this.state = {
 			work: WorkData,
 			workFilter: "show-all"
 		};
+
+		this.match = "blah";
 	}
 
 	componentDidMount() {
@@ -87,15 +91,47 @@ class App extends Component {
 						path="/"
 						render={() => {
 							return (
-								<div id="mainContentWrapper">
+								<div>
 									<NavBar />
 									<SplashScreen />
+								</div>
+							);
+						}}
+					/>
+					<Route
+						path="/my-work"
+						render={() => {
+							return (
+								<div>
+									<NavBar />
 									<MyWork
 										formatText={this.formatText}
 										activeFilter={this.state.workFilter}
 										workData={filteredWork}
 										handleFilterClick={this.handleFilterClick}
 									/>
+								</div>
+							);
+						}}
+					/>
+					<Route
+						path="/about-me"
+						render={() => {
+							return (
+								<div>
+									<NavBar />
+									<AboutMe />
+								</div>
+							);
+						}}
+					/>
+					<Route
+						path="/contact"
+						render={() => {
+							return (
+								<div>
+									<NavBar />
+									<Contact />
 								</div>
 							);
 						}}
