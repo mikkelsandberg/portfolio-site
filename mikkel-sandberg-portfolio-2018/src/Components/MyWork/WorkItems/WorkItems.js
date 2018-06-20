@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import StackGrid, { transitions } from "react-stack-grid";
 import WorkItem from "./WorkItem/WorkItem";
+import "./WorkItems.css";
 
 class WorkItems extends Component {
 	render() {

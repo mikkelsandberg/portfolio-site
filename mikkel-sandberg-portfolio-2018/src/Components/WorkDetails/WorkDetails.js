@@ -37,7 +37,7 @@ class WorkDetails extends Component {
 		} = filteredWork();
 
 		return (
-			<section id="workDetailsWrapper">
+			<section className="workDetails">
 				<WorkHeader workLabel={workLabel} workTitle={workTitle} />
 				<WorkImages
 					images={images}

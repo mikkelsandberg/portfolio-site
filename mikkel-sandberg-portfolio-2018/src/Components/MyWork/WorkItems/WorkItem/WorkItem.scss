@@ -1,127 +1,96 @@
 @import "utilities/variables";
 
-.workItemsInner {
-	display: flex;
-	flex-wrap: wrap;
+$tagColors: (
+	("web-development", $yellowColor),
+	("design", $purpleColor),
+	("podcast-production", $greenColor),
+	("video-production", $blueColor),
+	("animation", $orangeColor)
+);
 
-	> div {
-		flex: 0 0 auto;
+.workItem {
+	background-size: cover;
+	background-position: center top;
+	border: 1px solid $darkGray;
+	display: block;
+	height: 480px;
+	position: relative;
+	cursor: pointer;
+	overflow: hidden;
+	z-index: 0;
+
+	&:before {
+		content: "";
+		background-color: $lightGray;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 1;
+		transition: all 0.5s ease-in-out;
+		z-index: -1;
 	}
 
-	.workItem {
-		background-size: cover;
-		background-position: center top;
-		border: 1px solid $darkGray;
-		display: block;
-		height: 480px;
-		position: relative;
-		cursor: pointer;
-		overflow: hidden;
-		z-index: 0;
+	&:hover:before {
+		transform: scaleY(0);
+	}
 
-		&:before {
-			content: "";
-			background-color: $lightGray;
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			opacity: 1;
-			transition: all 0.5s ease-in-out;
-			z-index: -1;
+	&:after {
+		content: "";
+		background-color: $lightGray;
+		opacity: 0.75;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -2;
+	}
+
+	&__label {
+		font-size: 1.15rem;
+		text-align: center;
+		padding: 20px;
+	}
+
+	&__title {
+		text-align: center;
+		width: 100%;
+		padding: 0 10px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+
+		&__text {
+			font-size: 3rem;
+			line-height: 1.15em;
 		}
+	}
 
-		&:after {
-			content: "";
-			background-color: $lightGray;
-			opacity: 0.75;
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			z-index: -2;
-		}
+	.tags {
+		padding: 15px;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	}
 
-		&:hover:before {
-			transform: scaleY(0);
-		}
+	.tag {
+		&:hover {
+			color: $darkGray;
 
-		.workLabel {
-			font-size: 1.15rem;
-			text-align: center;
-			padding: 20px;
-		}
-
-		header {
-			text-align: center;
-			width: 100%;
-			padding: 0 10px;
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
-
-			h3 {
-				font-size: 3rem;
-				line-height: 1.15em;
+			.tag__hole {
+				background-color: $lightGray;
 			}
-		}
 
-		.tags {
-			padding: 15px;
-			width: 100%;
-			position: absolute;
-			left: 0;
-			bottom: 0;
+			@each $workType, $color in $tagColors {
+				&.tag--#{$workType} {
+					background-color: #{$color};
 
-			li {
-				&:hover {
-					color: $darkGray;
-
-					.tagHole {
-						background-color: $lightGray;
-					}
-
-					&.web-development {
-						background-color: $yellowColor;
-
-						.tagPoint {
-							background-color: $yellowColor;
-						}
-					}
-
-					&.design {
-						background-color: $purpleColor;
-
-						.tagPoint {
-							background-color: $purpleColor;
-						}
-					}
-
-					&.podcast-production {
-						background-color: $greenColor;
-
-						.tagPoint {
-							background-color: $greenColor;
-						}
-					}
-
-					&.video-production {
-						background-color: $blueColor;
-
-						.tagPoint {
-							background-color: $blueColor;
-						}
-					}
-
-					&.animation {
-						background-color: $orangeColor;
-
-						.tagPoint {
-							background-color: $orangeColor;
-						}
+					.tag__point {
+						background-color: #{$color};
 					}
 				}
 			}

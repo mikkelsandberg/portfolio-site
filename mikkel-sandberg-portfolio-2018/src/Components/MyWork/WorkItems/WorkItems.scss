@@ -1,0 +1,10 @@
+@import "utilities/variables";
+
+.work__inner {
+	display: flex;
+	flex-wrap: wrap;
+
+	> div {
+		flex: 0 0 auto;
+	}
+}

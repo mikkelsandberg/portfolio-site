@@ -1,0 +1,47 @@
+@import "utilities/variables";
+
+.workDetails__header {
+	border-bottom: 1px solid $darkGray;
+	background-color: $lightGray;
+	padding: 5px 0;
+	width: 100%;
+	position: fixed;
+
+	&__nav {
+		position: absolute;
+		left: 30px;
+		top: 50%;
+		transform: translateY(-50%);
+
+		&__link {
+			&:link,
+			&:visited,
+			&:hover {
+				font-size: 1.25rem;
+				line-height: 1;
+				text-decoration: underline;
+			}
+		}
+	}
+
+	&__label {
+		font-size: 1rem;
+		line-height: normal;
+		text-align: center;
+
+		&:after {
+			content: "";
+			background-color: $darkGray;
+			display: block;
+			width: 5ex;
+			height: 1px;
+			margin: 5px auto 0;
+		}
+	}
+
+	&__title {
+		font-size: 2rem;
+		line-height: normal;
+		text-align: center;
+	}
+}

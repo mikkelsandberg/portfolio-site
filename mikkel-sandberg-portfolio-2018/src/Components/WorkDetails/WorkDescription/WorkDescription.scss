@@ -1,0 +1,31 @@
+.workDetails__info {
+	padding: 105px 20px 20px;
+	width: auto;
+	max-width: 480px;
+	box-sizing: content-box;
+
+	&__description {
+		&__text {
+			font-size: 1.2rem;
+			line-height: 1.45;
+		}
+	}
+
+	&__footer {
+		padding: 0;
+		margin-top: 30px;
+
+		&__links {
+			text-align: right;
+			margin-top: 15px;
+
+			a:link,
+			a:hover,
+			a:visited {
+				font-size: 1.2rem;
+				line-height: 1.45;
+				text-decoration: underline;
+			}
+		}
+	}
+}

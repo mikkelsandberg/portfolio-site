@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
+import "./WorkImages.css";
 
 class WorkImages extends Component {
 	constructor() {
@@ -17,7 +18,7 @@ class WorkImages extends Component {
 		const { photoIndex, isOpen } = this.state;
 
 		return (
-			<section id="imagesWrapper">
+			<section className="workDetails__images">
 				{images.map((image, key = 0) => {
 					return (
 						<img
@@ -30,6 +31,7 @@ class WorkImages extends Component {
 								})
 							}
 							alt={`${workLabel}-${workTitle}`}
+							className="workDetails__images__image"
 						/>
 					);
 				})}

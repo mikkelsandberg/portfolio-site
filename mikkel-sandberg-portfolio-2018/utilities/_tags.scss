@@ -1,41 +1,41 @@
 @import "utilities/variables";
 
-#tags {
+.tags {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-end;
+}
 
-	li {
-		background-color: $lightGray;
+.tag {
+	background-color: $lightGray;
+	border: 1px solid $darkGray;
+	border-left: none;
+	padding: 5px;
+	margin: 5px 5px 5px 23px;
+	position: relative;
+	transition: all 0.2s ease-in-out;
+
+	&__point {
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		left: -10px;
+		top: 3px;
+		transform: rotate(45deg);
 		border: 1px solid $darkGray;
-		border-left: none;
-		padding: 5px;
-		margin: 5px 5px 5px 23px;
-		position: relative;
+		background-color: $lightGray;
 		transition: all 0.2s ease-in-out;
+		z-index: -1;
+	}
 
-		.tagPoint {
-			width: 20px;
-			height: 20px;
-			position: absolute;
-			left: -10px;
-			top: 3px;
-			transform: rotate(45deg);
-			border: 1px solid $darkGray;
-			background-color: $lightGray;
-			transition: all 0.2s ease-in-out;
-			z-index: -1;
-		}
-
-		.tagHole {
-			position: absolute;
-			left: -4px;
-			top: 50%;
-			transform: translateY(-50%);
-			border: 1px solid $darkGray;
-			border-radius: 5px;
-			width: 5px;
-			height: 5px;
-		}
+	&__hole {
+		position: absolute;
+		left: -4px;
+		top: 50%;
+		transform: translateY(-50%);
+		border: 1px solid $darkGray;
+		border-radius: 5px;
+		width: 5px;
+		height: 5px;
 	}
 }
