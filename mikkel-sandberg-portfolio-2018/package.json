@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
+    "@fortawesome/react-fontawesome": "^0.1.0-11",
     "node-sass-chokidar": "^1.2.2",
     "npm-run-all": "^4.1.2",
     "react": "^16.3.2",
@@ -15,15 +18,14 @@
     "react-stack-grid": "^0.7.1"
   },
   "scripts": {
-    "build-css":
-      "node-sass-chokidar --include-path ./src/SassImports src/ -o src/ --output-style expanded",
-    "watch-css":
-      "npm run build-css && node-sass-chokidar --include-path ./src/SassImports src/ -o src/ --output-style expanded --watch --recursive --usePolling",
+    "build-css": "node-sass-chokidar --include-path ./src/SassImports src/ -o src/ --output-style expanded",
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src/SassImports src/ -o src/ --output-style expanded --watch --recursive --usePolling",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "devDependencies": {}
 }

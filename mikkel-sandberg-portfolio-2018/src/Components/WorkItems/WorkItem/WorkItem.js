@@ -8,7 +8,9 @@ class WorkItem extends Component {
 
 		return (
 			<Link
-				to={`/${formatText(item.workLabel)}-${formatText(item.workTitle)}`}
+				to={`/my-work/${formatText(item.workLabel)}-${formatText(
+					item.workTitle
+				)}`}
 				className="workItem"
 			>
 				<div

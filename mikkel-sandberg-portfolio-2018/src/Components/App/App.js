@@ -93,14 +93,20 @@ class App extends Component {
 						path="/"
 						render={() => {
 							return (
-								<div>
-									<NavBar />
+								<div className="homePage">
 									<SplashScreen />
+									<Header pageTitle="My Work" />
+									<WorkItems
+										workData={filteredWork}
+										formatText={this.formatText}
+										numItems={3}
+									/>
 								</div>
 							);
 						}}
 					/>
 					<Route
+						exact
 						path="/my-work"
 						render={() => {
 							return (
@@ -128,7 +134,10 @@ class App extends Component {
 							return (
 								<div>
 									<NavBar />
-									<AboutMe />
+									<section className="contentWrapper">
+										<Header pageTitle="About Me" />
+										<AboutMe />
+									</section>
 								</div>
 							);
 						}}
@@ -145,7 +154,7 @@ class App extends Component {
 						}}
 					/>
 					<Route
-						path="/:workName"
+						path="/my-work/:workName"
 						render={props => {
 							return (
 								<WorkDetails

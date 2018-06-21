@@ -15,7 +15,7 @@ $tagColors: (
 	border-bottom-width: 3px;
 	border-radius: 4px;
 	display: block;
-	height: 480px;
+	height: 500px;
 	position: relative;
 	cursor: pointer;
 	overflow: hidden;
@@ -30,23 +30,42 @@ $tagColors: (
 
 	&__label {
 		font-size: 1.15rem;
+		line-height: 1.2em;
 		text-align: center;
-		padding: 20px;
+		padding: 15px 15px 7px;
+
+		&:after {
+			content: "";
+			background-color: $darkGray;
+			display: block;
+			width: 5ex;
+			height: 1px;
+			margin: 10px auto 0;
+		}
 	}
 
 	&__title {
 		text-align: center;
 		width: 100%;
-		padding: 0 10px;
+		padding: 0 15px;
 
 		&__text {
 			font-size: 2rem;
-			line-height: 1.15em;
+			line-height: 1.1em;
+			min-height: 4ch;
+		}
+	}
+
+	&__description {
+		padding: 15px 15px 0;
+
+		&__text {
+			line-height: normal;
 		}
 	}
 
 	.tags {
-		padding: 15px;
+		padding: 10px;
 		width: 100%;
 		position: absolute;
 		left: 0;
