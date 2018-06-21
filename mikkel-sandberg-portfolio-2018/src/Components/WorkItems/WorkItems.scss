@@ -1,8 +1,10 @@
-@import "utilities/variables";
+@import "variables";
 
 .work__inner {
 	display: flex;
 	flex-wrap: wrap;
+	max-width: 1360px;
+	margin: 0 auto;
 
 	> div {
 		flex: 0 0 auto;

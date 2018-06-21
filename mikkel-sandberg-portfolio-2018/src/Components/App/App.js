@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
+import Header from "../Header/Header";
 import SplashScreen from "../SplashScreen/SplashScreen";
-import MyWork from "../MyWork/MyWork";
+import WorkFilters from "../WorkFilters/WorkFilters";
+import WorkItems from "../WorkItems/WorkItems";
 import AboutMe from "../AboutMe/AboutMe";
 import Contact from "../Contact/Contact";
 import WorkDetails from "../WorkDetails/WorkDetails";
@@ -104,12 +106,18 @@ class App extends Component {
 							return (
 								<div>
 									<NavBar />
-									<MyWork
-										formatText={this.formatText}
-										activeFilter={this.state.workFilter}
-										workData={filteredWork}
-										handleFilterClick={this.handleFilterClick}
-									/>
+									<section className="contentWrapper">
+										<Header pageTitle="My Work" />
+										<WorkFilters
+											activeFilter={this.state.workFilter}
+											formatText={this.formatText}
+											handleFilterClick={this.handleFilterClick}
+										/>
+										<WorkItems
+											workData={filteredWork}
+											formatText={this.formatText}
+										/>
+									</section>
 								</div>
 							);
 						}}

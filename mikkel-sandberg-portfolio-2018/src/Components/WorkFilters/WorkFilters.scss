@@ -1,4 +1,4 @@
-@import "utilities/variables";
+@import "variables";
 
 $filterColors: (
 	("red", $redColor),
@@ -20,11 +20,13 @@ $filterColors: (
 .filter {
 	font-size: 1.25rem;
 	line-height: 1;
+	background-color: transparent;
 	border: 1px solid $darkGray;
 	padding: 10px;
 	margin: 10px;
 	cursor: pointer;
 	position: relative;
+	transition: background-color 0.35s ease-in-out;
 	overflow: hidden;
 
 	&::selection {

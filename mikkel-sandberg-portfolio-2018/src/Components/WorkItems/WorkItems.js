@@ -13,9 +13,9 @@ class WorkItems extends Component {
 				<StackGrid
 					className="work__inner"
 					itemComponent="div"
-					columnWidth={480}
-					gutterWidth={-1}
-					gutterHeight={-1}
+					columnWidth={300}
+					gutterWidth={20}
+					gutterHeight={20}
 					appearDelay={0}
 					appear={fade.appear}
 					appeared={fade.appeared}

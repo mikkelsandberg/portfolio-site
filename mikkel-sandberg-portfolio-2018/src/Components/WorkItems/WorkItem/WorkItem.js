@@ -8,15 +8,26 @@ class WorkItem extends Component {
 
 		return (
 			<Link
-				id={`${formatText(item.workLabel)}-${formatText(item.workTitle)}`}
 				to={`/${formatText(item.workLabel)}-${formatText(item.workTitle)}`}
 				className="workItem"
-				style={{ backgroundImage: `url(${item.images[0].url})` }}
 			>
+				<div
+					className="workItem__image"
+					style={{ backgroundImage: `url(${item.images[0].url})` }}
+					alt={`${formatText(item.workLabel)}-${formatText(item.workTitle)}`}
+				/>
 				<p className="workItem__label">{item.workLabel}</p>
 				<header className="workItem__title">
 					<h3 className="workItem__title__text">{item.workTitle}</h3>
 				</header>
+				<article className="workItem__description">
+					<p className="workItem__description__text">
+						{`${item.description
+							.split(/\s+/)
+							.slice(0, 20)
+							.join(" ")}...`}
+					</p>
+				</article>
 				<footer>
 					<ul className="tags">
 						{item.tags.map((tag, key = 0) => {

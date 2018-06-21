@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Filters from "../../../Util/Filters";
+import Filters from "../../Util/Filters";
 import "./WorkFilters.css";
 
 class WorkFilters extends Component {
