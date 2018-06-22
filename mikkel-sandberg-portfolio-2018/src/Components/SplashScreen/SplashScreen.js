@@ -6,11 +6,9 @@ class SplashScreen extends React.Component {
 		return (
 			<section className="splashScreen__wrapper">
 				<h1 className="splashScreen__heading">
-					<span className="splashScreen__heading__text">Web development</span>
-					<span className="splashScreen__heading__text">
-						Podcast production
-					</span>
-					<span className="splashScreen__heading__text">Coffee</span>
+					Web development &<br />
+					Podcast production &<br />
+					Coffee
 				</h1>
 			</section>
 		);

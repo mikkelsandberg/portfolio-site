@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import WorkHeader from "./WorkHeader/WorkHeader";
-import WorkImages from "./WorkImages/WorkImages";
-import WorkDescription from "./WorkDescription/WorkDescription";
+import WorkHeader from "../WorkHeader/WorkHeader";
+import WorkImages from "../WorkImages/WorkImages";
+import WorkDescription from "../WorkDescription/WorkDescription";
 import "./WorkDetails.css";
 
 class WorkDetails extends Component {

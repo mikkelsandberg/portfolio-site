@@ -165,6 +165,19 @@ class App extends Component {
 							);
 						}}
 					/>
+					<Route
+						path="/*"
+						render={() => {
+							return (
+								<div>
+									<NavBar />
+									<section className="contentWrapper">
+										<Header pageTitle="Uh Oh! This page does not exist :(" />
+									</section>
+								</div>
+							);
+						}}
+					/>
 				</Switch>
 			</main>
 		);
