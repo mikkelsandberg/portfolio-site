@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
+import StickyNav from "../StickyNav/StickyNav";
 import NavBar from "../NavBar/NavBar";
 import Header from "../Header/Header";
 import SplashScreen from "../SplashScreen/SplashScreen";
@@ -25,14 +26,6 @@ class App extends Component {
 		this.filters = document.querySelectorAll(".filters__list .filter");
 		this.mainNav = document.querySelector(".mainNav");
 	}
-
-	checkScrollTop = ({ mainNav } = this) => {
-		console.log("mainNav height", mainNav.offsetHeight);
-		console.log("scrollY", window.scrollY);
-		// if (window.scrollY >= splashScreen.offsetHeight) {
-		// 	console.log
-		// }
-	};
 
 	resetWorkFilter = () => {
 		this.setState({
@@ -102,13 +95,17 @@ class App extends Component {
 							return (
 								<div className="homePage">
 									<SplashScreen />
-									<NavBar fixed={false} />
-									<Header pageTitle="My Work" />
+									<StickyNav scrollTarget=".splashScreen__wrapper">
+										<NavBar />
+									</StickyNav>
+									<Header text="My Work" />
 									<WorkItems
 										workData={filteredWork}
 										formatText={this.formatText}
 										numItems={3}
 									/>
+									<Header text="About Me" />
+									<AboutMe />
 								</div>
 							);
 						}}
@@ -119,9 +116,9 @@ class App extends Component {
 						render={() => {
 							return (
 								<div>
-									<NavBar fixed={true} />
+									<NavBar isSticky={true} />
 									<section className="contentWrapper">
-										<Header pageTitle="My Work" />
+										<Header text="My Work" />
 										<WorkFilters
 											activeFilter={this.state.workFilter}
 											formatText={this.formatText}
@@ -141,9 +138,9 @@ class App extends Component {
 						render={() => {
 							return (
 								<div>
-									<NavBar fixed={true} />
+									<NavBar isSticky={true} />
 									<section className="contentWrapper">
-										<Header pageTitle="About Me" />
+										<Header text="About Me" />
 										<AboutMe />
 									</section>
 								</div>
@@ -155,7 +152,7 @@ class App extends Component {
 						render={() => {
 							return (
 								<div>
-									<NavBar />
+									<NavBar isSticky={true} />
 									<Contact />
 								</div>
 							);
@@ -178,9 +175,9 @@ class App extends Component {
 						render={() => {
 							return (
 								<div>
-									<NavBar />
+									<NavBar isSticky={true} />
 									<section className="contentWrapper">
-										<Header pageTitle="Uh Oh! This page does not exist :(" />
+										<Header text="Uh Oh! This page does not exist :(" />
 									</section>
 								</div>
 							);

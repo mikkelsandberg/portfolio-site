@@ -1,22 +1,27 @@
 @import "variables";
 
+// mixins
+@mixin positionNavSection($side, $value) {
+	position: absolute;
+	#{$side}: $value;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
 // navbar
 .mainNav {
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	border-bottom: 1px solid $darkGray;
 	background-color: $lightGray;
-	padding: 0 30px;
 	width: 100%;
 	height: 85px;
-
-	> * {
-		display: flex;
-	}
+	position: relative;
 
 	&__links {
-		display: none;
+		display: flex;
+		pointer-events: none;
+		opacity: 0;
+		@include positionNavSection(left, 30px);
+		transition: opacity 0.75s ease-in-out;
 
 		&__item {
 			.is-current {
@@ -36,6 +41,11 @@
 	}
 
 	&__social {
+		display: flex;
+		@include positionNavSection(left, 50%);
+		transform: translate(-50%, -50%);
+		transition: left 0.75s ease-in-out;
+
 		&__icon {
 			width: 24px;
 			height: 24px;
@@ -53,14 +63,19 @@
 
 	&--fixed {
 		position: fixed;
+		top: 0;
 		z-index: 100;
 		justify-content: space-between;
 
 		& .mainNav {
-			justify-content: center;
-
 			&__links {
-				display: flex;
+				pointer-events: all;
+				opacity: 1;
+			}
+
+			&__social {
+				left: calc(100% - 30px - 186px);
+				transform: translate(0, -50%);
 			}
 		}
 	}

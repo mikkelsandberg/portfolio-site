@@ -3,10 +3,10 @@ import "./Header.css";
 
 class Header extends Component {
 	render() {
-		const { pageTitle } = this.props;
+		const { text } = this.props;
 		return (
 			<header className="header">
-				<h1 className="header__text">{pageTitle}</h1>
+				<h1 className="header__text">{text}</h1>
 			</header>
 		);
 	}

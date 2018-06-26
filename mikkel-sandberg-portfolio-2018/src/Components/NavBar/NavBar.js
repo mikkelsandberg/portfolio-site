@@ -9,8 +9,18 @@ import "./NavBar.css";
 class NavBar extends React.Component {
 	render() {
 		return (
-			<nav className={`mainNav${this.props.fixed ? " mainNav--fixed" : ""}`}>
+			<nav className={`mainNav${this.props.isSticky ? " mainNav--fixed" : ""}`}>
 				<ul className="mainNav__links">
+					<li className="mainNav__links__item">
+						<NavLink
+							exact
+							to="/"
+							className="mainNav__links__item__link"
+							activeClassName="is-current"
+						>
+							Home
+						</NavLink>
+					</li>
 					<li className="mainNav__links__item">
 						<NavLink
 							to="/my-work"

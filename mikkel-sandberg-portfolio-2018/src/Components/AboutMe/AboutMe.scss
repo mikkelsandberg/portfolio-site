@@ -1,0 +1,11 @@
+.aboutMe {
+	&__wrapper {
+		max-width: 70ch;
+		margin: 0 auto;
+	}
+
+	&__text {
+		font-size: 1rem;
+		line-height: normal;
+	}
+}
