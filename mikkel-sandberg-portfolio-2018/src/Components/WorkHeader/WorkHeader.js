@@ -4,7 +4,7 @@ import "./WorkHeader.css";
 
 class WorkHeader extends Component {
 	render() {
-		const { workLabel, workTitle } = this.props;
+		const { workLabel, workTitle, workExists } = this.props;
 
 		return (
 			<header className="workDetails__header">
@@ -13,8 +13,12 @@ class WorkHeader extends Component {
 						Back to my work
 					</Link>
 				</nav>
-				<h2 className="workDetails__header__label">{workLabel}</h2>
-				<h1 className="workDetails__header__title">{workTitle}</h1>
+				{workExists && (
+					<div className="workDetails__header__headingWrapper">
+						<h2 className="workDetails__header__label">{workLabel}</h2>
+						<h1 className="workDetails__header__title">{workTitle}</h1>
+					</div>
+				)}
 			</header>
 		);
 	}

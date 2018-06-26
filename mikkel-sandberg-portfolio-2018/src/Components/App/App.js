@@ -19,13 +19,20 @@ class App extends Component {
 			work: WorkData,
 			workFilter: "show-all"
 		};
-
-		this.match = "blah";
 	}
 
 	componentDidMount() {
-		this.filters = document.querySelectorAll("#myWorkWrapper nav ul li");
+		this.filters = document.querySelectorAll(".filters__list .filter");
+		this.mainNav = document.querySelector(".mainNav");
 	}
+
+	checkScrollTop = ({ mainNav } = this) => {
+		console.log("mainNav height", mainNav.offsetHeight);
+		console.log("scrollY", window.scrollY);
+		// if (window.scrollY >= splashScreen.offsetHeight) {
+		// 	console.log
+		// }
+	};
 
 	resetWorkFilter = () => {
 		this.setState({
@@ -95,6 +102,7 @@ class App extends Component {
 							return (
 								<div className="homePage">
 									<SplashScreen />
+									<NavBar fixed={false} />
 									<Header pageTitle="My Work" />
 									<WorkItems
 										workData={filteredWork}
@@ -111,7 +119,7 @@ class App extends Component {
 						render={() => {
 							return (
 								<div>
-									<NavBar />
+									<NavBar fixed={true} />
 									<section className="contentWrapper">
 										<Header pageTitle="My Work" />
 										<WorkFilters
@@ -133,7 +141,7 @@ class App extends Component {
 						render={() => {
 							return (
 								<div>
-									<NavBar />
+									<NavBar fixed={true} />
 									<section className="contentWrapper">
 										<Header pageTitle="About Me" />
 										<AboutMe />

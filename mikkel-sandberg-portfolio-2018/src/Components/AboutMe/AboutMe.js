@@ -6,10 +6,10 @@ class AboutMe extends Component {
 		return (
 			<section className="aboutMe__wrapper">
 				<p className="aboutMe__text">
-					Ex ad aute non voluptate tempor ea enim ad laboris ex pariatur officia
-					dolor ullamco exercitation commodo sint esse fugiat elit ea minim ex
-					et exercitation quis dolor cillum nostrud eiusmod proident veniam
-					nostrud ut.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni,
+					repudiandae architecto earum assumenda aspernatur temporibus
+					recusandae quibusdam nam vero eum aliquid ipsa voluptatum debitis,
+					neque cupiditate velit placeat doloremque, iusto.
 				</p>
 			</section>
 		);

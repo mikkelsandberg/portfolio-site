@@ -5,52 +5,63 @@ import WorkDescription from "../WorkDescription/WorkDescription";
 import "./WorkDetails.css";
 
 class WorkDetails extends Component {
-	setInitialScroll = () => {
-		return window.scroll({ top: 0 });
-	};
-
 	componentDidMount() {
-		this.setInitialScroll();
+		window.scroll({ top: 0 });
 	}
 
-	render() {
-		const { formatText, workData } = this.props;
-		const { workName } = this.props.match.params;
-		const filteredWork = () => {
-			let workItem = {};
-			workData.find(item => {
-				let formattedItem = `${formatText(item.workLabel)}-${formatText(
-					item.workTitle
-				)}`;
-				workItem = item;
-				return formattedItem === workName;
-			});
-			return workItem;
-		};
-		const {
-			workLabel,
-			workTitle,
-			images,
-			description,
-			skills,
-			links
-		} = filteredWork();
+	filteredWork = (
+		{ workData, formatText } = this.props,
+		{ workName } = this.props.match.params
+	) => {
+		return workData.find(item => {
+			let formattedName = `${formatText(item.workLabel)}-${formatText(
+				item.workTitle
+			)}`;
+			return formattedName === workName;
+		});
+	};
 
-		return (
-			<section className="workDetails">
-				<WorkHeader workLabel={workLabel} workTitle={workTitle} />
-				<WorkImages
-					images={images}
-					workLabel={workLabel}
-					workTitle={workTitle}
-				/>
-				<WorkDescription
-					description={description}
-					skills={skills}
-					links={links}
-				/>
-			</section>
-		);
+	showWork = ({ filteredWork } = this) => {
+		if (filteredWork() === undefined) {
+			return (
+				<section className="workDetails">
+					<WorkHeader workExists={false} />
+					<p>No work to show</p>
+				</section>
+			);
+		} else {
+			const {
+				workLabel,
+				workTitle,
+				images,
+				description,
+				skills,
+				links
+			} = filteredWork();
+			return (
+				<section className="workDetails">
+					<WorkHeader
+						workLabel={workLabel}
+						workTitle={workTitle}
+						workExists={true}
+					/>
+					<WorkImages
+						images={images}
+						workLabel={workLabel}
+						workTitle={workTitle}
+					/>
+					<WorkDescription
+						description={description}
+						skills={skills}
+						links={links}
+					/>
+				</section>
+			);
+		}
+	};
+
+	render({ showWork } = this) {
+		return showWork();
 	}
 }
 
