@@ -9,8 +9,18 @@ import WorkItems from "../WorkItems/WorkItems";
 import AboutMe from "../AboutMe/AboutMe";
 import Contact from "../Contact/Contact";
 import WorkDetails from "../WorkDetails/WorkDetails";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+	faArrowCircleRight,
+	faUser,
+	faMapMarkerAlt,
+	faBriefcase
+} from "@fortawesome/free-solid-svg-icons";
+import { fab } from "@fortawesome/free-brands-svg-icons";
 import "./App.css";
 import WorkData from "../../Util/WorkData";
+
+library.add(faArrowCircleRight, faUser, faMapMarkerAlt, faBriefcase, fab);
 
 class App extends Component {
 	constructor() {

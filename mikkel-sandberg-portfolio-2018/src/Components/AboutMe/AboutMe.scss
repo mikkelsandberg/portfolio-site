@@ -1,11 +1,54 @@
 .aboutMe {
 	&__wrapper {
-		max-width: 70ch;
+		max-width: 620px;
 		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 200px auto;
+		grid-template-rows: auto auto;
 	}
 
-	&__text {
-		font-size: 1rem;
-		line-height: normal;
+	&__profilePic {
+		border-radius: 50%;
+		width: 100%;
+	}
+
+	&__intro {
+		padding-left: 20px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		&__stat {
+			font-size: 1.1rem;
+			display: flex;
+
+			&:not(:first-of-type) {
+				margin-top: 20px;
+			}
+
+			&__icon {
+				min-width: 1em;
+			}
+
+			&__text {
+				margin-left: 10px;
+			}
+		}
+	}
+
+	&__body {
+		grid-column: auto / span 2;
+		margin-top: 40px;
+
+		&__introText {
+			font-size: 1.3rem;
+			line-height: normal;
+			margin-bottom: 20px;
+		}
+
+		&__text {
+			font-size: 1rem;
+			line-height: normal;
+		}
 	}
 }

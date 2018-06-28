@@ -1,33 +1,64 @@
 import React, { Component } from "react";
+import AboutMeData from "../../Util/AboutMeData";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Parser from "html-react-parser";
+import { withRouter } from "react-router-dom";
 import "./AboutMe.css";
 
 class AboutMe extends Component {
+	navigateInternal = e => {
+		e.preventDefault();
+
+		if (e.target.tagName === "A" && !e.target.hasAttribute("target")) {
+			this.props.history.push(e.target.getAttribute("href"));
+		}
+	};
+
 	render() {
+		const { profilePic, stats, introText, bodyContent } = AboutMeData;
+		const { navigateInternal } = this;
+
 		return (
 			<section className="aboutMe__wrapper">
-				<p className="aboutMe__text">
-					Incididunt aliqua consequat consectetur occaecat aute in aliquip
-					deserunt dolore nostrud officia mollit laborum laborum ullamco sit
-					labore sint aute sit dolore enim est in pariatur non duis incididunt
-					ad nulla nostrud qui deserunt id labore cillum eiusmod in in eu
-					consequat sunt deserunt pariatur dolore irure sed excepteur aliqua
-					aliqua commodo ut pariatur magna voluptate ad laborum laborum laboris
-					in enim commodo culpa ut et voluptate pariatur proident aliqua et
-					incididunt aliqua sit pariatur ut dolore fugiat enim excepteur duis id
-					est excepteur laborum id laborum voluptate officia exercitation
-					reprehenderit pariatur sint in dolore exercitation aute id ullamco
-					laboris exercitation in pariatur nulla in qui sint minim in sit in ad
-					ut elit tempor mollit anim minim mollit ex anim ullamco irure
-					exercitation proident id sunt dolore aliquip ut duis ad voluptate est
-					nulla fugiat nulla eu adipisicing do tempor cillum velit irure labore
-					tempor ut in nulla qui in commodo magna cillum dolore dolore sit est
-					qui qui in magna minim velit labore mollit eiusmod ut magna ut ullamco
-					ea exercitation tempor enim culpa mollit velit mollit cupidatat in in
-					velit quis.
-				</p>
+				<img
+					className="aboutMe__profilePic"
+					src={profilePic}
+					alt="Mikkel Sandberg profile"
+				/>
+				<article className="aboutMe__intro">
+					<section className="aboutMe__intro__stats">
+						{stats.map((item, key = 0) => {
+							return (
+								<div key={key++} className="aboutMe__intro__stat">
+									<FontAwesomeIcon
+										icon={item.icon}
+										className="aboutMe__intro__stat__icon"
+									/>
+									<p className="aboutMe__intro__stat__text">
+										{Parser(item.stat)}
+									</p>
+								</div>
+							);
+						})}
+					</section>
+				</article>
+				<article className="aboutMe__body">
+					<p className="aboutMe__body__introText">{Parser(introText)}</p>
+					{bodyContent.map((item, key = 0) => {
+						return (
+							<p
+								key={key++}
+								className="aboutMe__body__text"
+								onClick={e => navigateInternal(e)}
+							>
+								{Parser(bodyContent[0])}
+							</p>
+						);
+					})}
+				</article>
 			</section>
 		);
 	}
 }
 
-export default AboutMe;
+export default withRouter(AboutMe);

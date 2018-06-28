@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import StackGrid, { transitions } from "react-stack-grid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowCircleRight } from "@fortawesome/free-solid-svg-icons";
 import WorkItem from "../WorkItem/WorkItem";
 import "./WorkItems.css";
 
@@ -26,7 +25,7 @@ class WorkItems extends Component {
 						<p className="seeAll__text">
 							See All
 							<FontAwesomeIcon
-								icon={faArrowCircleRight}
+								icon="arrow-circle-right"
 								className="seeAll__icon"
 							/>
 						</p>
