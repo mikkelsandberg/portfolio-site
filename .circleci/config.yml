@@ -5,5 +5,4 @@ jobs:
       - image: circleci/node:8
     steps:
       - checkout
-      - restore_cache: # special step to restore the dependency cache
-        run: echo "A first hello"
+      - run: echo "A first hello"
