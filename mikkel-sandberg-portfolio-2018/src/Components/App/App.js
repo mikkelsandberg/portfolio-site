@@ -10,17 +10,12 @@ import AboutMe from "../AboutMe/AboutMe";
 import Contact from "../Contact/Contact";
 import WorkDetails from "../WorkDetails/WorkDetails";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-	faArrowCircleRight,
-	faUser,
-	faMapMarkerAlt,
-	faBriefcase
-} from "@fortawesome/free-solid-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import "./App.css";
 import WorkData from "../../Util/WorkData";
 
-library.add(faArrowCircleRight, faUser, faMapMarkerAlt, faBriefcase, fab);
+library.add(fas, fab);
 
 class App extends Component {
 	constructor() {
@@ -116,6 +111,8 @@ class App extends Component {
 									/>
 									<Header text="About Me" />
 									<AboutMe />
+									<Header text="Contact" />
+									<Contact />
 								</div>
 							);
 						}}
@@ -144,6 +141,18 @@ class App extends Component {
 						}}
 					/>
 					<Route
+						path="/my-work/:workName"
+						render={props => {
+							return (
+								<WorkDetails
+									{...props}
+									formatText={this.formatText}
+									workData={this.state.work}
+								/>
+							);
+						}}
+					/>
+					<Route
 						path="/about-me"
 						render={() => {
 							return (
@@ -163,20 +172,11 @@ class App extends Component {
 							return (
 								<div>
 									<NavBar isSticky={true} />
-									<Contact />
+									<section className="contentWrapper">
+										<Header text="Contact" />
+										<Contact />
+									</section>
 								</div>
-							);
-						}}
-					/>
-					<Route
-						path="/my-work/:workName"
-						render={props => {
-							return (
-								<WorkDetails
-									{...props}
-									formatText={this.formatText}
-									workData={this.state.work}
-								/>
 							);
 						}}
 					/>

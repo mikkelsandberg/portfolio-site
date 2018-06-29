@@ -1,0 +1,45 @@
+@import "variables";
+
+.contact__form {
+	width: 620px;
+	margin: 0 auto;
+
+	&__input {
+		font-family: "fira-sans", sans-serif;
+		font-size: 1.2rem;
+		border: 0;
+		border-bottom: 1px solid $darkGray;
+		padding: 10px;
+		display: block;
+		width: 100%;
+
+		& + * {
+			margin-top: 20px;
+		}
+
+		&--message {
+			border: 1px solid $darkGray;
+			margin-top: 50px;
+			resize: none;
+		}
+
+		&--submit {
+			border: 1px solid $darkGray;
+			background-color: $lightGray;
+			margin: 70px auto 0;
+			width: 100%;
+			max-width: 300px;
+			transition: background-color 0.2s ease-in-out;
+			cursor: pointer;
+
+			&:focus,
+			&:hover {
+				background-color: darken($lightGray, 20%);
+			}
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+}
