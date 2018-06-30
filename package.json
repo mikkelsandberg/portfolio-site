@@ -15,13 +15,12 @@
     "react-image-lightbox": "^5.0.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
+    "react-sizeme": "^2.5.2",
     "react-stack-grid": "^0.7.1"
   },
   "scripts": {
-    "build-css":
-      "node-sass-chokidar --include-path ./src/SassImports src/ -o src/ --output-style expanded",
-    "watch-css":
-      "npm run build-css && node-sass-chokidar --include-path ./src/SassImports src/ -o src/ --output-style expanded --watch --recursive --usePolling",
+    "build-css": "node-sass-chokidar --include-path ./src/SassImports src/ -o src/ --output-style expanded",
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src/SassImports src/ -o src/ --output-style expanded --watch --recursive --usePolling",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",

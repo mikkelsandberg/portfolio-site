@@ -6,7 +6,6 @@
 	}
 }
 
-// splashscreen
 .splashScreen {
 	&__wrapper {
 		background-size: contain;
@@ -23,8 +22,7 @@
 			width: 100%;
 			height: 100%;
 			opacity: 0.15;
-			animation-name: animSplashscreen;
-			animation-duration: 30s;
+			animation: animSplashscreen 30s linear infinite;
 		}
 	}
 
