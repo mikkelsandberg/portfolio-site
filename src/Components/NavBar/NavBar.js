@@ -1,26 +1,7 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import NavLinks from "../NavLinks/NavLinks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./NavBar.css";
-
-const routes = [
-	{
-		path: "/",
-		name: "Home"
-	},
-	{
-		path: "/my-work",
-		name: "My Work"
-	},
-	{
-		path: "/about-me",
-		name: "About Me"
-	},
-	{
-		path: "/contact",
-		name: "Contact"
-	}
-];
 
 const socialLinks = [
 	{
@@ -42,25 +23,45 @@ const socialLinks = [
 ];
 
 class NavBar extends React.Component {
+	constructor() {
+		super();
+
+		this.state = {
+			mobileMenuVisible: false
+		};
+	}
+
+	toggleMobileNav = selector => {
+		console.log(selector);
+		this.setState(
+			prevState => ({
+				mobileMenuVisible: !prevState.mobileMenuVisible
+			}),
+			() => {
+				selector.style.transform = `translateX(${
+					this.state.mobileMenuVisible ? 0 : "-100%"
+				})`;
+			}
+		);
+	};
+
 	render() {
+		const { browserWidth, isSticky } = this.props;
+		const mobileNavDOM = document.querySelector(".mainNav__links--mobile");
+
 		return (
-			<nav className={`mainNav${this.props.isSticky ? " mainNav--fixed" : ""}`}>
-				<ul className="mainNav__links">
-					{routes.map((item, key = 0) => {
-						return (
-							<li key={key++} className="mainNav__links__item">
-								<NavLink
-									exact
-									to={item.path}
-									className="mainNav__links__item__link"
-									activeClassName="is-current"
-								>
-									{item.name}
-								</NavLink>
-							</li>
-						);
-					})}
-				</ul>
+			<nav className={`mainNav${isSticky ? " mainNav--fixed" : ""}`}>
+				{browserWidth <= 700 ? (
+					<FontAwesomeIcon
+						icon="bars"
+						size="2x"
+						className="mainNav__mobileMenuIcon"
+						onClick={() => this.toggleMobileNav(mobileNavDOM)}
+					/>
+				) : (
+					""
+				)}
+				{browserWidth > 700 ? <NavLinks isMobile={false} /> : ""}
 				<ul className="mainNav__social">
 					{socialLinks.map((item, key = 0) => {
 						return (
@@ -77,6 +78,7 @@ class NavBar extends React.Component {
 						);
 					})}
 				</ul>
+				{browserWidth <= 700 ? <NavLinks isMobile={true} /> : ""}
 			</nav>
 		);
 	}

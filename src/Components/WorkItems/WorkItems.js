@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import StackGrid, { transitions } from "react-stack-grid";
-import sizeMe from "react-sizeme";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import WorkItem from "../WorkItem/WorkItem";
 import "./WorkItems.css";
 
 class WorkItems extends Component {
 	render() {
-		const { workData, formatText, numItems } = this.props;
+		const { browserWidth, workData, formatText, numItems } = this.props;
 		const { fade } = transitions;
 		const limitItems = numItems === undefined ? false : true;
 
@@ -38,16 +37,12 @@ class WorkItems extends Component {
 			return workItems;
 		};
 
-		const {
-			size: { width }
-		} = this.props;
-
 		return (
 			<section className="work__wrapper">
 				<StackGrid
 					className="work__inner"
 					itemComponent="div"
-					columnWidth={width >= 768 ? 300 : "100%"}
+					columnWidth={browserWidth >= 768 ? 300 : "100%"}
 					gutterWidth={20}
 					gutterHeight={20}
 					appearDelay={0}
@@ -64,4 +59,4 @@ class WorkItems extends Component {
 	}
 }
 
-export default sizeMe()(WorkItems);
+export default WorkItems;

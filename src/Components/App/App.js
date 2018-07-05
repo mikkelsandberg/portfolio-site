@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
+import sizeMe from "react-sizeme";
 import StickyNav from "../StickyNav/StickyNav";
 import NavBar from "../NavBar/NavBar";
 import Header from "../Header/Header";
@@ -77,6 +78,9 @@ class App extends Component {
 
 	render() {
 		let filteredWork;
+		const browserWidth = this.props.size.width;
+
+		console.log(browserWidth);
 
 		if (this.state.workFilter === "show-all") {
 			filteredWork = this.state.work;
@@ -101,10 +105,11 @@ class App extends Component {
 								<div className="homePage">
 									<SplashScreen />
 									<StickyNav scrollTarget=".splashScreen__wrapper">
-										<NavBar />
+										<NavBar browserWidth={browserWidth} />
 									</StickyNav>
 									<Header text="My Work" />
 									<WorkItems
+										browserWidth={browserWidth}
 										workData={filteredWork}
 										formatText={this.formatText}
 										numItems={3}
@@ -123,7 +128,7 @@ class App extends Component {
 						render={() => {
 							return (
 								<div>
-									<NavBar isSticky={true} />
+									<NavBar browserWidth={browserWidth} isSticky={true} />
 									<section className="contentWrapper">
 										<Header text="My Work" />
 										<WorkFilters
@@ -132,6 +137,7 @@ class App extends Component {
 											handleFilterClick={this.handleFilterClick}
 										/>
 										<WorkItems
+											browserWidth={browserWidth}
 											workData={filteredWork}
 											formatText={this.formatText}
 										/>
@@ -157,7 +163,7 @@ class App extends Component {
 						render={() => {
 							return (
 								<div>
-									<NavBar isSticky={true} />
+									<NavBar browserWidth={browserWidth} isSticky={true} />
 									<section className="contentWrapper">
 										<Header text="About Me" />
 										<AboutMe />
@@ -171,7 +177,7 @@ class App extends Component {
 						render={() => {
 							return (
 								<div>
-									<NavBar isSticky={true} />
+									<NavBar browserWidth={browserWidth} isSticky={true} />
 									<section className="contentWrapper">
 										<Header text="Contact" />
 										<Contact />
@@ -185,7 +191,7 @@ class App extends Component {
 						render={() => {
 							return (
 								<div>
-									<NavBar isSticky={true} />
+									<NavBar browserWidth={browserWidth} isSticky={true} />
 									<section className="contentWrapper">
 										<Header text="Uh Oh! This page does not exist :(" />
 									</section>
@@ -199,4 +205,4 @@ class App extends Component {
 	}
 }
 
-export default App;
+export default sizeMe()(App);

@@ -1,7 +1,8 @@
 @import "variables";
 
 .contact__form {
-	width: 620px;
+	width: 100%;
+	max-width: 620px;
 	margin: 0 auto;
 
 	&__input {

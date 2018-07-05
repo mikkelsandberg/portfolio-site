@@ -16,6 +16,11 @@
 	height: 85px;
 	position: relative;
 
+	&__mobileMenuIcon {
+		@include positionNavSection(left, 30px);
+		cursor: pointer;
+	}
+
 	&__links {
 		display: flex;
 		pointer-events: none;
@@ -24,18 +29,55 @@
 		transition: opacity 0.75s ease-in-out;
 
 		&__item {
-			.is-current {
-				text-decoration: underline;
-			}
-
-			&__link:link,
-			&__link:visited {
-				font-size: 1.25rem;
-				line-height: 1;
+			&__link {
+				&:link,
+				&:visited {
+					font-size: 1.25rem;
+					line-height: 1;
+					text-decoration: none;
+				}
 			}
 
 			&:not(:first-child) {
 				margin-left: 30px;
+			}
+
+			.is-current {
+				text-decoration: underline;
+			}
+
+			&--mobile:not(:first-child) {
+				margin-top: 1em;
+			}
+		}
+
+		&--mobile {
+			background-color: rgba(255, 255, 255, 0.8);
+			width: 100%;
+			height: calc(100% - 85px);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			position: fixed;
+			left: 0;
+			top: 85px;
+			transform: translateX(-100%);
+			transition: transform 0.5s ease-in-out;
+
+			& .mainNav__links {
+				&__item {
+					&__link {
+						&:link,
+						&:visited {
+							font-size: 1.5rem;
+						}
+					}
+
+					&:not(:first-child) {
+						margin: 1em 0 0;
+					}
+				}
 			}
 		}
 	}
@@ -49,6 +91,11 @@
 		&__icon {
 			&:not(:first-child) {
 				margin-left: 30px;
+			}
+
+			&__link:link,
+			&__link:visited {
+				text-decoration: none;
 			}
 		}
 	}
