@@ -1,17 +1,15 @@
-@import "variables";
-
 $tagColors: (
-	("web-development", $yellowColor),
-	("design", $purpleColor),
-	("podcast-production", $greenColor),
-	("video-production", $blueColor),
-	("animation", $orangeColor)
+	("web-development", var(--yellowColor)),
+	("design", var(--purpleColor)),
+	("podcast-production", var(--greenColor)),
+	("video-production", var(--blueColor)),
+	("animation", var(--orangeColor))
 );
 
 .workItem {
 	background-size: cover;
 	background-position: center top;
-	border: 1px solid lighten($darkGray, 50%);
+	border: 1px solid var(--medGray);
 	border-bottom-width: 3px;
 	border-radius: 4px;
 	display: block;
@@ -28,7 +26,7 @@ $tagColors: (
 
 	&__image {
 		background-size: cover;
-		box-shadow: 0px 0px 10px 0px lighten($darkGray, 20%);
+		box-shadow: 0px 0px 10px 0px var(--medGray);
 		width: 100%;
 		height: calc(300px / (16 / 9));
 	}
@@ -41,7 +39,7 @@ $tagColors: (
 
 		&:after {
 			content: "";
-			background-color: $darkGray;
+			background-color: var(--darkGray);
 			display: block;
 			width: 5ex;
 			height: 1px;
@@ -79,10 +77,10 @@ $tagColors: (
 
 	.tag {
 		&:hover {
-			color: $darkGray;
+			color: var(--darkGray);
 
 			.tag__hole {
-				background-color: $lightGray;
+				background-color: var(--lightGray);
 			}
 
 			@each $workType, $color in $tagColors {

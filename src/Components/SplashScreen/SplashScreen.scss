@@ -1,5 +1,3 @@
-@import "variables";
-
 .homePage {
 	.header {
 		margin: 20px 0;
@@ -9,7 +7,7 @@
 .splashScreen {
 	&__wrapper {
 		background-size: contain;
-		background-color: $darkGray;
+		background-color: var(--darkGray);
 		width: 100%;
 		height: 40vh;
 		max-height: 400px;
@@ -17,19 +15,18 @@
 
 		&:after {
 			content: "";
-			background-image: url(https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/splashscreen-pattern.png);
+			background: url(https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/splashscreen.gif);
 			position: absolute;
 			width: 100%;
 			height: 100%;
 			opacity: 0.15;
-			animation: animSplashscreen 60s linear infinite;
 		}
 	}
 
 	&__heading {
 		font-size: 7vmin;
 		line-height: 1.2;
-		color: $lightGray;
+		color: var(--lightGray);
 		text-align: left;
 		position: absolute;
 		top: 50%;
@@ -39,12 +36,3 @@
 	}
 }
 
-@keyframes animSplashscreen {
-	from {
-		background-position-x: 0%;
-	}
-
-	to {
-		background-position-x: 100%;
-	}
-}

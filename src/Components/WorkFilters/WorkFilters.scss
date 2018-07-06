@@ -1,12 +1,10 @@
-@import "variables";
-
 $filterColors: (
-	("red", $redColor),
-	("yellow", $yellowColor),
-	("purple", $purpleColor),
-	("green", $greenColor),
-	("blue", $blueColor),
-	("orange", $orangeColor)
+	("red", var(--redColor)),
+	("yellow", var(--yellowColor)),
+	("purple", var(--purpleColor)),
+	("green", var(--greenColor)),
+	("blue", var(--blueColor)),
+	("orange", var(--orangeColor))
 );
 
 .filters__list {
@@ -21,7 +19,7 @@ $filterColors: (
 	font-size: 1.25rem;
 	line-height: 1;
 	background-color: transparent;
-	border: 1px solid $darkGray;
+	border: 1px solid var(--darkGray);
 	padding: 10px;
 	margin: 10px;
 	cursor: pointer;
@@ -58,7 +56,7 @@ $filterColors: (
 	}
 
 	&--active {
-		color: $lightGray;
-		background-color: $darkGray;
+		color: var(--lightGray);
+		background-color: var(--darkGray);
 	}
 }

@@ -12,19 +12,19 @@ body {
 	// font-family: "kepler-std", serif;
 	font-family: "fira-sans", sans-serif;
 	font-size: 16px;
-	color: $darkGray;
-	background-color: $lightGray;
+	color: var(--darkGray);
+	background-color: var(--lightGray);
 }
 
 a {
 	&:link,
 	&:visited {
-		color: $darkGray;
+		color: var(--darkGray);
 		text-decoration: underline;
 	}
 
 	&:hover {
-		color: $darkGray;
+		color: var(--darkGray);
 	}
 }
 

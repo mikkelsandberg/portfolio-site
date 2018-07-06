@@ -1,5 +1,3 @@
-@import "variables";
-
 // mixins
 @mixin positionNavSection($side, $value) {
 	position: absolute;
@@ -10,8 +8,8 @@
 
 // navbar
 .mainNav {
-	border-bottom: 1px solid $darkGray;
-	background-color: $lightGray;
+	border-bottom: 1px solid var(--darkGray);
+	background-color: var(--lightGray);
 	width: 100%;
 	height: 85px;
 	position: relative;

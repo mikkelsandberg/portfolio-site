@@ -1,9 +1,12 @@
 // colors
-$lightGray: #ffffff;
-$darkGray: #191919;
-$redColor: #f6a6b1;
-$yellowColor: #fffdac;
-$purpleColor: #a785bf;
-$greenColor: #aae198;
-$blueColor: #8798bf;
-$orangeColor: #ffd1ac;
+:root {
+	--lightGray: #ffffff;
+	--medGray: #cccccc;
+	--darkGray: #191919;
+	--redColor: #f6a6b1;
+	--yellowColor: #fffdac;
+	--purpleColor: #a785bf;
+	--greenColor: #aae198;
+	--blueColor: #8798bf;
+	--orangeColor: #ffd1ac;
+}
