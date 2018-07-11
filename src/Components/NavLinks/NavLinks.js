@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 class NavLinks extends Component {
 	render() {
-		const { isMobile } = this.props;
+		const { isMobile, resetMobileMenu } = this.props;
 
 		const routes = [
 			{
@@ -34,6 +34,7 @@ class NavLinks extends Component {
 								to={item.path}
 								className="mainNav__links__item__link"
 								activeClassName="is-current"
+								onClick={resetMobileMenu}
 							>
 								{item.name}
 							</NavLink>

@@ -23,45 +23,46 @@ const socialLinks = [
 ];
 
 class NavBar extends React.Component {
-	constructor() {
-		super();
+	// toggleMobileNav = () => {
+	// 	const mobileNavDOM = document.querySelector(".mainNav__links--mobile");
 
-		this.state = {
-			mobileMenuVisible: false
-		};
-	}
-
-	toggleMobileNav = selector => {
-		console.log(selector);
-		this.setState(
-			prevState => ({
-				mobileMenuVisible: !prevState.mobileMenuVisible
-			}),
-			() => {
-				selector.style.transform = `translateX(${
-					this.state.mobileMenuVisible ? 0 : "-100%"
-				})`;
-			}
-		);
-	};
+	// 	this.setState(
+	// 		prevState => ({
+	// 			mobileMenuVisible: !prevState.mobileMenuVisible
+	// 		}),
+	// 		() => {
+	// 			mobileNavDOM.style.transform = `translateX(${
+	// 				this.state.mobileMenuVisible ? 0 : "-100%"
+	// 			})`;
+	// 		}
+	// 	);
+	// };
 
 	render() {
-		const { browserWidth, isSticky } = this.props;
-		const mobileNavDOM = document.querySelector(".mainNav__links--mobile");
+		const {
+			browserWidth,
+			isSticky,
+			toggleMobileNav,
+			resetMobileMenu
+		} = this.props;
 
 		return (
 			<nav className={`mainNav${isSticky ? " mainNav--fixed" : ""}`}>
-				{browserWidth <= 700 ? (
+				{browserWidth < 768 ? (
 					<FontAwesomeIcon
 						icon="bars"
 						size="2x"
 						className="mainNav__mobileMenuIcon"
-						onClick={() => this.toggleMobileNav(mobileNavDOM)}
+						onClick={toggleMobileNav}
 					/>
 				) : (
 					""
 				)}
-				{browserWidth > 700 ? <NavLinks isMobile={false} /> : ""}
+				{browserWidth >= 768 ? (
+					<NavLinks isMobile={false} resetMobileMenu={resetMobileMenu} />
+				) : (
+					""
+				)}
 				<ul className="mainNav__social">
 					{socialLinks.map((item, key = 0) => {
 						return (
@@ -78,7 +79,11 @@ class NavBar extends React.Component {
 						);
 					})}
 				</ul>
-				{browserWidth <= 700 ? <NavLinks isMobile={true} /> : ""}
+				{browserWidth < 768 ? (
+					<NavLinks isMobile={true} resetMobileMenu={resetMobileMenu} />
+				) : (
+					""
+				)}
 			</nav>
 		);
 	}

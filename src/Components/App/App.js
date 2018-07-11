@@ -24,7 +24,8 @@ class App extends Component {
 
 		this.state = {
 			work: WorkData,
-			workFilter: "show-all"
+			workFilter: "show-all",
+			mobileMenuVisible: false
 		};
 	}
 
@@ -76,11 +77,30 @@ class App extends Component {
 		});
 	};
 
+	toggleMobileNav = () => {
+		const mobileNavDOM = document.querySelector(".mainNav__links--mobile");
+
+		this.setState(
+			prevState => ({
+				mobileMenuVisible: !prevState.mobileMenuVisible
+			}),
+			() => {
+				mobileNavDOM.style.transform = `translateX(${
+					this.state.mobileMenuVisible ? 0 : "-100%"
+				})`;
+			}
+		);
+	};
+
+	resetMobileMenu = () => {
+		this.setState({
+			mobileMenuVisible: false
+		});
+	};
+
 	render() {
 		let filteredWork;
 		const browserWidth = this.props.size.width;
-
-		console.log(browserWidth);
 
 		if (this.state.workFilter === "show-all") {
 			filteredWork = this.state.work;
@@ -105,7 +125,12 @@ class App extends Component {
 								<div className="homePage">
 									<SplashScreen />
 									<StickyNav scrollTarget=".splashScreen__wrapper">
-										<NavBar browserWidth={browserWidth} />
+										<NavBar
+											browserWidth={browserWidth}
+											mobileMenuVisible={this.state.mobileMenuVisible}
+											toggleMobileNav={this.toggleMobileNav}
+											resetMobileMenu={this.resetMobileMenu}
+										/>
 									</StickyNav>
 									<Header text="My Work" />
 									<WorkItems
@@ -128,7 +153,13 @@ class App extends Component {
 						render={() => {
 							return (
 								<div>
-									<NavBar browserWidth={browserWidth} isSticky={true} />
+									<NavBar
+										browserWidth={browserWidth}
+										isSticky={true}
+										mobileMenuVisible={this.state.mobileMenuVisible}
+										toggleMobileNav={this.toggleMobileNav}
+										resetMobileMenu={this.resetMobileMenu}
+									/>
 									<section className="contentWrapper">
 										<Header text="My Work" />
 										<WorkFilters
@@ -163,7 +194,13 @@ class App extends Component {
 						render={() => {
 							return (
 								<div>
-									<NavBar browserWidth={browserWidth} isSticky={true} />
+									<NavBar
+										browserWidth={browserWidth}
+										isSticky={true}
+										mobileMenuVisible={this.state.mobileMenuVisible}
+										toggleMobileNav={this.toggleMobileNav}
+										resetMobileMenu={this.resetMobileMenu}
+									/>
 									<section className="contentWrapper">
 										<Header text="About Me" />
 										<AboutMe />
@@ -177,7 +214,13 @@ class App extends Component {
 						render={() => {
 							return (
 								<div>
-									<NavBar browserWidth={browserWidth} isSticky={true} />
+									<NavBar
+										browserWidth={browserWidth}
+										isSticky={true}
+										mobileMenuVisible={this.state.mobileMenuVisible}
+										toggleMobileNav={this.toggleMobileNav}
+										resetMobileMenu={this.resetMobileMenu}
+									/>
 									<section className="contentWrapper">
 										<Header text="Contact" />
 										<Contact />
@@ -191,7 +234,13 @@ class App extends Component {
 						render={() => {
 							return (
 								<div>
-									<NavBar browserWidth={browserWidth} isSticky={true} />
+									<NavBar
+										browserWidth={browserWidth}
+										isSticky={true}
+										mobileMenuVisible={this.state.mobileMenuVisible}
+										toggleMobileNav={this.toggleMobileNav}
+										resetMobileMenu={this.resetMobileMenu}
+									/>
 									<section className="contentWrapper">
 										<Header text="Uh Oh! This page does not exist :(" />
 									</section>

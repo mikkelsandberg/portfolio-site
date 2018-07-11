@@ -16,7 +16,9 @@
 
 	&__mobileMenuIcon {
 		@include positionNavSection(left, 30px);
-		cursor: pointer;
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 0.75s ease-in-out;
 	}
 
 	&__links {
@@ -105,6 +107,11 @@
 		justify-content: space-between;
 
 		& .mainNav {
+			&__mobileMenuIcon {
+				cursor: pointer;
+			}
+
+			&__mobileMenuIcon,
 			&__links {
 				pointer-events: all;
 				opacity: 1;
