@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 class NavLinks extends Component {
 	render() {
-		const { isMobile, resetMobileMenu } = this.props;
+		const { resetMobileMenu } = this.props;
 
 		const routes = [
 			{
@@ -25,7 +25,7 @@ class NavLinks extends Component {
 		];
 
 		return (
-			<ul className={`mainNav__links${isMobile ? "--mobile" : ""}`}>
+			<ul className="mainNav__links">
 				{routes.map((item, key = 0) => {
 					return (
 						<li key={key++} className="mainNav__links__item">

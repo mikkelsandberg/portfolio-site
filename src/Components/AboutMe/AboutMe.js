@@ -17,9 +17,14 @@ class AboutMe extends Component {
 	render() {
 		const { profilePic, stats, introText, bodyContent } = AboutMeData;
 		const { navigateInternal } = this;
+		const { browserWidth } = this.props;
 
 		return (
-			<section className="aboutMe__wrapper">
+			<section
+				className={`aboutMe__wrapper${
+					browserWidth < 768 ? " aboutMe__wrapper--mobile" : ""
+				}`}
+			>
 				<img
 					className="aboutMe__profilePic"
 					src={profilePic}

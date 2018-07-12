@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import sizeMe from "react-sizeme";
-import StickyNav from "../StickyNav/StickyNav";
 import NavBar from "../NavBar/NavBar";
 import Header from "../Header/Header";
 import SplashScreen from "../SplashScreen/SplashScreen";
@@ -78,24 +77,15 @@ class App extends Component {
 	};
 
 	toggleMobileNav = () => {
-		const mobileNavDOM = document.querySelector(".mainNav__links--mobile");
-
-		this.setState(
-			prevState => ({
-				mobileMenuVisible: !prevState.mobileMenuVisible
-			}),
-			() => {
-				mobileNavDOM.style.transform = `translateX(${
-					this.state.mobileMenuVisible ? 0 : "-100%"
-				})`;
-			}
-		);
+		this.setState(prevState => ({
+			mobileMenuVisible: !prevState.mobileMenuVisible
+		}));
 	};
 
 	resetMobileMenu = () => {
-		this.setState({
-			mobileMenuVisible: false
-		});
+		if (this.props.size.width < 768) {
+			this.toggleMobileNav();
+		}
 	};
 
 	render() {
@@ -123,15 +113,12 @@ class App extends Component {
 						render={() => {
 							return (
 								<div className="homePage">
-									<SplashScreen />
-									<StickyNav scrollTarget=".splashScreen__wrapper">
-										<NavBar
-											browserWidth={browserWidth}
-											mobileMenuVisible={this.state.mobileMenuVisible}
-											toggleMobileNav={this.toggleMobileNav}
-											resetMobileMenu={this.resetMobileMenu}
-										/>
-									</StickyNav>
+									<SplashScreen
+										browserWidth={browserWidth}
+										mobileMenuVisible={this.state.mobileMenuVisible}
+										toggleMobileNav={this.toggleMobileNav}
+										resetMobileMenu={this.resetMobileMenu}
+									/>
 									<Header text="My Work" />
 									<WorkItems
 										browserWidth={browserWidth}
@@ -140,7 +127,7 @@ class App extends Component {
 										numItems={3}
 									/>
 									<Header text="About Me" />
-									<AboutMe />
+									<AboutMe browserWidth={browserWidth} />
 									<Header text="Contact" />
 									<Contact />
 								</div>
@@ -155,7 +142,6 @@ class App extends Component {
 								<div>
 									<NavBar
 										browserWidth={browserWidth}
-										isSticky={true}
 										mobileMenuVisible={this.state.mobileMenuVisible}
 										toggleMobileNav={this.toggleMobileNav}
 										resetMobileMenu={this.resetMobileMenu}
@@ -196,14 +182,13 @@ class App extends Component {
 								<div>
 									<NavBar
 										browserWidth={browserWidth}
-										isSticky={true}
 										mobileMenuVisible={this.state.mobileMenuVisible}
 										toggleMobileNav={this.toggleMobileNav}
 										resetMobileMenu={this.resetMobileMenu}
 									/>
 									<section className="contentWrapper">
 										<Header text="About Me" />
-										<AboutMe />
+										<AboutMe browserWidth={browserWidth} />
 									</section>
 								</div>
 							);
@@ -216,7 +201,6 @@ class App extends Component {
 								<div>
 									<NavBar
 										browserWidth={browserWidth}
-										isSticky={true}
 										mobileMenuVisible={this.state.mobileMenuVisible}
 										toggleMobileNav={this.toggleMobileNav}
 										resetMobileMenu={this.resetMobileMenu}
@@ -236,7 +220,6 @@ class App extends Component {
 								<div>
 									<NavBar
 										browserWidth={browserWidth}
-										isSticky={true}
 										mobileMenuVisible={this.state.mobileMenuVisible}
 										toggleMobileNav={this.toggleMobileNav}
 										resetMobileMenu={this.resetMobileMenu}

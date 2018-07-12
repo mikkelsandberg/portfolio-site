@@ -23,31 +23,50 @@ const socialLinks = [
 ];
 
 class NavBar extends React.Component {
-	// toggleMobileNav = () => {
-	// 	const mobileNavDOM = document.querySelector(".mainNav__links--mobile");
+	componentDidMount() {
+		if (this.props.scrollTarget !== undefined) {
+			this.checkScrollTop();
 
-	// 	this.setState(
-	// 		prevState => ({
-	// 			mobileMenuVisible: !prevState.mobileMenuVisible
-	// 		}),
-	// 		() => {
-	// 			mobileNavDOM.style.transform = `translateX(${
-	// 				this.state.mobileMenuVisible ? 0 : "-100%"
-	// 			})`;
-	// 		}
-	// 	);
-	// };
+			window.addEventListener("scroll", () => this.checkScrollTop());
+		}
+	}
+
+	checkScrollTop = (
+		{ scrollTarget } = this.props,
+		{ setClearOfHeader } = this.props
+	) => {
+		const scrollTargetElem = document.querySelector(scrollTarget) || null;
+		const navBarElem = document.querySelector(".mainNav") || null;
+
+		if (scrollTargetElem !== null && navBarElem !== null) {
+			if (
+				window.scrollY >=
+				scrollTargetElem.offsetHeight - navBarElem.offsetHeight
+			) {
+				setClearOfHeader(true);
+			} else {
+				setClearOfHeader(false);
+			}
+		}
+	};
 
 	render() {
 		const {
 			browserWidth,
-			isSticky,
+			mobileMenuVisible,
+			clearOfHeader,
 			toggleMobileNav,
 			resetMobileMenu
 		} = this.props;
 
 		return (
-			<nav className={`mainNav${isSticky ? " mainNav--fixed" : ""}`}>
+			<nav
+				className={`mainNav${
+					clearOfHeader === false ? " mainNav--notClear" : ""
+				}${browserWidth < 768 ? " mainNav--mobile" : ""}${
+					mobileMenuVisible === true ? " mainNav--showMobileMenu" : ""
+				}`}
+			>
 				{browserWidth < 768 ? (
 					<FontAwesomeIcon
 						icon="bars"
@@ -58,11 +77,7 @@ class NavBar extends React.Component {
 				) : (
 					""
 				)}
-				{browserWidth >= 768 ? (
-					<NavLinks isMobile={false} resetMobileMenu={resetMobileMenu} />
-				) : (
-					""
-				)}
+				<NavLinks resetMobileMenu={resetMobileMenu} />
 				<ul className="mainNav__social">
 					{socialLinks.map((item, key = 0) => {
 						return (
@@ -79,11 +94,6 @@ class NavBar extends React.Component {
 						);
 					})}
 				</ul>
-				{browserWidth < 768 ? (
-					<NavLinks isMobile={true} resetMobileMenu={resetMobileMenu} />
-				) : (
-					""
-				)}
 			</nav>
 		);
 	}

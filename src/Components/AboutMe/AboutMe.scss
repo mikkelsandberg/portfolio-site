@@ -1,26 +1,43 @@
 .aboutMe {
 	&__wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
 		max-width: 620px;
+		padding: 0 20px;
 		margin: 0 auto;
-		display: grid;
-		grid-template-columns: 200px auto;
-		grid-template-rows: auto auto;
+
+		&--mobile {
+			display: block;
+
+			& .aboutMe {
+				&__intro {
+					padding-left: 0;
+					&__stat {
+						justify-content: center;
+						text-align: center;
+					}
+				}
+			}
+		}
 	}
 
 	&__profilePic {
+		flex: 0 1 auto;
 		border-radius: 50%;
 		width: 100%;
+		max-width: 220px;
 	}
 
 	&__intro {
-		padding-left: 20px;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
+		flex: 0 1 auto;
 
 		&__stat {
 			font-size: 1.1rem;
+			line-height: 1.15;
 			display: flex;
+			margin: 20px;
 
 			&:not(:first-of-type) {
 				margin-top: 20px;
@@ -37,7 +54,7 @@
 	}
 
 	&__body {
-		grid-column: auto / span 2;
+		flex: 1 0 100%;
 		margin-top: 40px;
 
 		&__introText {
@@ -47,8 +64,8 @@
 		}
 
 		&__text {
-			font-size: 1rem;
-			line-height: normal;
+			font-size: 1.15rem;
+			line-height: 1.7;
 		}
 	}
 }

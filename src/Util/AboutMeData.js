@@ -7,7 +7,7 @@ const AboutMeData = {
 			icon: "user"
 		},
 		{
-			stat: "Web Developer, Designer, and Podcast Producer",
+			stat: "Web Developer,<br>Designer, and<br>Podcast Producer",
 			icon: "briefcase"
 		},
 		{

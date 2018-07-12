@@ -12,21 +12,128 @@
 	background-color: var(--lightGray);
 	width: 100%;
 	height: 85px;
-	position: relative;
+	position: fixed;
+	left: 0;
+	top: 0;
+	transition: all 0.5s ease-in-out;
+	z-index: 100;
+
+	&--notClear {
+		border-bottom-color: transparent;
+		background-color: rgba(0, 0, 0, 0.35);
+
+		.mainNav {
+			&__links {
+				&__item {
+					&__link {
+						&:link,
+						&:visited {
+							color: var(--lightGray);
+						}
+					}
+				}
+			}
+
+			&__mobileMenuIcon {
+				color: var(--lightGray);
+			}
+
+			&__social {
+				&__icon {
+					&__link {
+						&:link,
+						&:visited {
+							color: var(--lightGray);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&--mobile {
+		&.mainNav--notClear {
+			& .mainNav {
+				&__links {
+					&__item {
+						&__link {
+							&:link,
+							&:visited {
+								color: var(--darkGray);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		& .mainNav {
+			&__links {
+				background-color: rgba(255, 255, 255, 0.8);
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				position: fixed;
+				left: 0;
+				top: 0;
+				transform: translate(-100%, 0);
+				transition: transform 0.5s ease-in-out;
+
+				&__item {
+					&__link {
+						&:link,
+						&:visited {
+							font-size: 1.5rem;
+						}
+					}
+
+					&:not(:first-child) {
+						margin: 1em 0 0;
+					}
+				}
+			}
+		}
+	}
+
+	&--showMobileMenu {
+		border-bottom-color: transparent;
+		background-color: transparent;
+
+		& .mainNav {
+			&__mobileMenuIcon {
+				color: var(--darkGray);
+			}
+
+			&__links {
+				transform: translate(0, 0);
+			}
+
+			&__social {
+				&__icon {
+					&__link {
+						&:link,
+						&:visited {
+							color: var(--darkGray);
+						}
+					}
+				}
+			}
+		}
+	}
 
 	&__mobileMenuIcon {
 		@include positionNavSection(left, 30px);
-		pointer-events: none;
-		opacity: 0;
-		transition: opacity 0.75s ease-in-out;
+		cursor: pointer;
+		transition: all 0.5s ease-in-out;
+		z-index: 100;
 	}
 
 	&__links {
 		display: flex;
-		pointer-events: none;
-		opacity: 0;
 		@include positionNavSection(left, 30px);
-		transition: opacity 0.75s ease-in-out;
 
 		&__item {
 			&__link {
@@ -45,48 +152,13 @@
 			.is-current {
 				text-decoration: underline;
 			}
-
-			&--mobile:not(:first-child) {
-				margin-top: 1em;
-			}
-		}
-
-		&--mobile {
-			background-color: rgba(255, 255, 255, 0.8);
-			width: 100%;
-			height: calc(100% - 85px);
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			position: fixed;
-			left: 0;
-			top: 85px;
-			transform: translateX(-100%);
-			transition: transform 0.5s ease-in-out;
-
-			& .mainNav__links {
-				&__item {
-					&__link {
-						&:link,
-						&:visited {
-							font-size: 1.5rem;
-						}
-					}
-
-					&:not(:first-child) {
-						margin: 1em 0 0;
-					}
-				}
-			}
 		}
 	}
 
 	&__social {
 		display: flex;
-		@include positionNavSection(left, 50%);
-		transform: translate(-50%, -50%);
-		transition: left 0.75s ease-in-out;
+		@include positionNavSection(right, 30px);
+		z-index: 100;
 
 		&__icon {
 			&:not(:first-child) {
@@ -96,30 +168,7 @@
 			&__link:link,
 			&__link:visited {
 				text-decoration: none;
-			}
-		}
-	}
-
-	&--fixed {
-		position: fixed;
-		top: 0;
-		z-index: 100;
-		justify-content: space-between;
-
-		& .mainNav {
-			&__mobileMenuIcon {
-				cursor: pointer;
-			}
-
-			&__mobileMenuIcon,
-			&__links {
-				pointer-events: all;
-				opacity: 1;
-			}
-
-			&__social {
-				left: calc(100% - 30px - 186px);
-				transform: translate(0, -50%);
+				transition: all 0.5s ease-in-out;
 			}
 		}
 	}
