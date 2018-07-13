@@ -2,6 +2,7 @@ import React from "react";
 import NavLinks from "../NavLinks/NavLinks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./NavBar.css";
+import PropTypes from "prop-types";
 
 const socialLinks = [
 	{
@@ -98,5 +99,15 @@ class NavBar extends React.Component {
 		);
 	}
 }
+
+NavBar.propTypes = {
+	browserWidth: PropTypes.number.isRequired,
+	mobileMenuVisible: PropTypes.bool.isRequired,
+	toggleMobileNav: PropTypes.func.isRequired,
+	resetMobileMenu: PropTypes.func.isRequired,
+	scrollTarget: PropTypes.string,
+	clearOfHeader: PropTypes.bool,
+	setClearOfHeader: PropTypes.func
+};
 
 export default NavBar;

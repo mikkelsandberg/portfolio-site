@@ -24,7 +24,8 @@ class App extends Component {
 		this.state = {
 			work: WorkData,
 			workFilter: "show-all",
-			mobileMenuVisible: false
+			mobileMenuVisible: false,
+			clearOfHeader: true
 		};
 	}
 
@@ -88,6 +89,18 @@ class App extends Component {
 		}
 	};
 
+	setClearOfHeader = isClear => {
+		if (isClear) {
+			this.setState({
+				clearOfHeader: true
+			});
+		} else {
+			this.setState({
+				clearOfHeader: false
+			});
+		}
+	};
+
 	render() {
 		let filteredWork;
 		const browserWidth = this.props.size.width;
@@ -106,6 +119,15 @@ class App extends Component {
 
 		return (
 			<main id="App">
+				<NavBar
+					browserWidth={browserWidth}
+					mobileMenuVisible={mobileMenuVisible}
+					toggleMobileNav={toggleMobileNav}
+					resetMobileMenu={resetMobileMenu}
+					scrollTarget=".splashScreen__wrapper"
+					clearOfHeader={this.state.clearOfHeader}
+					setClearOfHeader={this.setClearOfHeader}
+				/>
 				<Switch>
 					<Route
 						exact
@@ -113,12 +135,7 @@ class App extends Component {
 						render={() => {
 							return (
 								<div className="homePage">
-									<SplashScreen
-										browserWidth={browserWidth}
-										mobileMenuVisible={this.state.mobileMenuVisible}
-										toggleMobileNav={this.toggleMobileNav}
-										resetMobileMenu={this.resetMobileMenu}
-									/>
+									<SplashScreen setClearOfHeader={this.setClearOfHeader} />
 									<Header text="My Work" />
 									<WorkItems
 										browserWidth={browserWidth}

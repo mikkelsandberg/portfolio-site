@@ -10,6 +10,7 @@
     "html-react-parser": "^0.4.6",
     "node-sass-chokidar": "^1.2.2",
     "npm-run-all": "^4.1.2",
+    "prop-types": "^15.6.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-image-lightbox": "^5.0.0",

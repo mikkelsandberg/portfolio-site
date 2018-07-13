@@ -1,53 +1,20 @@
-import React from "react";
+import React, { Component } from "react";
 import NavBar from "../NavBar/NavBar";
 import "./SplashScreen.css";
+import PropTypes from "prop-types";
 
-class SplashScreen extends React.Component {
-	constructor() {
-		super();
-
-		this.state = {
-			clearOfHeader: false
-		};
+class SplashScreen extends Component {
+	componentDidMount() {
+		this.props.setClearOfHeader(false);
 	}
 
-	setClearOfHeader = isClear => {
-		if (isClear) {
-			this.setState({
-				clearOfHeader: true
-			});
-		} else {
-			this.setState({
-				clearOfHeader: false
-			});
-		}
-	};
-
 	componentWillUnmount() {
-		this.setState({
-			clearOfHeader: true
-		});
+		this.props.setClearOfHeader(true);
 	}
 
 	render() {
-		const {
-			browserWidth,
-			mobileMenuVisible,
-			toggleMobileNav,
-			resetMobileMenu
-		} = this.props;
-
 		return (
 			<section className="splashScreen__wrapper">
-				<NavBar
-					browserWidth={browserWidth}
-					mobileMenuVisible={mobileMenuVisible}
-					toggleMobileNav={toggleMobileNav}
-					resetMobileMenu={resetMobileMenu}
-					scrollTarget=".splashScreen__wrapper"
-					clearOfHeader={this.state.clearOfHeader}
-					setClearOfHeader={this.setClearOfHeader}
-				/>
 				<h1 className="splashScreen__heading">
 					Web development &<br />
 					Podcast production &<br />
@@ -57,5 +24,9 @@ class SplashScreen extends React.Component {
 		);
 	}
 }
+
+SplashScreen.propTypes = {
+	setClearOfHeader: PropTypes.func.isRequired
+};
 
 export default SplashScreen;

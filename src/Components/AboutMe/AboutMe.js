@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Parser from "html-react-parser";
 import { withRouter } from "react-router-dom";
 import "./AboutMe.css";
+import PropTypes from "prop-types";
 
 class AboutMe extends Component {
 	navigateInternal = e => {
@@ -65,5 +66,9 @@ class AboutMe extends Component {
 		);
 	}
 }
+
+AboutMe.propTypes = {
+	browserWidth: PropTypes.number
+};
 
 export default withRouter(AboutMe);
