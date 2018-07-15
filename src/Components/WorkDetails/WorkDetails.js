@@ -1,22 +1,17 @@
-import React, { Component } from "react";
-import WorkHeader from "../WorkHeader/WorkHeader";
-import WorkImages from "../WorkImages/WorkImages";
-import WorkDescription from "../WorkDescription/WorkDescription";
-import "./WorkDetails.css";
+import React, { Component } from 'react';
+import WorkImages from '../WorkImages/WorkImages';
+import WorkDescription from '../WorkDescription/WorkDescription';
+import './WorkDetails.css';
+import PropTypes from 'prop-types';
 
 class WorkDetails extends Component {
 	componentDidMount() {
-		window.scroll({ top: 0 });
+		this.props.scrollToTop();
 	}
 
-	filteredWork = (
-		{ workData, formatText } = this.props,
-		{ workName } = this.props.match.params
-	) => {
+	filteredWork = ({ workData, formatText } = this.props, { workName } = this.props.match.params) => {
 		return workData.find(item => {
-			let formattedName = `${formatText(item.workLabel)}-${formatText(
-				item.workTitle
-			)}`;
+			let formattedName = `${formatText(item.workLabel)}-${formatText(item.workTitle)}`;
 			return formattedName === workName;
 		});
 	};
@@ -25,32 +20,17 @@ class WorkDetails extends Component {
 		if (filteredWork() === undefined) {
 			return (
 				<section className="workDetails">
-					<WorkHeader workExists={false} />
 					<p>No work to show</p>
 				</section>
 			);
 		} else {
-			const {
-				workLabel,
-				workTitle,
-				images,
-				description,
-				skills,
-				links
-			} = filteredWork();
+			const { workLabel, workTitle, images, description, skills, links } = filteredWork();
 			return (
 				<section className="workDetails">
-					<WorkHeader
-						workLabel={workLabel}
-						workTitle={workTitle}
-						workExists={true}
-					/>
-					<WorkImages
-						images={images}
-						workLabel={workLabel}
-						workTitle={workTitle}
-					/>
+					<WorkImages images={images} workLabel={workLabel} workTitle={workTitle} />
 					<WorkDescription
+						workTitle={workTitle}
+						workLabel={workLabel}
 						description={description}
 						skills={skills}
 						links={links}
@@ -64,5 +44,11 @@ class WorkDetails extends Component {
 		return showWork();
 	}
 }
+
+WorkDetails.propTypes = {
+	scrollToTop: PropTypes.func.isRequired,
+	formatText: PropTypes.func.isRequired,
+	workData: PropTypes.array.isRequired
+};
 
 export default WorkDetails;

@@ -1,12 +1,17 @@
-import React, { Component } from "react";
-import "./WorkDescription.css";
+import React, { Component } from 'react';
+import './WorkDescription.css';
+import PropTypes from 'prop-types';
 
 class WorkDescription extends Component {
 	render() {
-		const { description, skills, links } = this.props;
+		const { workTitle, workLabel, description, skills, links } = this.props;
 
 		return (
 			<section className="workDetails__info">
+				<header className="workDetails__header">
+					<h1 className="workDetails__header__label">{workLabel}</h1>
+					<h2 className="workDetails__header__title">{workTitle}</h2>
+				</header>
 				<article className="workDetails__info__description">
 					<p className="workDetails__info__description__text">{description}</p>
 				</article>
@@ -26,12 +31,7 @@ class WorkDescription extends Component {
 						{links.map((link, key = 0) => {
 							return (
 								<p key={key++}>
-									<a
-										href={link.url}
-										className="workDetails__info__footer__links__link"
-										target="_blank"
-										rel="noopener"
-									>
+									<a href={link.url} className="workDetails__info__footer__links__link" target="_blank" rel="noopener">
 										{link.title}
 									</a>
 								</p>
@@ -43,5 +43,13 @@ class WorkDescription extends Component {
 		);
 	}
 }
+
+WorkDescription.propTypes = {
+	workTitle: PropTypes.string.isRequired,
+	workLabel: PropTypes.string.isRequired,
+	description: PropTypes.string.isRequired,
+	skills: PropTypes.array.isRequired,
+	links: PropTypes.array.isRequired
+};
 
 export default WorkDescription;

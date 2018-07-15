@@ -1,7 +1,6 @@
-import React, { Component } from "react";
-import NavBar from "../NavBar/NavBar";
-import "./SplashScreen.css";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import './SplashScreen.css';
+import PropTypes from 'prop-types';
 
 class SplashScreen extends Component {
 	componentDidMount() {

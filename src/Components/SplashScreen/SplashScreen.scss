@@ -1,20 +1,13 @@
-.homePage {
-	.header {
-		margin: 20px 0;
-	}
-}
-
 .splashScreen {
 	&__wrapper {
 		background-size: contain;
 		background-color: var(--darkGray);
 		width: 100%;
-		height: calc(40vh + 85px);
-		max-height: 400px;
+		height: calc(40vmin + 85px);
 		position: relative;
 
 		&:after {
-			content: "";
+			content: '';
 			background: url(https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/splashscreen.gif);
 			position: absolute;
 			left: 0;
@@ -26,10 +19,11 @@
 	}
 
 	&__heading {
-		font-size: 7vmin;
+		font-size: 8vmin;
 		line-height: 1.2;
 		color: var(--lightGray);
 		text-align: left;
+		padding-top: 85px;
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -37,4 +31,3 @@
 		white-space: nowrap;
 	}
 }
-

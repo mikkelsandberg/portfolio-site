@@ -1,13 +1,14 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import StackGrid, { transitions } from "react-stack-grid";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import WorkItem from "../WorkItem/WorkItem";
-import "./WorkItems.css";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import StackGrid, { transitions } from 'react-stack-grid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import WorkItem from '../WorkItem/WorkItem';
+import './WorkItems.css';
+import PropTypes from 'prop-types';
 
 class WorkItems extends Component {
 	componentDidMount() {
-		window.scroll({ top: 0 });
+		this.props.scrollToTop();
 	}
 
 	render() {
@@ -20,9 +21,7 @@ class WorkItems extends Component {
 
 			for (let i = 0; i < (limitItems ? numItems : workData.length); i++) {
 				let item = workData[i];
-				workItems.push(
-					<WorkItem key={item.id} item={item} formatText={formatText} />
-				);
+				workItems.push(<WorkItem key={item.id} item={item} formatText={formatText} />);
 			}
 
 			if (limitItems) {
@@ -30,10 +29,7 @@ class WorkItems extends Component {
 					<Link to="/my-work" key="seeAll" className="seeAll__wrapper">
 						<p className="seeAll__text">
 							See All
-							<FontAwesomeIcon
-								icon="arrow-circle-right"
-								className="seeAll__icon"
-							/>
+							<FontAwesomeIcon icon="arrow-circle-right" className="seeAll__icon" />
 						</p>
 					</Link>
 				);
@@ -42,14 +38,14 @@ class WorkItems extends Component {
 		};
 
 		const renderDesktopOrMobile = () => {
-			let output = "";
+			let output = '';
 
 			if (browserWidth >= 768) {
 				output = (
 					<StackGrid
 						className="work__inner"
 						itemComponent="div"
-						columnWidth={browserWidth >= 768 ? 300 : "100%"}
+						columnWidth={browserWidth >= 768 ? 300 : '100%'}
 						gutterWidth={20}
 						gutterHeight={20}
 						appearDelay={0}
@@ -70,13 +66,17 @@ class WorkItems extends Component {
 		};
 
 		return (
-			<section
-				className={`work__wrapper${browserWidth < 768 ? "--mobile" : ""}`}
-			>
-				{renderDesktopOrMobile()}
-			</section>
+			<section className={`work__wrapper${browserWidth < 768 ? '--mobile' : ''}`}>{renderDesktopOrMobile()}</section>
 		);
 	}
 }
+
+WorkItems.propTypes = {
+	scrollToTop: PropTypes.func.isRequired,
+	browserWidth: PropTypes.number.isRequired,
+	workData: PropTypes.array.isRequired,
+	formatText: PropTypes.func.isRequired,
+	numItems: PropTypes.number
+};
 
 export default WorkItems;

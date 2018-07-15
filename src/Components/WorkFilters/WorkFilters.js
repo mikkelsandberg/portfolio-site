@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import Filters from "../../Util/Filters";
-import "./WorkFilters.css";
+import React, { Component } from 'react';
+import Filters from '../../Util/Filters';
+import './WorkFilters.css';
+import PropTypes from 'prop-types';
 
 class WorkFilters extends Component {
 	render() {
@@ -13,11 +14,9 @@ class WorkFilters extends Component {
 						<li
 							key={filter.id}
 							onClick={handleFilterClick}
-							className={`filter${
-								activeFilter === formatText(filter.name)
-									? " filter--active"
-									: ""
-							} filter--${filter.color}`}
+							className={`filter${activeFilter === formatText(filter.name) ? ' filter--active' : ''} filter--${
+								filter.color
+							}`}
 						>
 							{filter.name}
 						</li>
@@ -27,5 +26,11 @@ class WorkFilters extends Component {
 		);
 	}
 }
+
+WorkFilters.propTypes = {
+	activeFilter: PropTypes.string.isRequired,
+	formatText: PropTypes.func.isRequired,
+	handleFilterClick: PropTypes.func.isRequired
+};
 
 export default WorkFilters;

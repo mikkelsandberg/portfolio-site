@@ -6,21 +6,7 @@
 		align-items: center;
 		max-width: 620px;
 		padding: 0 20px;
-		margin: 0 auto;
-
-		&--mobile {
-			display: block;
-
-			& .aboutMe {
-				&__intro {
-					padding-left: 0;
-					&__stat {
-						justify-content: center;
-						text-align: center;
-					}
-				}
-			}
-		}
+		margin: 0 auto 20px;
 	}
 
 	&__profilePic {

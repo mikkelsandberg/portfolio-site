@@ -1,5 +1,6 @@
-import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class NavLinks extends Component {
 	render() {
@@ -7,20 +8,20 @@ class NavLinks extends Component {
 
 		const routes = [
 			{
-				path: "/",
-				name: "Home"
+				path: '/',
+				name: 'Home'
 			},
 			{
-				path: "/my-work",
-				name: "My Work"
+				path: '/my-work',
+				name: 'My Work'
 			},
 			{
-				path: "/about-me",
-				name: "About Me"
+				path: '/about-me',
+				name: 'About Me'
 			},
 			{
-				path: "/contact",
-				name: "Contact"
+				path: '/contact',
+				name: 'Contact'
 			}
 		];
 
@@ -45,5 +46,9 @@ class NavLinks extends Component {
 		);
 	}
 }
+
+NavLinks.propTypes = {
+	resetMobileMenu: PropTypes.func.isRequired
+};
 
 export default NavLinks;

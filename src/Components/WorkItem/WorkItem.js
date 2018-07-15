@@ -1,18 +1,14 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import "./WorkItem.css";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import './WorkItem.css';
+import PropTypes from 'prop-types';
 
 class WorkItem extends Component {
 	render() {
 		const { item, formatText } = this.props;
 
 		return (
-			<Link
-				to={`/my-work/${formatText(item.workLabel)}-${formatText(
-					item.workTitle
-				)}`}
-				className="workItem"
-			>
+			<Link to={`/my-work/${formatText(item.workLabel)}-${formatText(item.workTitle)}`} className="workItem">
 				<div
 					className="workItem__image"
 					style={{ backgroundImage: `url(${item.images[0].url})` }}
@@ -28,7 +24,7 @@ class WorkItem extends Component {
 							{`${item.description
 								.split(/\s+/)
 								.slice(0, 20)
-								.join(" ")}...`}
+								.join(' ')}...`}
 						</p>
 					</article>
 					<footer>
@@ -49,5 +45,10 @@ class WorkItem extends Component {
 		);
 	}
 }
+
+WorkItem.propTypes = {
+	item: PropTypes.object.isRequired,
+	formatText: PropTypes.func.isRequired
+};
 
 export default WorkItem;

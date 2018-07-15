@@ -6,7 +6,68 @@
 	transform: translateY(-50%);
 }
 
-// navbar
+.mobileView {
+	.mainNav {
+		&.mainNav--notClear {
+			& .mainNav {
+				&__links {
+					&__item {
+						&__link {
+							&:link,
+							&:visited {
+								color: var(--darkGray);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&__links {
+			background-color: rgba(255, 255, 255, 0.8);
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			position: fixed;
+			left: 0;
+			top: 0;
+			transform: translate(-100%, 0);
+			transition: transform 0.5s ease-in-out;
+
+			&__item {
+				&__link {
+					&:link,
+					&:visited {
+						font-size: 1.5rem;
+					}
+				}
+
+				&:not(:first-child) {
+					margin: 1em 0 0;
+				}
+			}
+		}
+
+		&__social {
+			right: 20px;
+
+			&__icon {
+				&:not(:first-child) {
+					margin-left: 10px;
+				}
+			}
+		}
+
+		&__backToMyWork {
+			font-size: 1rem;
+			left: 20px;
+		}
+	}
+}
+
 .mainNav {
 	border-bottom: 1px solid var(--darkGray);
 	background-color: var(--lightGray);
@@ -45,53 +106,6 @@
 						&:visited {
 							color: var(--lightGray);
 						}
-					}
-				}
-			}
-		}
-	}
-
-	&--mobile {
-		&.mainNav--notClear {
-			& .mainNav {
-				&__links {
-					&__item {
-						&__link {
-							&:link,
-							&:visited {
-								color: var(--darkGray);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		& .mainNav {
-			&__links {
-				background-color: rgba(255, 255, 255, 0.8);
-				width: 100%;
-				height: 100%;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
-				position: fixed;
-				left: 0;
-				top: 0;
-				transform: translate(-100%, 0);
-				transition: transform 0.5s ease-in-out;
-
-				&__item {
-					&__link {
-						&:link,
-						&:visited {
-							font-size: 1.5rem;
-						}
-					}
-
-					&:not(:first-child) {
-						margin: 1em 0 0;
 					}
 				}
 			}
@@ -153,6 +167,15 @@
 				text-decoration: underline;
 			}
 		}
+	}
+
+	&__backToMyWork {
+		font-size: 1.25rem;
+		line-height: 1;
+		position: absolute;
+		left: 30px;
+		top: 50%;
+		transform: translateY(-50%);
 	}
 
 	&__social {

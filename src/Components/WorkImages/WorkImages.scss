@@ -18,3 +18,24 @@
 		}
 	}
 }
+
+.mobileView .workDetails__images {
+	grid-row: 2 / 3;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-self: center;
+	justify-content: space-around;
+	border-right: 0;
+	padding: 20px 0;
+	min-width: initial;
+	max-width: none;
+	min-height: initial;
+
+	&__image {
+		flex: 1 1 auto;
+		margin: 0 20px;
+		width: calc(50% - 40px);
+		min-width: 270px;
+	}
+}
