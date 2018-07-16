@@ -20,8 +20,10 @@
     "react-stack-grid": "^0.7.1"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar --include-path ./src/SassImports src/ -o src/ --output-style expanded",
-    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src/SassImports src/ -o src/ --output-style expanded --watch --recursive --usePolling",
+    "build-css":
+      "node-sass-chokidar --include-path ./src/SassImports src/ -o src/ --output-style compressed",
+    "watch-css":
+      "npm run build-css && node-sass-chokidar --include-path ./src/SassImports src/ -o src/ --output-style compressed --watch --recursive --usePolling",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",
