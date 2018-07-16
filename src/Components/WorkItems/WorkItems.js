@@ -65,9 +65,7 @@ class WorkItems extends Component {
 			return output;
 		};
 
-		return (
-			<section className={`work__wrapper${browserWidth < 768 ? '--mobile' : ''}`}>{renderDesktopOrMobile()}</section>
-		);
+		return <section className="work__wrapper">{renderDesktopOrMobile()}</section>;
 	}
 }
 

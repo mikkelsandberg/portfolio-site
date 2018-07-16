@@ -89,7 +89,19 @@ class App extends Component {
 
 	resetMobileMenu = () => {
 		if (this.props.size.width < 768) {
-			this.toggleMobileNav();
+			this.setMobileMenuVisible(false);
+		}
+	};
+
+	setMobileMenuVisible = isMobileMenuVisible => {
+		if (isMobileMenuVisible) {
+			this.setState({
+				mobileMenuVisible: true
+			});
+		} else {
+			this.setState({
+				mobileMenuVisible: false
+			});
 		}
 	};
 

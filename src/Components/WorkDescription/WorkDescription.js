@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './WorkDescription.css';
+import Parser from 'html-react-parser';
 import PropTypes from 'prop-types';
 
 class WorkDescription extends Component {
@@ -13,7 +14,7 @@ class WorkDescription extends Component {
 					<h2 className="workDetails__header__title">{workTitle}</h2>
 				</header>
 				<article className="workDetails__info__description">
-					<p className="workDetails__info__description__text">{description}</p>
+					<p className="workDetails__info__description__text">{Parser(description)}</p>
 				</article>
 				<footer className="workDetails__info__footer">
 					<ul className="tags">

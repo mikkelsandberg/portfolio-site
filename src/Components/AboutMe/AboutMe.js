@@ -48,6 +48,9 @@ class AboutMe extends Component {
 							</p>
 						);
 					})}
+					{/*<a className="aboutMe__body__downloadResume" href="#" target="_blank">
+						Download R&eacute;sum&eacute;
+					</a>*/}
 				</article>
 			</section>
 		);

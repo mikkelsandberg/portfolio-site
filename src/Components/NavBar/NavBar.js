@@ -53,8 +53,39 @@ class NavBar extends React.Component {
 		return regex.test(pathname);
 	};
 
+	isMobileView = () => {
+		const { browserWidth } = this.props;
+
+		return browserWidth < 768;
+	};
+
+	// TODO implement this
+	// determineNavItems = () => {
+	// 	const { resetMobileMenu } = this.props;
+	// 	let renderItems = <div />;
+
+	// 	if (this.isWorkItemPage()) {
+	// 		renderItems = (
+	// 			<NavLink to="/my-work" class="mainNav__backToMyWork">
+	// 				Back to my work
+	// 			</NavLink>
+	// 		);
+	// 		if (this.isMobileView()) {
+	// 			renderItems += (
+	// 				<div className="mainNav__links__wrapper">
+	// 					<NavLinks resetMobileMenu={resetMobileMenu} />
+	// 				</div>
+	// 			);
+	// 		} else {
+	// 			renderItems += <NavLinks resetMobileMenu={resetMobileMenu} />;
+	// 		}
+	// 	}
+
+	// 	return renderItems;
+	// };
+
 	render() {
-		const { browserWidth, mobileMenuVisible, clearOfHeader, toggleMobileNav, resetMobileMenu } = this.props;
+		const { mobileMenuVisible, clearOfHeader, toggleMobileNav, resetMobileMenu } = this.props;
 
 		return (
 			<nav
@@ -62,18 +93,21 @@ class NavBar extends React.Component {
 					mobileMenuVisible === true ? ' mainNav--showMobileMenu' : ''
 				}`}
 			>
-				{browserWidth < 768 && !this.isWorkItemPage() ? (
-					<FontAwesomeIcon icon="bars" size="2x" className="mainNav__mobileMenuIcon" onClick={toggleMobileNav} />
+				{this.isMobileView() && !this.isWorkItemPage() ? (
+					<div>
+						<FontAwesomeIcon icon="bars" size="2x" className="mainNav__mobileMenu__Icon" onClick={toggleMobileNav} />
+					</div>
 				) : (
 					''
 				)}
-				{!this.isWorkItemPage() ? (
-					<NavLinks resetMobileMenu={resetMobileMenu} />
-				) : (
-					<NavLink to="/my-work" class="mainNav__backToMyWork">
+				{this.isWorkItemPage() ? (
+					<NavLink to="/my-work" className="mainNav__backToMyWork">
 						Back to my work
 					</NavLink>
+				) : (
+					<NavLinks resetMobileMenu={resetMobileMenu} />
 				)}
+
 				<ul className="mainNav__social">
 					{socialLinks.map((item, key = 0) => {
 						return (
