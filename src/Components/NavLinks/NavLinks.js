@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 
 class NavLinks extends Component {
 	render() {
-		const { resetMobileMenu } = this.props;
+		const { hideMobileMenu } = this.props;
 
 		const routes = [
 			{
-				path: '/',
-				name: 'Home'
+				path: "/",
+				name: "Home"
 			},
 			{
-				path: '/my-work',
-				name: 'My Work'
+				path: "/my-work",
+				name: "My Work"
 			},
 			{
-				path: '/about-me',
-				name: 'About Me'
+				path: "/about-me",
+				name: "About Me"
 			},
 			{
-				path: '/contact',
-				name: 'Contact'
+				path: "/contact",
+				name: "Contact"
 			}
 		];
 
@@ -35,7 +35,7 @@ class NavLinks extends Component {
 								to={item.path}
 								className="mainNav__links__item__link"
 								activeClassName="is-current"
-								onClick={resetMobileMenu}
+								onClick={hideMobileMenu}
 							>
 								{item.name}
 							</NavLink>
@@ -48,7 +48,7 @@ class NavLinks extends Component {
 }
 
 NavLinks.propTypes = {
-	resetMobileMenu: PropTypes.func.isRequired
+	hideMobileMenu: PropTypes.func.isRequired
 };
 
 export default NavLinks;

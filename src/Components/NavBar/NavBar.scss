@@ -112,32 +112,6 @@
 		}
 	}
 
-	&--showMobileMenu {
-		border-bottom-color: transparent;
-		background-color: transparent;
-
-		& .mainNav {
-			&__mobileMenu__Icon {
-				color: var(--darkGray);
-			}
-
-			&__links {
-				transform: translate(0, 0);
-			}
-
-			&__social {
-				&__icon {
-					&__link {
-						&:link,
-						&:visited {
-							color: var(--darkGray);
-						}
-					}
-				}
-			}
-		}
-	}
-
 	&__mobileMenu__Icon {
 		@include positionNavSection(left, 30px);
 		cursor: pointer;
@@ -192,6 +166,32 @@
 			&__link:visited {
 				text-decoration: none;
 				transition: all 0.5s ease-in-out;
+			}
+		}
+	}
+}
+
+.mobileMenuVisible {
+	.mainNav {
+		border-bottom-color: transparent;
+		background-color: transparent;
+
+		&__mobileMenu__Icon {
+			color: var(--darkGray);
+		}
+
+		&__links {
+			transform: translate(0, 0);
+		}
+
+		&__social {
+			&__icon {
+				&__link {
+					&:link,
+					&:visited {
+						color: var(--darkGray);
+					}
+				}
 			}
 		}
 	}
