@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import sizeMe from 'react-sizeme';
-import NavBar from '../NavBar/NavBar';
-import Header from '../Header/Header';
-import SplashScreen from '../SplashScreen/SplashScreen';
-import WorkFilters from '../WorkFilters/WorkFilters';
-import WorkItems from '../WorkItems/WorkItems';
-import AboutMe from '../AboutMe/AboutMe';
-import Contact from '../Contact/Contact';
-import WorkDetails from '../WorkDetails/WorkDetails';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import './App.css';
-import WorkData from '../../Util/WorkData';
+import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
+import sizeMe from "react-sizeme";
+import NavBar from "../NavBar/NavBar";
+import Header from "../Header/Header";
+import SplashScreen from "../SplashScreen/SplashScreen";
+import WorkFilters from "../WorkFilters/WorkFilters";
+import WorkItems from "../WorkItems/WorkItems";
+import AboutMe from "../AboutMe/AboutMe";
+import Contact from "../Contact/Contact";
+import WorkDetails from "../WorkDetails/WorkDetails";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import "./App.css";
+import WorkData from "../../Util/WorkData";
 
 library.add(fas, fab);
 
@@ -23,15 +23,15 @@ class App extends Component {
 
 		this.state = {
 			work: WorkData,
-			workFilter: 'show-all',
+			workFilter: "show-all",
 			mobileMenuVisible: false,
 			clearOfHeader: true
 		};
 	}
 
 	componentDidMount() {
-		this.filters = document.querySelectorAll('.filters__list .filter');
-		this.mainNav = document.querySelector('.mainNav');
+		this.filters = document.querySelectorAll(".filters__list .filter");
+		this.bodySelector = document.querySelector("body");
 	}
 
 	scrollToTop = () => {
@@ -40,25 +40,24 @@ class App extends Component {
 
 	resetWorkFilter = () => {
 		this.setState({
-			workFilter: 'show-all'
+			workFilter: "show-all"
 		});
 	};
 
 	formatText = text =>
 		text
 			.toLowerCase()
-			.replace(/\s/g, '-')
-			.replace(/[^a-z\d-]/g, '');
+			.replace(/\s/g, "-")
+			.replace(/[^a-z\d-]/g, "");
 
 	handleFilterClick = e => {
 		this.removeActiveClass();
-
 		this.selectFilter(e);
 	};
 
 	removeActiveClass = (filters = this.filters) => {
 		filters.forEach(item => {
-			item.classList.remove('active');
+			item.classList.remove("active");
 		});
 	};
 
@@ -76,7 +75,7 @@ class App extends Component {
 	iterateThroughFilters = (filters = this.filters) => {
 		return filters.forEach(filter => {
 			if (this.formatText(filter.innerHTML) === this.state.workFilter) {
-				filter.classList.add('active');
+				filter.classList.add("active");
 			}
 		});
 	};
@@ -87,7 +86,7 @@ class App extends Component {
 		}));
 	};
 
-	resetMobileMenu = () => {
+	hideMobileMenu = () => {
 		if (this.props.size.width < 768) {
 			this.setMobileMenuVisible(false);
 		}
@@ -120,8 +119,9 @@ class App extends Component {
 	render() {
 		let filteredWork;
 		const browserWidth = this.props.size.width;
+		const { mobileMenuVisible } = this.state;
 
-		if (this.state.workFilter === 'show-all') {
+		if (this.state.workFilter === "show-all") {
 			filteredWork = this.state.work;
 		} else {
 			filteredWork = this.state.work.filter(item => {
@@ -134,12 +134,16 @@ class App extends Component {
 		}
 
 		return (
-			<main id="App" className={`${browserWidth < 768 ? 'mobileView' : ''}`}>
+			<main
+				id="App"
+				className={`${browserWidth < 768 ? "mobileView" : ""}${
+					mobileMenuVisible ? " mobileMenuVisible" : ""
+				}`}
+			>
 				<NavBar
 					browserWidth={browserWidth}
-					mobileMenuVisible={this.state.mobileMenuVisible}
 					toggleMobileNav={this.toggleMobileNav}
-					resetMobileMenu={this.resetMobileMenu}
+					hideMobileMenu={this.hideMobileMenu}
 					scrollTarget=".splashScreen__wrapper"
 					clearOfHeader={this.state.clearOfHeader}
 					setClearOfHeader={this.setClearOfHeader}
@@ -161,7 +165,10 @@ class App extends Component {
 										numItems={3}
 									/>
 									<Header text="About Me" />
-									<AboutMe scrollToTop={this.scrollToTop} browserWidth={browserWidth} />
+									<AboutMe
+										scrollToTop={this.scrollToTop}
+										browserWidth={browserWidth}
+									/>
 									<Header text="Contact" />
 									<Contact />
 								</div>
@@ -212,7 +219,10 @@ class App extends Component {
 								<div>
 									<section className="contentWrapper">
 										<Header text="About Me" />
-										<AboutMe scrollToTop={this.scrollToTop} browserWidth={browserWidth} />
+										<AboutMe
+											scrollToTop={this.scrollToTop}
+											browserWidth={browserWidth}
+										/>
 									</section>
 								</div>
 							);
