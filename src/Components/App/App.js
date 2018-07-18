@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import { Switch, Route } from "react-router-dom";
-import sizeMe from "react-sizeme";
-import NavBar from "../NavBar/NavBar";
-import Header from "../Header/Header";
-import SplashScreen from "../SplashScreen/SplashScreen";
-import WorkFilters from "../WorkFilters/WorkFilters";
-import WorkItems from "../WorkItems/WorkItems";
-import AboutMe from "../AboutMe/AboutMe";
-import Contact from "../Contact/Contact";
-import WorkDetails from "../WorkDetails/WorkDetails";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import "./App.css";
-import WorkData from "../../Util/WorkData";
+import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import sizeMe from 'react-sizeme';
+import NavBar from '../NavBar/NavBar';
+import Header from '../Header/Header';
+import SplashScreen from '../SplashScreen/SplashScreen';
+import WorkFilters from '../WorkFilters/WorkFilters';
+import WorkItems from '../WorkItems/WorkItems';
+import AboutMe from '../AboutMe/AboutMe';
+import Contact from '../Contact/Contact';
+import WorkDetails from '../WorkDetails/WorkDetails';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import './App.css';
+import WorkData from '../../Util/WorkData';
 
 library.add(fas, fab);
 
@@ -23,15 +23,15 @@ class App extends Component {
 
 		this.state = {
 			work: WorkData,
-			workFilter: "show-all",
+			workFilter: 'show-all',
 			mobileMenuVisible: false,
-			clearOfHeader: true
+			clearOfHeader: true,
 		};
 	}
 
 	componentDidMount() {
-		this.filters = document.querySelectorAll(".filters__list .filter");
-		this.bodySelector = document.querySelector("body");
+		this.filters = document.querySelectorAll('.filters__list .filter');
+		this.bodySelector = document.querySelector('body');
 	}
 
 	scrollToTop = () => {
@@ -40,15 +40,15 @@ class App extends Component {
 
 	resetWorkFilter = () => {
 		this.setState({
-			workFilter: "show-all"
+			workFilter: 'show-all',
 		});
 	};
 
 	formatText = text =>
 		text
 			.toLowerCase()
-			.replace(/\s/g, "-")
-			.replace(/[^a-z\d-]/g, "");
+			.replace(/\s/g, '-')
+			.replace(/[^a-z\d-]/g, '');
 
 	handleFilterClick = e => {
 		this.removeActiveClass();
@@ -57,14 +57,14 @@ class App extends Component {
 
 	removeActiveClass = (filters = this.filters) => {
 		filters.forEach(item => {
-			item.classList.remove("active");
+			item.classList.remove('active');
 		});
 	};
 
 	selectFilter = e => {
 		this.setState(
 			{
-				workFilter: this.formatText(e.target.innerHTML)
+				workFilter: this.formatText(e.target.innerHTML),
 			},
 			() => {
 				this.iterateThroughFilters();
@@ -75,14 +75,14 @@ class App extends Component {
 	iterateThroughFilters = (filters = this.filters) => {
 		return filters.forEach(filter => {
 			if (this.formatText(filter.innerHTML) === this.state.workFilter) {
-				filter.classList.add("active");
+				filter.classList.add('active');
 			}
 		});
 	};
 
 	toggleMobileNav = () => {
 		this.setState(prevState => ({
-			mobileMenuVisible: !prevState.mobileMenuVisible
+			mobileMenuVisible: !prevState.mobileMenuVisible,
 		}));
 	};
 
@@ -95,11 +95,11 @@ class App extends Component {
 	setMobileMenuVisible = isMobileMenuVisible => {
 		if (isMobileMenuVisible) {
 			this.setState({
-				mobileMenuVisible: true
+				mobileMenuVisible: true,
 			});
 		} else {
 			this.setState({
-				mobileMenuVisible: false
+				mobileMenuVisible: false,
 			});
 		}
 	};
@@ -107,11 +107,11 @@ class App extends Component {
 	setClearOfHeader = isClear => {
 		if (isClear) {
 			this.setState({
-				clearOfHeader: true
+				clearOfHeader: true,
 			});
 		} else {
 			this.setState({
-				clearOfHeader: false
+				clearOfHeader: false,
 			});
 		}
 	};
@@ -121,7 +121,7 @@ class App extends Component {
 		const browserWidth = this.props.size.width;
 		const { mobileMenuVisible } = this.state;
 
-		if (this.state.workFilter === "show-all") {
+		if (this.state.workFilter === 'show-all') {
 			filteredWork = this.state.work;
 		} else {
 			filteredWork = this.state.work.filter(item => {
@@ -136,8 +136,8 @@ class App extends Component {
 		return (
 			<main
 				id="App"
-				className={`${browserWidth < 768 ? "mobileView" : ""}${
-					mobileMenuVisible ? " mobileMenuVisible" : ""
+				className={`${browserWidth < 768 ? 'mobileView' : ''}${
+					mobileMenuVisible ? ' mobileMenuVisible' : ''
 				}`}
 			>
 				<NavBar

@@ -14,9 +14,11 @@ class WorkFilters extends Component {
 						<li
 							key={filter.id}
 							onClick={handleFilterClick}
-							className={`filter${activeFilter === formatText(filter.name) ? ' filter--active' : ''} filter--${
-								filter.color
-							}`}
+							className={`filter${
+								activeFilter === formatText(filter.name)
+									? ' filter--active'
+									: ''
+							} filter--${filter.color}`}
 						>
 							{filter.name}
 						</li>
@@ -30,7 +32,7 @@ class WorkFilters extends Component {
 WorkFilters.propTypes = {
 	activeFilter: PropTypes.string.isRequired,
 	formatText: PropTypes.func.isRequired,
-	handleFilterClick: PropTypes.func.isRequired
+	handleFilterClick: PropTypes.func.isRequired,
 };
 
 export default WorkFilters;

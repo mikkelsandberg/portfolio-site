@@ -1,27 +1,27 @@
-import React from "react";
-import NavLinks from "../NavLinks/NavLinks";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { NavLink, withRouter } from "react-router-dom";
-import "./NavBar.css";
-import PropTypes from "prop-types";
+import React from 'react';
+import NavLinks from '../NavLinks/NavLinks';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { NavLink, withRouter } from 'react-router-dom';
+import './NavBar.css';
+import PropTypes from 'prop-types';
 
 const socialLinks = [
 	{
-		link: "https://github.com/MikkelSandbag",
-		icon: ["fab", "github-square"]
+		link: 'https://github.com/MikkelSandbag',
+		icon: ['fab', 'github-square'],
 	},
 	{
-		link: "https://www.linkedin.com/in/mikkelsandberg/",
-		icon: ["fab", "linkedin"]
+		link: 'https://www.linkedin.com/in/mikkelsandberg/',
+		icon: ['fab', 'linkedin'],
 	},
 	{
-		link: "https://twitter.com/mikkelhsandberg",
-		icon: ["fab", "twitter-square"]
+		link: 'https://twitter.com/mikkelhsandberg',
+		icon: ['fab', 'twitter-square'],
 	},
 	{
-		link: "https://www.facebook.com/mikkelhsandberg",
-		icon: ["fab", "facebook"]
-	}
+		link: 'https://www.facebook.com/mikkelhsandberg',
+		icon: ['fab', 'facebook'],
+	},
 ];
 
 class NavBar extends React.Component {
@@ -29,7 +29,7 @@ class NavBar extends React.Component {
 		if (this.props.scrollTarget !== undefined) {
 			this.checkScrollTop();
 
-			window.addEventListener("scroll", () => this.checkScrollTop());
+			window.addEventListener('scroll', () => this.checkScrollTop());
 		}
 	}
 
@@ -38,7 +38,7 @@ class NavBar extends React.Component {
 		{ setClearOfHeader } = this.props
 	) => {
 		const scrollTargetElem = document.querySelector(scrollTarget) || null;
-		const navBarElem = document.querySelector(".mainNav") || null;
+		const navBarElem = document.querySelector('.mainNav') || null;
 
 		if (scrollTargetElem !== null && navBarElem !== null) {
 			if (
@@ -90,7 +90,7 @@ class NavBar extends React.Component {
 
 		if (this.isWorkItemPage()) {
 			renderItems.push(
-				<NavLink to="/my-work" class="mainNav__backToMyWork">
+				<NavLink key={0} to="/my-work" className="mainNav__backToMyWork">
 					Back to my work
 				</NavLink>
 			);
@@ -111,7 +111,7 @@ class NavBar extends React.Component {
 		return (
 			<nav
 				className={`mainNav${
-					clearOfHeader === false ? " mainNav--notClear" : ""
+					clearOfHeader === false ? ' mainNav--notClear' : ''
 				}`}
 			>
 				{this.determineNavItems()}
@@ -143,7 +143,7 @@ NavBar.propTypes = {
 	hideMobileMenu: PropTypes.func.isRequired,
 	scrollTarget: PropTypes.string.isRequired,
 	clearOfHeader: PropTypes.bool.isRequired,
-	setClearOfHeader: PropTypes.func.isRequired
+	setClearOfHeader: PropTypes.func.isRequired,
 };
 
 export default withRouter(NavBar);

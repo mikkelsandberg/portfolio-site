@@ -21,7 +21,9 @@ class WorkItems extends Component {
 
 			for (let i = 0; i < (limitItems ? numItems : workData.length); i++) {
 				let item = workData[i];
-				workItems.push(<WorkItem key={item.id} item={item} formatText={formatText} />);
+				workItems.push(
+					<WorkItem key={item.id} item={item} formatText={formatText} />
+				);
 			}
 
 			if (limitItems) {
@@ -29,7 +31,10 @@ class WorkItems extends Component {
 					<Link to="/my-work" key="seeAll" className="seeAll__wrapper">
 						<p className="seeAll__text">
 							See All
-							<FontAwesomeIcon icon="arrow-circle-right" className="seeAll__icon" />
+							<FontAwesomeIcon
+								icon="arrow-circle-right"
+								className="seeAll__icon"
+							/>
 						</p>
 					</Link>
 				);
@@ -65,7 +70,9 @@ class WorkItems extends Component {
 			return output;
 		};
 
-		return <section className="work__wrapper">{renderDesktopOrMobile()}</section>;
+		return (
+			<section className="work__wrapper">{renderDesktopOrMobile()}</section>
+		);
 	}
 }
 
@@ -74,7 +81,7 @@ WorkItems.propTypes = {
 	browserWidth: PropTypes.number.isRequired,
 	workData: PropTypes.array.isRequired,
 	formatText: PropTypes.func.isRequired,
-	numItems: PropTypes.number
+	numItems: PropTypes.number,
 };
 
 export default WorkItems;

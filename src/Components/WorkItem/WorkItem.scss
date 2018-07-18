@@ -1,14 +1,12 @@
 $tagColors: (
-	 ('web-development', var(--yellowColor)),
-	 ('design', var(--purpleColor)),
-	 ('podcast-production', var(--greenColor)),
-	 ('video-production', var(--blueColor)),
-	 ('animation', var(--orangeColor))
+	("web-development", var(--yellowColor)),
+	("design", var(--purpleColor)),
+	("podcast-production", var(--greenColor)),
+	("video-production", var(--blueColor)),
+	("animation", var(--orangeColor))
 );
 
 .workItem {
-	background-size: cover;
-	background-position: center top;
 	border: 1px solid var(--medGray);
 	border-radius: 4px;
 	box-shadow: 2px 2px 6px 0 var(--medGray);
@@ -26,6 +24,7 @@ $tagColors: (
 
 	&__image {
 		background-size: cover;
+		background-position: center top;
 		box-shadow: 0px 0px 10px 0px var(--medGray);
 		width: 100%;
 		height: calc(300px / (16 / 9));
@@ -38,7 +37,7 @@ $tagColors: (
 		padding: 15px 15px 7px;
 
 		&:after {
-			content: '';
+			content: "";
 			background-color: var(--darkGray);
 			display: block;
 			width: 5ex;

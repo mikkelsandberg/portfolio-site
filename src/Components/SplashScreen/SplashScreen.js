@@ -25,7 +25,7 @@ class SplashScreen extends Component {
 }
 
 SplashScreen.propTypes = {
-	setClearOfHeader: PropTypes.func.isRequired
+	setClearOfHeader: PropTypes.func.isRequired,
 };
 
 export default SplashScreen;

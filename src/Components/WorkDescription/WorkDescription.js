@@ -10,11 +10,13 @@ class WorkDescription extends Component {
 		return (
 			<section className="workDetails__info">
 				<header className="workDetails__header">
-					<h1 className="workDetails__header__label">{workLabel}</h1>
-					<h2 className="workDetails__header__title">{workTitle}</h2>
+					<h1 className="workDetails__header__label">{Parser(workLabel)}</h1>
+					<h2 className="workDetails__header__title">{Parser(workTitle)}</h2>
 				</header>
 				<article className="workDetails__info__description">
-					<p className="workDetails__info__description__text">{Parser(description)}</p>
+					<p className="workDetails__info__description__text">
+						{Parser(description)}
+					</p>
 				</article>
 				<footer className="workDetails__info__footer">
 					<ul className="tags">
@@ -23,7 +25,7 @@ class WorkDescription extends Component {
 								<li key={key++} className="tag">
 									<span className="tag__point" />
 									<span className="tag__hole" />
-									{skill}
+									{Parser(skill)}
 								</li>
 							);
 						})}
@@ -32,8 +34,13 @@ class WorkDescription extends Component {
 						{links.map((link, key = 0) => {
 							return (
 								<p key={key++}>
-									<a href={link.url} className="workDetails__info__footer__links__link" target="_blank" rel="noopener">
-										{link.title}
+									<a
+										href={Parser(link.url)}
+										className="workDetails__info__footer__links__link"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										{Parser(link.title)}
 									</a>
 								</p>
 							);
@@ -50,7 +57,7 @@ WorkDescription.propTypes = {
 	workLabel: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
 	skills: PropTypes.array.isRequired,
-	links: PropTypes.array.isRequired
+	links: PropTypes.array.isRequired,
 };
 
 export default WorkDescription;

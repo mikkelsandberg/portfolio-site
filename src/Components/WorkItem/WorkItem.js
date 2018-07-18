@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './WorkItem.css';
+import Parser from 'html-react-parser';
 import PropTypes from 'prop-types';
 
 class WorkItem extends Component {
@@ -8,23 +9,25 @@ class WorkItem extends Component {
 		const { item, formatText } = this.props;
 
 		return (
-			<Link to={`/my-work/${formatText(item.workLabel)}-${formatText(item.workTitle)}`} className="workItem">
+			<Link
+				to={`/my-work/${formatText(item.workLabel)}-${formatText(
+					item.workTitle
+				)}`}
+				className="workItem"
+			>
 				<div
 					className="workItem__image"
 					style={{ backgroundImage: `url(${item.images[0].url})` }}
 					alt={`${formatText(item.workLabel)}-${formatText(item.workTitle)}`}
 				/>
 				<div className="workItem__details">
-					<p className="workItem__label">{item.workLabel}</p>
+					<p className="workItem__label">{Parser(item.workLabel)}</p>
 					<header className="workItem__title">
-						<h3 className="workItem__title__text">{item.workTitle}</h3>
+						<h3 className="workItem__title__text">{Parser(item.workTitle)}</h3>
 					</header>
 					<article className="workItem__description">
 						<p className="workItem__description__text">
-							{`${item.description
-								.split(/\s+/)
-								.slice(0, 20)
-								.join(' ')}...`}
+							{Parser(item.summary)}
 						</p>
 					</article>
 					<footer>
@@ -34,7 +37,7 @@ class WorkItem extends Component {
 									<li key={key++} className={`tag tag--${formatText(tag)}`}>
 										<span className="tag__point" />
 										<span className="tag__hole" />
-										{tag}
+										{Parser(tag)}
 									</li>
 								);
 							})}
@@ -48,7 +51,7 @@ class WorkItem extends Component {
 
 WorkItem.propTypes = {
 	item: PropTypes.object.isRequired,
-	formatText: PropTypes.func.isRequired
+	formatText: PropTypes.func.isRequired,
 };
 
 export default WorkItem;

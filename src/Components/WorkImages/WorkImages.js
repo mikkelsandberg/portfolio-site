@@ -10,7 +10,7 @@ class WorkImages extends Component {
 
 		this.state = {
 			photoIndex: 0,
-			isOpen: false
+			isOpen: false,
 		};
 	}
 
@@ -28,7 +28,7 @@ class WorkImages extends Component {
 							onClick={e =>
 								this.setState({
 									isOpen: true,
-									photoIndex: (key - 1) % images.length
+									photoIndex: (key - 1) % images.length,
 								})
 							}
 							alt={`${workLabel}-${workTitle}`}
@@ -39,16 +39,28 @@ class WorkImages extends Component {
 				{isOpen && (
 					<Lightbox
 						mainSrc={images[photoIndex].url}
-						nextSrc={images.length > 1 ? images[(photoIndex + 1) % images.length].url : undefined}
-						prevSrc={images.length > 1 ? images[(photoIndex + images.length - 1) % images.length].url : undefined}
+						nextSrc={
+							images.length > 1
+								? images[(photoIndex + 1) % images.length].url
+								: undefined
+						}
+						prevSrc={
+							images.length > 1
+								? images[(photoIndex + images.length - 1) % images.length].url
+								: undefined
+						}
 						onCloseRequest={() => this.setState({ isOpen: false })}
 						onMovePrevRequest={() =>
 							this.setState({
-								photoIndex: (photoIndex + images.length - 1) % images.length
+								photoIndex: (photoIndex + images.length - 1) % images.length,
 							})
 						}
-						onMoveNextRequest={() => this.setState({ photoIndex: (photoIndex + 1) % images.length })}
-						imageTitle={`${workLabel} | ${workTitle} | ${images[photoIndex].subTitle}`}
+						onMoveNextRequest={() =>
+							this.setState({ photoIndex: (photoIndex + 1) % images.length })
+						}
+						imageTitle={`${workLabel} | ${workTitle} | ${
+							images[photoIndex].subTitle
+						}`}
 						imageCaption={images[photoIndex].caption}
 					/>
 				)}
@@ -60,7 +72,7 @@ class WorkImages extends Component {
 WorkImages.propTypes = {
 	images: PropTypes.array.isRequired,
 	workLabel: PropTypes.string.isRequired,
-	workTitle: PropTypes.string.isRequired
+	workTitle: PropTypes.string.isRequired,
 };
 
 export default WorkImages;

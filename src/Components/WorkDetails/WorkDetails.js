@@ -9,9 +9,14 @@ class WorkDetails extends Component {
 		this.props.scrollToTop();
 	}
 
-	filteredWork = ({ workData, formatText } = this.props, { workName } = this.props.match.params) => {
+	filteredWork = (
+		{ workData, formatText } = this.props,
+		{ workName } = this.props.match.params
+	) => {
 		return workData.find(item => {
-			let formattedName = `${formatText(item.workLabel)}-${formatText(item.workTitle)}`;
+			let formattedName = `${formatText(item.workLabel)}-${formatText(
+				item.workTitle
+			)}`;
 			return formattedName === workName;
 		});
 	};
@@ -24,10 +29,21 @@ class WorkDetails extends Component {
 				</section>
 			);
 		} else {
-			const { workLabel, workTitle, images, description, skills, links } = filteredWork();
+			const {
+				workLabel,
+				workTitle,
+				images,
+				description,
+				skills,
+				links,
+			} = filteredWork();
 			return (
 				<section className="workDetails">
-					<WorkImages images={images} workLabel={workLabel} workTitle={workTitle} />
+					<WorkImages
+						images={images}
+						workLabel={workLabel}
+						workTitle={workTitle}
+					/>
 					<WorkDescription
 						workTitle={workTitle}
 						workLabel={workLabel}
@@ -48,7 +64,7 @@ class WorkDetails extends Component {
 WorkDetails.propTypes = {
 	scrollToTop: PropTypes.func.isRequired,
 	formatText: PropTypes.func.isRequired,
-	workData: PropTypes.array.isRequired
+	workData: PropTypes.array.isRequired,
 };
 
 export default WorkDetails;

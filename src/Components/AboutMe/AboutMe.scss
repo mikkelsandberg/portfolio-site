@@ -53,5 +53,29 @@
 			font-size: 1.15rem;
 			line-height: 1.7;
 		}
+
+		&__downloadResumeButton {
+			&:link,
+			&:visited {
+				font-size: 1.2rem;
+				line-height: normal;
+				text-align: center;
+				text-decoration: none;
+				color: var(--darkGray);
+				border: 1px solid var(--darkGray);
+				background-color: var(--lightGray);
+				display: block;
+				padding: 10px;
+				margin: 30px auto 0;
+				width: 100%;
+				max-width: 300px;
+				cursor: pointer;
+				transition: background-color 0.2s ease-in-out;
+			}
+
+			&:hover {
+				background-color: var(--medGray);
+			}
+		}
 	}
 }
