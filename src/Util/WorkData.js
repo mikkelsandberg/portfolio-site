@@ -10,31 +10,35 @@ const WorkData = [
 		images: [
 			{
 				subTitle: `Rebranded page`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-new.png`,
-				caption: `The final page after migrating the content into the new CMS and new template.`
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-new-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-new-full-size.jpg`,
+				caption: `The final page after migrating the content into the new CMS and new template.`,
 			},
 			{
 				subTitle: `Previous overview tab`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab1-old.png`,
-				caption: `The old page used a tabbed navigation to separate the content.`
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab1-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab1-full-size.jpg`,
+				caption: `The old page used a tabbed navigation to separate the content.`,
 			},
 			{
 				subTitle: `Previous product details tab`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab2-old.png`,
-				caption: `The old page used a tabbed navigation to separate the content.`
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab2-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab2-full-size.jpg`,
+				caption: `The old page used a tabbed navigation to separate the content.`,
 			},
 			{
 				subTitle: `Previous contact tab`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab3-old.png`,
-				caption: `The old page used a tabbed navigation to separate the content.`
-			}
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab3-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/core-logic/multi-closing-tab3-full-size.jpg`,
+				caption: `The old page used a tabbed navigation to separate the content.`,
+			},
 		],
 		links: [
 			{
 				title: `Live site`,
-				url: `https://www.corelogic.com`
-			}
-		]
+				url: `https://www.corelogic.com`,
+			},
+		],
 	},
 	{
 		id: `experts-exchange-profile-page-redesign`,
@@ -47,16 +51,17 @@ const WorkData = [
 		images: [
 			{
 				subTitle: `Profile page redesign`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/ee/ee-profile-page.jpg`,
-				caption: `The new profile page that my team and I designed and built.`
-			}
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/ee/ee-profile-page-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/ee/ee-profile-page-full-size.jpg`,
+				caption: `The new profile page that my team and I designed and built.`,
+			},
 		],
 		links: [
 			{
 				title: `Live site`,
-				url: `https://www.experts-exchange.com/members/MikkelSandberg.html`
-			}
-		]
+				url: `https://www.experts-exchange.com/members/MikkelSandberg.html`,
+			},
+		],
 	},
 	{
 		id: `experts-exchange-live-product-redesign`,
@@ -69,21 +74,23 @@ const WorkData = [
 		images: [
 			{
 				subTitle: `Main dashboard`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/ee/ee-live-landing-logged-in.jpg`,
-				caption: `The revamped interface for the Live product.`
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/ee/ee-live-logged-in-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/ee/ee-live-logged-in-full-size.jpg`,
+				caption: `The revamped interface for the Live product.`,
 			},
 			{
 				subTitle: `Help request interface`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/ee/ee-live-help-request.jpg`,
-				caption: `The improved interface for finding consultants.`
-			}
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/ee/ee-live-help-request-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/ee/ee-live-help-request-full-size.jpg`,
+				caption: `The improved interface for finding consultants.`,
+			},
 		],
 		links: [
 			{
 				title: `Live site`,
-				url: `https://www.experts-exchange.com/live`
-			}
-		]
+				url: `https://www.experts-exchange.com/live`,
+			},
+		],
 	},
 	{
 		id: `experts-exchange-live-landing-page`,
@@ -96,16 +103,17 @@ const WorkData = [
 		images: [
 			{
 				subTitle: `Informational landing page`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/ee/ee-live-landing-logged-out.jpg`,
-				caption: `The logged out marketing page for the Live product.`
-			}
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/ee/ee-live-logged-out-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/ee/ee-live-logged-out-full-size.jpg`,
+				caption: `The logged out marketing page for the Live product.`,
+			},
 		],
 		links: [
 			{
 				title: `Live site`,
-				url: `https://www.experts-exchange.com/live`
-			}
-		]
+				url: `https://www.experts-exchange.com/live`,
+			},
+		],
 	},
 	{
 		id: `udemy-web-dev-course`,
@@ -119,36 +127,38 @@ const WorkData = [
 			`Clarifai API`,
 			`CSS`,
 			`Express.js`,
-			`PostgreSQL`
+			`PostgreSQL`,
 		],
 		summary: `Building an app that lets users see if a provided picture has a detectable face in it.`,
 		description: `This was the final project for the Complete Web Developer in 2018 course on Udemy. I started by creating a static front end in React and added most of the styling with the Tachyons library and some custom CSS. Then, I built out the backend API using Express.js and tested the endpoints with Postman. After that, I structured the database using PostgreSQL and used knex.js to do SQL queries. Finally, I deployed the application to Heroku.`,
 		images: [
 			{
 				subTitle: `Login view`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/face-detect/face-detect-login.png`,
-				caption: `The logged out view for the face detect app.`
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/face-detect/face-detect-login-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/face-detect/face-detect-login-full-size.jpg`,
+				caption: `The logged out view for the face detect app.`,
 			},
 			{
 				subTitle: `Home view`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/face-detect/face-detect-home.png`,
-				caption: `The home page for the face detect app.`
-			}
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/face-detect/face-detect-home-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/face-detect/face-detect-home-full-size.jpg`,
+				caption: `The home page for the face detect app.`,
+			},
 		],
 		links: [
 			{
 				title: `Front end repository`,
-				url: `https://github.com/MikkelSandbag/face-detect-front-end`
+				url: `https://github.com/MikkelSandbag/face-detect-front-end`,
 			},
 			{
 				title: `Back end repository`,
-				url: `https://github.com/MikkelSandbag/face-detect-api`
+				url: `https://github.com/MikkelSandbag/face-detect-api`,
 			},
 			{
 				title: `Live site`,
-				url: `https://face-detect-mikkel.herokuapp.com`
-			}
-		]
+				url: `https://face-detect-mikkel.herokuapp.com`,
+			},
+		],
 	},
 	{
 		id: `codecademy-intensive-jammming`,
@@ -161,25 +171,27 @@ const WorkData = [
 		images: [
 			{
 				subTitle: `Search results view`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/jammming/jammming-search-results.png`,
-				caption: `The search results view for the Jammming app.`
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/jammming/jammming-search-results-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/jammming/jammming-search-results-full-size.jpg`,
+				caption: `The search results view for the Jammming app.`,
 			},
 			{
 				subTitle: `Playlist view`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/jammming/jammming-playlist.png`,
-				caption: `The playlist view for the Jammming app.`
-			}
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/jammming/jammming-playlist-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/jammming/jammming-playlist-full-size.jpg`,
+				caption: `The playlist view for the Jammming app.`,
+			},
 		],
 		links: [
 			{
 				title: `Repository`,
-				url: `https://github.com/MikkelSandbag/codecademy-intensive-jammming`
+				url: `https://github.com/MikkelSandbag/codecademy-intensive-jammming`,
 			},
 			{
 				title: `Live site`,
-				url: `http://msandberg-jammming.surge.sh`
-			}
-		]
+				url: `http://msandberg-jammming.surge.sh`,
+			},
+		],
 	},
 	{
 		id: `apc-entertainment-website-design-and-development`,
@@ -192,57 +204,64 @@ const WorkData = [
 			`JavaScript`,
 			`jQuery`,
 			`Illustrator`,
-			`Photoshop`
+			`Photoshop`,
 		],
 		summary: `Making a new website for a business owner to allow them to acquire more customers.`,
 		description: `This is a website that I designed and coded for an acquaintance. The client was a DJ and needed a site that would showcase the services he provided, allow potential customers to get a price quote through an interactive &ldquo;quote calculator,&rdquo; provide a way for users to book an event, display a media gallery, and have a contact form for general inquiries.`,
 		images: [
 			{
 				subTitle: `Splash screen`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/1-splashpage.png`,
-				caption: `The splash screen for APC Entertainment.`
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/1-splashscreen-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/1-splashscreen-full-size.jpg`,
+				caption: `The splash screen for APC Entertainment.`,
 			},
 			{
 				subTitle: `Booking section`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/2-booking.png`,
-				caption: `The booking section for APC Entertainment.`
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/2-booking-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/2-booking-full-size.jpg`,
+				caption: `The booking section for APC Entertainment.`,
 			},
 			{
 				subTitle: `Services section`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/3-services.png`,
-				caption: `The services section for APC Entertainment.`
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/3-services-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/3-services-full-size.jpg`,
+				caption: `The services section for APC Entertainment.`,
 			},
 			{
 				subTitle: `Testimonial section`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/4-testimonial.png`,
-				caption: `The testimonial section for APC Entertainment.`
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/4-testimonial-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/4-testimonial-full-size.jpg`,
+				caption: `The testimonial section for APC Entertainment.`,
 			},
 			{
 				subTitle: `Pricing section`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/5-pricing.png`,
-				caption: `The pricing section for APC Entertainment.`
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/5-pricing-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/5-pricing-full-size.jpg`,
+				caption: `The pricing section for APC Entertainment.`,
 			},
 			{
 				subTitle: `Media section`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/6-media.png`,
-				caption: `The media section for APC Entertainment.`
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/6-media-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/6-media-full-size.jpg`,
+				caption: `The media section for APC Entertainment.`,
 			},
 			{
 				subTitle: `Contact section`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/7-contact.png`,
-				caption: `The contact section for APC Entertainment.`
-			}
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/7-contact-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/apc-entertainment/7-contact-full-size.jpg`,
+				caption: `The contact section for APC Entertainment.`,
+			},
 		],
 		links: [
 			{
 				title: `Repository`,
-				url: `https://github.com/MikkelSandbag/apc-entertainment-dev`
+				url: `https://github.com/MikkelSandbag/apc-entertainment-dev`,
 			},
 			{
 				title: `Live site`,
-				url: `http://apcentertainment.net`
-			}
-		]
+				url: `http://apcentertainment.net`,
+			},
+		],
 	},
 	{
 		id: `friend-quest-podcast-production`,
@@ -255,20 +274,21 @@ const WorkData = [
 		images: [
 			{
 				subTitle: `Cover artwork`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/friend-quest/friend-quest-artwork.png`,
-				caption: `The cover artwork for Friend Quest.`
-			}
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/friend-quest/friend-quest-artwork-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/friend-quest/friend-quest-artwork-full-size.jpg`,
+				caption: `The cover artwork for Friend Quest.`,
+			},
 		],
 		links: [
 			{
 				title: `Podcast website`,
-				url: `http://friendquestpodcast.com`
+				url: `http://friendquestpodcast.com`,
 			},
 			{
 				title: `Friend Quest Twitter`,
-				url: `https://twitter.com/friendquestpod`
-			}
-		]
+				url: `https://twitter.com/friendquestpod`,
+			},
+		],
 	},
 	{
 		id: `class-project-a-rude-awakening`,
@@ -281,16 +301,17 @@ const WorkData = [
 		images: [
 			{
 				subTitle: `A challenger appears`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/class-projects/a-rude-awakening-screenshot.png`,
-				caption: `A frame grab from the final render.`
-			}
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/class-projects/a-rude-awakening-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/class-projects/a-rude-awakening-full-size.jpg`,
+				caption: `A frame grab from the final render.`,
+			},
 		],
 		links: [
 			{
 				title: `Vimeo link`,
-				url: `https://vimeo.com/113687379`
-			}
-		]
+				url: `https://vimeo.com/113687379`,
+			},
+		],
 	},
 	{
 		id: `class-project-memories-of-mississippi`,
@@ -303,17 +324,18 @@ const WorkData = [
 		images: [
 			{
 				subTitle: `Interviewing my dad`,
-				url: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/class-projects/memories-of-mississippi-screenshot.png`,
-				caption: `A frame grab from the final video.`
-			}
+				thumbnail: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/class-projects/memories-of-mississippi-thumbnail.jpg`,
+				fullSize: `https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/class-projects/memories-of-mississippi-full-size.jpg`,
+				caption: `A frame grab from the final video.`,
+			},
 		],
 		links: [
 			{
 				title: `Vimeo link`,
-				url: `https://vimeo.com/128216025`
-			}
-		]
-	}
+				url: `https://vimeo.com/128216025`,
+			},
+		],
+	},
 ];
 
 export default WorkData;
