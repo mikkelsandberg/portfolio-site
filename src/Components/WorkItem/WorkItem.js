@@ -17,7 +17,7 @@ class WorkItem extends Component {
 			>
 				<div
 					className="workItem__image"
-					style={{ backgroundImage: `url(${item.images[0].url})` }}
+					style={{ backgroundImage: `url(${item.images[0].thumbnail})` }}
 					alt={`${formatText(item.workLabel)}-${formatText(item.workTitle)}`}
 				/>
 				<div className="workItem__details">

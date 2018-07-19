@@ -24,7 +24,7 @@ class WorkImages extends Component {
 					return (
 						<img
 							key={key++}
-							src={image.url}
+							src={image.thumbnail}
 							onClick={e =>
 								this.setState({
 									isOpen: true,
@@ -38,15 +38,16 @@ class WorkImages extends Component {
 				})}
 				{isOpen && (
 					<Lightbox
-						mainSrc={images[photoIndex].url}
+						mainSrc={images[photoIndex].fullSize}
 						nextSrc={
 							images.length > 1
-								? images[(photoIndex + 1) % images.length].url
+								? images[(photoIndex + 1) % images.length].fullSize
 								: undefined
 						}
 						prevSrc={
 							images.length > 1
-								? images[(photoIndex + images.length - 1) % images.length].url
+								? images[(photoIndex + images.length - 1) % images.length]
+										.fullSize
 								: undefined
 						}
 						onCloseRequest={() => this.setState({ isOpen: false })}

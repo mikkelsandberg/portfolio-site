@@ -1,6 +1,6 @@
 const AboutMeData = {
 	profilePic:
-		'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/mikkel-beach-square.png',
+		'https://s3-us-west-1.amazonaws.com/msandberg-portfolio-2018/mikkel-beach-square.jpg',
 	stats: [
 		{
 			stat: 'Mikkel Sandberg',
