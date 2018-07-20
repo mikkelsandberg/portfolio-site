@@ -65,6 +65,20 @@ class NavBar extends React.Component {
 		return browserWidth < 768;
 	};
 
+	isNotFoundPage = () => {
+		const { pathname } = this.props.location;
+		const onNotFoundPage = Boolean(
+			pathname !== '/' &&
+				pathname !== '/my-work' &&
+				pathname !== '/about-me' &&
+				pathname !== '/contact'
+		);
+
+		if (onNotFoundPage) {
+			return true;
+		}
+	};
+
 	determineNavItems = () => {
 		const { hideMobileMenu, toggleMobileNav } = this.props;
 		const renderItems = [];
@@ -94,6 +108,8 @@ class NavBar extends React.Component {
 					Back to my work
 				</NavLink>
 			);
+		} else if (this.isNotFoundPage()) {
+			return renderItems;
 		} else {
 			if (this.isMobileView()) {
 				renderItems.push(addMobileNavLinks());

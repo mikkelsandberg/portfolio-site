@@ -9,6 +9,7 @@ import WorkItems from '../WorkItems/WorkItems';
 import AboutMe from '../AboutMe/AboutMe';
 import Contact from '../Contact/Contact';
 import WorkDetails from '../WorkDetails/WorkDetails';
+import NotFound from '../NotFound/NotFound';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -247,7 +248,8 @@ class App extends Component {
 							return (
 								<div>
 									<section className="contentWrapper">
-										<Header text="Uh Oh! This page does not exist :(" />
+										<Header text="Not Found" />
+										<NotFound />
 									</section>
 								</div>
 							);

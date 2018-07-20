@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Routes from '../../Util/Routes';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -6,38 +7,19 @@ class NavLinks extends Component {
 	render() {
 		const { hideMobileMenu } = this.props;
 
-		const routes = [
-			{
-				path: '/',
-				name: 'Home',
-			},
-			{
-				path: '/my-work',
-				name: 'My Work',
-			},
-			{
-				path: '/about-me',
-				name: 'About Me',
-			},
-			{
-				path: '/contact',
-				name: 'Contact',
-			},
-		];
-
 		return (
 			<ul className="mainNav__links">
-				{routes.map((item, key = 0) => {
+				{Routes.map((route, key = 0) => {
 					return (
 						<li key={key++} className="mainNav__links__item">
 							<NavLink
 								exact
-								to={item.path}
+								to={route.path}
 								className="mainNav__links__item__link"
 								activeClassName="is-current"
 								onClick={hideMobileMenu}
 							>
-								{item.name}
+								{route.name}
 							</NavLink>
 						</li>
 					);
