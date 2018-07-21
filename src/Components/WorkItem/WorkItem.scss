@@ -98,7 +98,7 @@ $tagColors: (
 .mobileView {
 	.workItem {
 		flex: 0 1 100%;
-		margin: 0 20px 20px;
+		margin: 0 0 20px;
 		display: flex;
 		height: auto;
 
@@ -122,11 +122,6 @@ $tagColors: (
 		& .tags {
 			position: static;
 		}
-	}
-
-	.seeAll__wrapper {
-		height: 200px;
-		margin: 0 20px;
 	}
 }
 

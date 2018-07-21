@@ -157,21 +157,23 @@ class App extends Component {
 							return (
 								<div className="homePage">
 									<SplashScreen setClearOfHeader={this.setClearOfHeader} />
-									<Header text="My Work" />
-									<WorkItems
-										scrollToTop={this.scrollToTop}
-										browserWidth={browserWidth}
-										workData={filteredWork}
-										formatText={this.formatText}
-										numItems={3}
-									/>
-									<Header text="About Me" />
-									<AboutMe
-										scrollToTop={this.scrollToTop}
-										browserWidth={browserWidth}
-									/>
-									<Header text="Contact" />
-									<Contact />
+									<section className="contentWrapper">
+										<Header text="My Work" />
+										<WorkItems
+											scrollToTop={this.scrollToTop}
+											browserWidth={browserWidth}
+											workData={filteredWork}
+											formatText={this.formatText}
+											numItems={3}
+										/>
+										<Header text="About Me" />
+										<AboutMe
+											scrollToTop={this.scrollToTop}
+											browserWidth={browserWidth}
+										/>
+										<Header text="Contact" />
+										<Contact />
+									</section>
 								</div>
 							);
 						}}

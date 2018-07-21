@@ -26,14 +26,13 @@
 	justify-self: center;
 	justify-content: space-around;
 	border-right: 0;
-	padding: 10px;
+	padding: 0;
 	max-width: none;
 	min-height: initial;
 
 	&__image {
-		flex: 0 1 auto;
-		margin: 10px;
-		width: calc(50% - 20px);
-		min-width: 260px;
+		flex: 1 1 auto;
+		margin: 10px 0;
+		max-width: 500px;
 	}
 }

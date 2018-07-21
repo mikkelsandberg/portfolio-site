@@ -2,13 +2,12 @@
 	&__wrapper {
 		width: 100%;
 		max-width: 620px;
-		padding: 0 20px;
 		margin: 0 auto 20px;
 	}
 
 	&__form {
 		&__input {
-			font-family: "fira-sans", sans-serif;
+			font-family: 'fira-sans', sans-serif;
 			font-size: 1.2rem;
 			border: 0;
 			border-bottom: 1px solid var(--darkGray);

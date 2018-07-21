@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import WorkImages from '../WorkImages/WorkImages';
 import WorkDescription from '../WorkDescription/WorkDescription';
+import Header from '../Header/Header';
 import NotFound from '../NotFound/NotFound';
 import './WorkDetails.css';
 import PropTypes from 'prop-types';
@@ -24,7 +25,12 @@ class WorkDetails extends Component {
 
 	showWork = ({ filteredWork } = this) => {
 		if (filteredWork() === undefined) {
-			return <NotFound />;
+			return (
+				<section className="contentWrapper">
+					<Header text="Not Found" />
+					<NotFound />
+				</section>
+			);
 		} else {
 			const {
 				workLabel,

@@ -1,0 +1,21 @@
+.notFound {
+	&__wrapper {
+		text-align: center;
+	}
+
+	&__subheading {
+		font-size: 2rem;
+	}
+
+	&__bodyText {
+		font-size: 1.25rem;
+		margin-top: 10px;
+	}
+
+	&__links {
+		&__item {
+			font-size: 1.25rem;
+			margin-top: 10px;
+		}
+	}
+}

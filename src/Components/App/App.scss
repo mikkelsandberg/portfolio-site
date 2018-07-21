@@ -1,7 +1,7 @@
-@import "reset";
-@import "structure";
-@import "tags";
-@import "variables";
+@import 'reset';
+@import 'structure';
+@import 'tags';
+@import 'variables';
 
 // master styles
 * {
@@ -10,7 +10,7 @@
 
 body {
 	// font-family: "kepler-std", serif;
-	font-family: "fira-sans", sans-serif;
+	font-family: 'fira-sans', sans-serif;
 	font-size: 16px;
 	color: var(--darkGray);
 	background-color: var(--lightGray);
