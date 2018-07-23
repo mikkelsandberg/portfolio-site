@@ -9,6 +9,7 @@ import WorkItems from '../WorkItems/WorkItems';
 import AboutMe from '../AboutMe/AboutMe';
 import Contact from '../Contact/Contact';
 import WorkDetails from '../WorkDetails/WorkDetails';
+import NotFound from '../NotFound/NotFound';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -156,21 +157,23 @@ class App extends Component {
 							return (
 								<div className="homePage">
 									<SplashScreen setClearOfHeader={this.setClearOfHeader} />
-									<Header text="My Work" />
-									<WorkItems
-										scrollToTop={this.scrollToTop}
-										browserWidth={browserWidth}
-										workData={filteredWork}
-										formatText={this.formatText}
-										numItems={3}
-									/>
-									<Header text="About Me" />
-									<AboutMe
-										scrollToTop={this.scrollToTop}
-										browserWidth={browserWidth}
-									/>
-									<Header text="Contact" />
-									<Contact />
+									<section className="contentWrapper">
+										<Header text="My Work" />
+										<WorkItems
+											scrollToTop={this.scrollToTop}
+											browserWidth={browserWidth}
+											workData={filteredWork}
+											formatText={this.formatText}
+											numItems={3}
+										/>
+										<Header text="About Me" />
+										<AboutMe
+											scrollToTop={this.scrollToTop}
+											browserWidth={browserWidth}
+										/>
+										<Header text="Contact" />
+										<Contact />
+									</section>
 								</div>
 							);
 						}}
@@ -247,7 +250,8 @@ class App extends Component {
 							return (
 								<div>
 									<section className="contentWrapper">
-										<Header text="Uh Oh! This page does not exist :(" />
+										<Header text="Not Found" />
+										<NotFound />
 									</section>
 								</div>
 							);
