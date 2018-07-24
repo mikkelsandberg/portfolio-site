@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
-import './WorkDescription.css';
 import Parser from 'html-react-parser';
+import { Link } from 'react-router-dom';
+import './WorkDescription.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 
 class WorkDescription extends Component {
 	render() {
-		const { workTitle, workLabel, description, skills, links } = this.props;
+		const {
+			workTitle,
+			workLabel,
+			description,
+			skills,
+			links,
+			currentNum,
+			numItems,
+			linkToPrev,
+			linkToNext,
+		} = this.props;
 
 		return (
 			<section className="workDetails__info">
@@ -46,6 +58,33 @@ class WorkDescription extends Component {
 							);
 						})}
 					</section>
+					<section className="workDetails__info__footer__linkToOtherWork">
+						<p>
+							<Link
+								to={`/my-work/${linkToPrev}`}
+								className="workDetails__info__footer__linkToOtherWork__link"
+							>
+								<FontAwesomeIcon
+									icon="arrow-left"
+									className="workDetails__info__footer__linkToOtherWork__icon workDetails__info__footer__linkToOtherWork__icon--previous"
+								/>Previous
+							</Link>
+						</p>
+						<p>
+							{currentNum} of {numItems}
+						</p>
+						<p>
+							<Link
+								to={`/my-work/${linkToNext}`}
+								className="workDetails__info__footer__linkToOtherWork__link"
+							>
+								<FontAwesomeIcon
+									icon="arrow-right"
+									className="workDetails__info__footer__linkToOtherWork__icon workDetails__info__footer__linkToOtherWork__icon--next"
+								/>Next
+							</Link>
+						</p>
+					</section>
 				</footer>
 			</section>
 		);
@@ -58,6 +97,10 @@ WorkDescription.propTypes = {
 	description: PropTypes.string.isRequired,
 	skills: PropTypes.array.isRequired,
 	links: PropTypes.array.isRequired,
+	currentNum: PropTypes.number.isRequired,
+	numItems: PropTypes.number.isRequired,
+	linkToPrev: PropTypes.string.isRequired,
+	linkToNext: PropTypes.string.isRequired,
 };
 
 export default WorkDescription;
