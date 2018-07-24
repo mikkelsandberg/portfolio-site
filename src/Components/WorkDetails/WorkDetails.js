@@ -11,20 +11,39 @@ class WorkDetails extends Component {
 		this.props.scrollToTop();
 	}
 
-	filteredWork = (
-		{ workData, formatText } = this.props,
-		{ workName } = this.props.match.params
-	) => {
-		return workData.find(item => {
-			let formattedName = `${formatText(item.workLabel)}-${formatText(
-				item.workTitle
-			)}`;
-			return formattedName === workName;
-		});
+	findWorkItem = (item, matchItem) => {
+		let formattedName = `${this.props.formatText(
+			item.workLabel
+		)}-${this.props.formatText(item.workTitle)}`;
+
+		return formattedName === matchItem;
 	};
 
-	showWork = ({ filteredWork } = this) => {
-		if (filteredWork() === undefined) {
+	getIndexOfWorkItem = () => {
+		const { workData } = this.props;
+		const { workName } = this.props.match.params;
+		let index;
+
+		index = workData.findIndex(item => {
+			return this.findWorkItem(item, workName);
+		});
+
+		return index;
+	};
+
+	filteredWork = () => {
+		const { workData } = this.props;
+		const workItemObj = {
+			prev: (this.getIndexOfWorkItem() + workData.length - 1) % workData.length,
+			current: this.getIndexOfWorkItem(),
+			next: (this.getIndexOfWorkItem() + 1) % workData.length,
+		};
+
+		return workItemObj;
+	};
+
+	showWork = () => {
+		if (this.filteredWork().current === -1) {
 			return (
 				<section className="contentWrapper">
 					<Header text="Not Found" />
@@ -32,6 +51,8 @@ class WorkDetails extends Component {
 				</section>
 			);
 		} else {
+			const { workData, formatText } = this.props;
+			const { filteredWork } = this;
 			const {
 				workLabel,
 				workTitle,
@@ -39,7 +60,16 @@ class WorkDetails extends Component {
 				description,
 				skills,
 				links,
-			} = filteredWork();
+			} = workData[filteredWork().current];
+
+			const prevFormatted = `${formatText(
+				workData[filteredWork().prev].workLabel
+			)}-${formatText(workData[filteredWork().prev].workTitle)}`;
+
+			const nextFormatted = `${formatText(
+				workData[filteredWork().next].workLabel
+			)}-${formatText(workData[filteredWork().next].workTitle)}`;
+
 			return (
 				<section className="workDetails">
 					<WorkImages
@@ -53,14 +83,18 @@ class WorkDetails extends Component {
 						description={description}
 						skills={skills}
 						links={links}
+						currentNum={filteredWork().current + 1}
+						numItems={workData.length}
+						linkToPrev={prevFormatted}
+						linkToNext={nextFormatted}
 					/>
 				</section>
 			);
 		}
 	};
 
-	render({ showWork } = this) {
-		return showWork();
+	render() {
+		return this.showWork();
 	}
 }
 

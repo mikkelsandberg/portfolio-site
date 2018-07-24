@@ -27,7 +27,6 @@
 		padding: 105px 20px 20px;
 		width: auto;
 		max-width: 480px;
-		box-sizing: content-box;
 
 		&__description {
 			&__text {
@@ -51,6 +50,11 @@
 					line-height: 1.45;
 					text-decoration: underline;
 				}
+			}
+
+			&__linkToOtherWork {
+				display: flex;
+				justify-content: space-between;
 			}
 		}
 	}
