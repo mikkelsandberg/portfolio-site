@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import sizeMe from 'react-sizeme';
-import NavBar from '../NavBar/NavBar';
-import Header from '../Header/Header';
-import SplashScreen from '../SplashScreen/SplashScreen';
-import WorkFilters from '../WorkFilters/WorkFilters';
-import WorkItems from '../WorkItems/WorkItems';
-import AboutMe from '../AboutMe/AboutMe';
-import Contact from '../Contact/Contact';
-import WorkDetails from '../WorkDetails/WorkDetails';
-import NotFound from '../NotFound/NotFound';
+import NavBar from '../Components/NavBar/NavBar';
+import Header from '../Components/Header/Header';
+import SplashScreen from '../Components/SplashScreen/SplashScreen';
+import WorkFilters from '../Components/WorkFilters/WorkFilters';
+import WorkItems from '../Components/WorkItems/WorkItems';
+import AboutMe from '../Components/AboutMe/AboutMe';
+import Contact from '../Components/Contact/Contact';
+import WorkDetails from '../Components/WorkDetails/WorkDetails';
+import NotFound from '../Components/NotFound/NotFound';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import './App.css';
-import WorkData from '../../Util/WorkData';
+import WorkData from '../Util/WorkData';
 
 library.add(fas, fab);
 

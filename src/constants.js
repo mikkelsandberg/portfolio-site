@@ -1,0 +1,1 @@
+export const CHANGE_WORK_FILTER = 'CHANGE_WORK_FILTER';
