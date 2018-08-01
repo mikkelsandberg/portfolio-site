@@ -15,6 +15,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import './App.css';
 import WorkData from '../Util/WorkData';
+import { FormatText } from '../Util/HelperFunctions';
 
 library.add(fas, fab);
 
@@ -23,7 +24,6 @@ class App extends Component {
 		super();
 
 		this.state = {
-			work: WorkData,
 			workFilter: 'show-all',
 			mobileMenuVisible: false,
 			clearOfHeader: true,
@@ -45,17 +45,6 @@ class App extends Component {
 		});
 	};
 
-	formatText = text =>
-		text
-			.toLowerCase()
-			.replace(/\s/g, '-')
-			.replace(/[^a-z\d-]/g, '');
-
-	handleFilterClick = e => {
-		this.removeActiveClass();
-		this.selectFilter(e);
-	};
-
 	removeActiveClass = (filters = this.filters) => {
 		filters.forEach(item => {
 			item.classList.remove('active');
@@ -65,9 +54,10 @@ class App extends Component {
 	selectFilter = e => {
 		this.setState(
 			{
-				workFilter: this.formatText(e.target.innerHTML),
+				workFilter: FormatText(e.target.innerHTML),
 			},
 			() => {
+				this.removeActiveClass();
 				this.iterateThroughFilters();
 			}
 		);
@@ -75,10 +65,14 @@ class App extends Component {
 
 	iterateThroughFilters = (filters = this.filters) => {
 		return filters.forEach(filter => {
-			if (this.formatText(filter.innerHTML) === this.state.workFilter) {
+			if (FormatText(filter.innerHTML) === this.state.workFilter) {
 				filter.classList.add('active');
 			}
 		});
+	};
+
+	handleFilterClick = e => {
+		this.selectFilter(e);
 	};
 
 	toggleMobileNav = () => {
@@ -123,11 +117,11 @@ class App extends Component {
 		const { mobileMenuVisible } = this.state;
 
 		if (this.state.workFilter === 'show-all') {
-			filteredWork = this.state.work;
+			filteredWork = WorkData;
 		} else {
-			filteredWork = this.state.work.filter(item => {
+			filteredWork = WorkData.filter(item => {
 				const tagsStandardized = item.tags.map(tag => {
-					return this.formatText(tag);
+					return FormatText(tag);
 				});
 
 				return tagsStandardized.includes(this.state.workFilter);
@@ -163,7 +157,6 @@ class App extends Component {
 											scrollToTop={this.scrollToTop}
 											browserWidth={browserWidth}
 											workData={filteredWork}
-											formatText={this.formatText}
 											numItems={3}
 										/>
 										<Header text="About Me" />
@@ -188,14 +181,12 @@ class App extends Component {
 										<Header text="My Work" />
 										<WorkFilters
 											activeFilter={this.state.workFilter}
-											formatText={this.formatText}
 											handleFilterClick={this.handleFilterClick}
 										/>
 										<WorkItems
 											scrollToTop={this.scrollToTop}
 											browserWidth={browserWidth}
 											workData={filteredWork}
-											formatText={this.formatText}
 										/>
 									</section>
 								</div>
@@ -209,8 +200,7 @@ class App extends Component {
 								<WorkDetails
 									{...props}
 									scrollToTop={this.scrollToTop}
-									formatText={this.formatText}
-									workData={this.state.work}
+									workData={WorkData}
 								/>
 							);
 						}}

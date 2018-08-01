@@ -7,7 +7,7 @@ const initialState = {
 export const setWorkFilter = (state = initialState, action = {}) => {
 	switch (action.type) {
 		case CHANGE_WORK_FILTER:
-			return Object.assign({}, state, { workFilter: action.payload });
+			return { ...state, workFilter: action.payload };
 		default:
 			return state;
 	}

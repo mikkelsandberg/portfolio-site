@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './WorkItem.css';
 import Parser from 'html-react-parser';
+import { FormatText } from '../../Util/HelperFunctions';
 import PropTypes from 'prop-types';
 
 class WorkItem extends Component {
 	render() {
-		const { item, formatText } = this.props;
+		const { item } = this.props;
 
 		return (
 			<Link
-				to={`/my-work/${formatText(item.workLabel)}-${formatText(
+				to={`/my-work/${FormatText(item.workLabel)}-${FormatText(
 					item.workTitle
 				)}`}
 				className="workItem"
@@ -18,7 +19,7 @@ class WorkItem extends Component {
 				<div
 					className="workItem__image"
 					style={{ backgroundImage: `url(${item.images[0].thumbnail})` }}
-					alt={`${formatText(item.workLabel)}-${formatText(item.workTitle)}`}
+					alt={`${FormatText(item.workLabel)}-${FormatText(item.workTitle)}`}
 				/>
 				<div className="workItem__details">
 					<p className="workItem__label">{Parser(item.workLabel)}</p>
@@ -34,7 +35,7 @@ class WorkItem extends Component {
 						<ul className="tags">
 							{item.tags.map((tag, key = 0) => {
 								return (
-									<li key={key++} className={`tag tag--${formatText(tag)}`}>
+									<li key={key++} className={`tag tag--${FormatText(tag)}`}>
 										<span className="tag__point" />
 										<span className="tag__hole" />
 										{Parser(tag)}
@@ -51,7 +52,6 @@ class WorkItem extends Component {
 
 WorkItem.propTypes = {
 	item: PropTypes.object.isRequired,
-	formatText: PropTypes.func.isRequired,
 };
 
 export default WorkItem;

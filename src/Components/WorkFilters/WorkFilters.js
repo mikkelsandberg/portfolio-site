@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Filters from '../../Util/Filters';
 import './WorkFilters.css';
+import { FormatText } from '../../Util/HelperFunctions';
 import PropTypes from 'prop-types';
 
 class WorkFilters extends Component {
 	render() {
-		const { activeFilter, formatText, handleFilterClick } = this.props;
+		const { activeFilter, handleFilterClick } = this.props;
 
 		return (
 			<ul className="filters__list">
@@ -15,7 +16,7 @@ class WorkFilters extends Component {
 							key={filter.id}
 							onClick={handleFilterClick}
 							className={`filter${
-								activeFilter === formatText(filter.name)
+								activeFilter === FormatText(filter.name)
 									? ' filter--active'
 									: ''
 							} filter--${filter.color}`}
@@ -31,7 +32,6 @@ class WorkFilters extends Component {
 
 WorkFilters.propTypes = {
 	activeFilter: PropTypes.string.isRequired,
-	formatText: PropTypes.func.isRequired,
 	handleFilterClick: PropTypes.func.isRequired,
 };
 

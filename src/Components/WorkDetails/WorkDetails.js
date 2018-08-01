@@ -4,6 +4,7 @@ import WorkDescription from '../WorkDescription/WorkDescription';
 import Header from '../Header/Header';
 import NotFound from '../NotFound/NotFound';
 import './WorkDetails.css';
+import { FormatText } from '../../Util/HelperFunctions';
 import PropTypes from 'prop-types';
 
 class WorkDetails extends Component {
@@ -12,9 +13,9 @@ class WorkDetails extends Component {
 	}
 
 	findWorkItem = (item, matchItem) => {
-		let formattedName = `${this.props.formatText(
-			item.workLabel
-		)}-${this.props.formatText(item.workTitle)}`;
+		let formattedName = `${FormatText(item.workLabel)}-${FormatText(
+			item.workTitle
+		)}`;
 
 		return formattedName === matchItem;
 	};
@@ -51,7 +52,7 @@ class WorkDetails extends Component {
 				</section>
 			);
 		} else {
-			const { workData, formatText } = this.props;
+			const { workData } = this.props;
 			const { filteredWork } = this;
 			const {
 				workLabel,
@@ -62,13 +63,13 @@ class WorkDetails extends Component {
 				links,
 			} = workData[filteredWork().current];
 
-			const prevFormatted = `${formatText(
+			const prevFormatted = `${FormatText(
 				workData[filteredWork().prev].workLabel
-			)}-${formatText(workData[filteredWork().prev].workTitle)}`;
+			)}-${FormatText(workData[filteredWork().prev].workTitle)}`;
 
-			const nextFormatted = `${formatText(
+			const nextFormatted = `${FormatText(
 				workData[filteredWork().next].workLabel
-			)}-${formatText(workData[filteredWork().next].workTitle)}`;
+			)}-${FormatText(workData[filteredWork().next].workTitle)}`;
 
 			return (
 				<section className="workDetails">
@@ -100,7 +101,6 @@ class WorkDetails extends Component {
 
 WorkDetails.propTypes = {
 	scrollToTop: PropTypes.func.isRequired,
-	formatText: PropTypes.func.isRequired,
 	workData: PropTypes.array.isRequired,
 };
 

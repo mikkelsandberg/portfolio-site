@@ -12,7 +12,7 @@ class WorkItems extends Component {
 	}
 
 	render() {
-		const { browserWidth, workData, formatText, numItems } = this.props;
+		const { browserWidth, workData, numItems } = this.props;
 		const { fade } = transitions;
 		const limitItems = numItems === undefined ? false : true;
 
@@ -21,9 +21,7 @@ class WorkItems extends Component {
 
 			for (let i = 0; i < (limitItems ? numItems : workData.length); i++) {
 				let item = workData[i];
-				workItems.push(
-					<WorkItem key={item.id} item={item} formatText={formatText} />
-				);
+				workItems.push(<WorkItem key={item.id} item={item} />);
 			}
 
 			if (limitItems) {
@@ -80,7 +78,6 @@ WorkItems.propTypes = {
 	scrollToTop: PropTypes.func.isRequired,
 	browserWidth: PropTypes.number.isRequired,
 	workData: PropTypes.array.isRequired,
-	formatText: PropTypes.func.isRequired,
 	numItems: PropTypes.number,
 };
 
