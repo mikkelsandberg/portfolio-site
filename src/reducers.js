@@ -4,11 +4,11 @@ const initialState = {
 	workFilter: 'show-all',
 };
 
-export const setWorkFilter = (state = initialState, action = {}) => {
+export function portfolioApp(state = initialState, action = {}) {
 	switch (action.type) {
 		case CHANGE_WORK_FILTER:
 			return { ...state, workFilter: action.payload };
 		default:
-			return state;
+			return initialState;
 	}
-};
+}
