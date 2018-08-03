@@ -4,18 +4,17 @@ import { setWorkFilter } from '../../actions';
 import Filters from '../../Util/Filters';
 import './WorkFilters.css';
 import { FormatText } from '../../Util/HelperFunctions';
-import PropTypes from 'prop-types';
 
-const mapStateToProps = (state, ownProps) => ({
-	activeFilter: state.workFilter,
+const mapStateToProps = state => ({
+	workFilter: state.workFilter,
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = dispatch => ({
 	onClick: e => dispatch(setWorkFilter(FormatText(e.target.innerHTML))),
 });
 
 const WorkFilters = props => {
-	const { activeFilter, onClick } = props;
+	const { workFilter, onClick } = props;
 
 	return (
 		<ul className="filters__list">
@@ -25,7 +24,7 @@ const WorkFilters = props => {
 						key={filter.id}
 						onClick={onClick}
 						className={`filter${
-							activeFilter === FormatText(filter.name) ? ' filter--active' : ''
+							workFilter === FormatText(filter.name) ? ' filter--active' : ''
 						} filter--${filter.color}`}
 					>
 						{filter.name}
@@ -34,11 +33,6 @@ const WorkFilters = props => {
 			})}
 		</ul>
 	);
-};
-
-WorkFilters.propTypes = {
-	activeFilter: PropTypes.string.isRequired,
-	onClick: PropTypes.func.isRequired,
 };
 
 export default connect(

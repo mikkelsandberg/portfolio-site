@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import sizeMe from 'react-sizeme';
 import NavBar from '../../Components/NavBar/NavBar';
 import Header from '../../Components/Header/Header';
@@ -17,42 +18,21 @@ import './App.css';
 
 library.add(fas, fab);
 
+const mapStateToProps = state => ({
+	mobileMenuVisible: state.mobileMenuVisible,
+});
+
 class App extends Component {
 	constructor() {
 		super();
 
 		this.state = {
-			mobileMenuVisible: false,
 			clearOfHeader: true,
 		};
 	}
 
 	scrollToTop = () => {
 		window.scroll({ top: 0 });
-	};
-
-	toggleMobileNav = () => {
-		this.setState(prevState => ({
-			mobileMenuVisible: !prevState.mobileMenuVisible,
-		}));
-	};
-
-	hideMobileMenu = () => {
-		if (this.props.size.width < 768) {
-			this.setMobileMenuVisible(false);
-		}
-	};
-
-	setMobileMenuVisible = isMobileMenuVisible => {
-		if (isMobileMenuVisible) {
-			this.setState({
-				mobileMenuVisible: true,
-			});
-		} else {
-			this.setState({
-				mobileMenuVisible: false,
-			});
-		}
 	};
 
 	setClearOfHeader = isClear => {
@@ -69,7 +49,7 @@ class App extends Component {
 
 	render() {
 		const browserWidth = this.props.size.width;
-		const { mobileMenuVisible } = this.state;
+		const { mobileMenuVisible } = this.props;
 
 		return (
 			<main
@@ -80,11 +60,7 @@ class App extends Component {
 			>
 				<NavBar
 					browserWidth={browserWidth}
-					toggleMobileNav={this.toggleMobileNav}
-					hideMobileMenu={this.hideMobileMenu}
 					scrollTarget=".splashScreen__wrapper"
-					clearOfHeader={this.state.clearOfHeader}
-					setClearOfHeader={this.setClearOfHeader}
 				/>
 				<Switch>
 					<Route
@@ -93,7 +69,7 @@ class App extends Component {
 						render={() => {
 							return (
 								<div className="homePage">
-									<SplashScreen setClearOfHeader={this.setClearOfHeader} />
+									<SplashScreen />
 									<section className="contentWrapper">
 										<Header text="My Work" />
 										<WorkItems browserWidth={browserWidth} numItems={3} />
@@ -128,6 +104,7 @@ class App extends Component {
 						}}
 					/>
 					<Route
+						exact
 						path="/about-me"
 						onEnter={() => this.scrollToTop}
 						render={() => {
@@ -140,6 +117,7 @@ class App extends Component {
 						}}
 					/>
 					<Route
+						exact
 						path="/contact"
 						onEnter={() => this.scrollToTop}
 						render={() => {
@@ -169,4 +147,4 @@ class App extends Component {
 	}
 }
 
-export default sizeMe()(App);
+export default withRouter(connect(mapStateToProps)(sizeMe()(App)));

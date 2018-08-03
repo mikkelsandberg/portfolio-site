@@ -106,10 +106,8 @@ const WorkItems = props => {
 };
 
 WorkItems.propTypes = {
-	scrollToTop: PropTypes.func,
 	browserWidth: PropTypes.number.isRequired,
 	numItems: PropTypes.number,
-	activeFilter: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps)(WorkItems);
