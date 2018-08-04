@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import sizeMe from 'react-sizeme';
+import RouteChange from '../../Components/RouteChange/RouteChange';
 import NavBar from '../../Components/NavBar/NavBar';
 import Header from '../../Components/Header/Header';
 import SplashScreen from '../../Components/SplashScreen/SplashScreen';
@@ -22,129 +23,108 @@ const mapStateToProps = state => ({
 	mobileMenuVisible: state.mobileMenuVisible,
 });
 
-class App extends Component {
-	constructor() {
-		super();
+const App = props => {
+	const browserWidth = props.size.width;
+	const { mobileMenuVisible } = props;
 
-		this.state = {
-			clearOfHeader: true,
-		};
-	}
-
-	scrollToTop = () => {
+	const scrollToTop = () => {
 		window.scroll({ top: 0 });
 	};
 
-	setClearOfHeader = isClear => {
-		if (isClear) {
-			this.setState({
-				clearOfHeader: true,
-			});
-		} else {
-			this.setState({
-				clearOfHeader: false,
-			});
-		}
-	};
-
-	render() {
-		const browserWidth = this.props.size.width;
-		const { mobileMenuVisible } = this.props;
-
-		return (
-			<main
-				id="App"
-				className={`${browserWidth < 768 ? 'mobileView' : ''}${
-					mobileMenuVisible ? ' mobileMenuVisible' : ''
-				}`}
-			>
-				<NavBar
-					browserWidth={browserWidth}
-					scrollTarget=".splashScreen__wrapper"
-				/>
-				<Switch>
-					<Route
-						exact
-						path="/"
-						render={() => {
-							return (
-								<div className="homePage">
-									<SplashScreen />
-									<section className="contentWrapper">
-										<Header text="My Work" />
-										<WorkItems browserWidth={browserWidth} numItems={3} />
-										<Header text="About Me" />
-										<AboutMe browserWidth={browserWidth} />
-										<Header text="Contact" />
-										<Contact />
-									</section>
-								</div>
-							);
-						}}
-					/>
-					<Route
-						exact
-						path="/my-work"
-						onEnter={() => this.scrollToTop}
-						render={() => {
-							return (
+	return (
+		<main
+			id="App"
+			className={`${browserWidth < 768 ? 'mobileView' : ''}${
+				mobileMenuVisible ? ' mobileMenuVisible' : ''
+			}`}
+		>
+			<RouteChange action={scrollToTop} />
+			<NavBar
+				browserWidth={browserWidth}
+				scrollTarget=".splashScreen__wrapper"
+			/>
+			<Switch>
+				<Route
+					exact
+					path="/"
+					render={() => {
+						return (
+							<div className="homePage">
+								<SplashScreen />
 								<section className="contentWrapper">
 									<Header text="My Work" />
-									<WorkFilters />
-									<WorkItems browserWidth={browserWidth} />
-								</section>
-							);
-						}}
-					/>
-					<Route
-						path="/my-work/:workName"
-						onEnter={() => this.scrollToTop}
-						render={props => {
-							return <WorkDetails {...props} />;
-						}}
-					/>
-					<Route
-						exact
-						path="/about-me"
-						onEnter={() => this.scrollToTop}
-						render={() => {
-							return (
-								<section className="contentWrapper">
+									<WorkItems browserWidth={browserWidth} numItems={3} />
 									<Header text="About Me" />
 									<AboutMe browserWidth={browserWidth} />
-								</section>
-							);
-						}}
-					/>
-					<Route
-						exact
-						path="/contact"
-						onEnter={() => this.scrollToTop}
-						render={() => {
-							return (
-								<section className="contentWrapper">
 									<Header text="Contact" />
 									<Contact />
 								</section>
-							);
-						}}
-					/>
-					<Route
-						path="/*"
-						onEnter={() => this.scrollToTop}
-						render={() => {
-							return (
-								<section className="contentWrapper">
-									<Header text="Not Found" />
-									<NotFound />
-								</section>
-							);
-						}}
-					/>
-				</Switch>
-			</main>
-		);
-	}
-}
+							</div>
+						);
+					}}
+				/>
+				<Route
+					exact
+					path="/my-work"
+					onEnter={() => this.scrollToTop}
+					render={() => {
+						return (
+							<section className="contentWrapper">
+								<Header text="My Work" />
+								<WorkFilters />
+								<WorkItems browserWidth={browserWidth} />
+							</section>
+						);
+					}}
+				/>
+				<Route
+					path="/my-work/:workName"
+					onEnter={() => this.scrollToTop}
+					render={props => {
+						return <WorkDetails {...props} />;
+					}}
+				/>
+				<Route
+					exact
+					path="/about-me"
+					onEnter={() => this.scrollToTop}
+					render={() => {
+						return (
+							<section className="contentWrapper">
+								<Header text="About Me" />
+								<AboutMe browserWidth={browserWidth} />
+							</section>
+						);
+					}}
+				/>
+				<Route
+					exact
+					path="/contact"
+					onEnter={() => this.scrollToTop}
+					render={() => {
+						return (
+							<section className="contentWrapper">
+								<Header text="Contact" />
+								<Contact />
+							</section>
+						);
+					}}
+				/>
+				<Route
+					path="/*"
+					onEnter={() => this.scrollToTop}
+					render={() => {
+						return (
+							<section className="contentWrapper">
+								<Header text="Not Found" />
+								<NotFound />
+							</section>
+						);
+					}}
+				/>
+			</Switch>
+		</main>
+	);
+};
 
 export default withRouter(connect(mapStateToProps)(sizeMe()(App)));

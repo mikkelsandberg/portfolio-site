@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
 	toggleMobileMenuVisible,
@@ -42,7 +42,7 @@ const socialLinks = [
 	},
 ];
 
-class NavBar extends React.Component {
+class NavBar extends Component {
 	componentDidMount() {
 		if (this.props.scrollTarget !== undefined) {
 			this.checkScrollTop();

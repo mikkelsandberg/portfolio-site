@@ -3,6 +3,8 @@ import {
 	TOGGLE_MOBILE_MENU_VIS,
 	SET_MOBILE_MENU_VIS,
 	SET_CLEAR_OF_HEADER,
+	SET_IMAGE_INDEX,
+	SET_IMAGE_MODAL_VIS,
 } from './constants';
 
 export const setWorkFilter = filter => ({
@@ -23,4 +25,14 @@ export const setMobileMenuVisible = visibility => ({
 export const setClearOfHeader = isClear => ({
 	type: SET_CLEAR_OF_HEADER,
 	payload: isClear,
+});
+
+export const setImageIndex = index => ({
+	type: SET_IMAGE_INDEX,
+	payload: index,
+});
+
+export const setImageModalVis = visibility => ({
+	type: SET_IMAGE_MODAL_VIS,
+	payload: visibility,
 });
