@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from '../../Containers/App/App';
 import PropTypes from 'prop-types';
 
-const Root = ({ store }) => {
+function Root({ store }) {
 	return (
 		<Provider store={store}>
 			<BrowserRouter>
@@ -12,10 +12,10 @@ const Root = ({ store }) => {
 			</BrowserRouter>
 		</Provider>
 	);
-};
+}
 
 Root.propTypes = {
-	store: PropTypes.object.isRequired,
+	store: PropTypes.object.isRequired
 };
 
 export default Root;

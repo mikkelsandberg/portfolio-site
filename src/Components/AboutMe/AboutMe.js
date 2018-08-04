@@ -6,43 +6,29 @@ import { withRouter } from 'react-router-dom';
 import './AboutMe.css';
 import PropTypes from 'prop-types';
 
-const AboutMe = props => {
+function AboutMe(props) {
 	const { browserWidth, history } = props;
 	const { profilePic, stats, introText, bodyContent } = AboutMeData;
-	const resumeHref =
-		'https://drive.google.com/file/d/1GKO30rKzPW7X1DcBhZOZhZVtZ8HRa92n/view?usp=sharing';
+	const resumeHref = 'https://drive.google.com/file/d/1GKO30rKzPW7X1DcBhZOZhZVtZ8HRa92n/view?usp=sharing';
 
-	const navigateInternal = e => {
+	function navigateInternal(e) {
 		e.preventDefault();
 
 		if (e.target.tagName === 'A' && !e.target.hasAttribute('target')) {
 			history.push(e.target.getAttribute('href'));
 		}
-	};
+	}
 
 	return (
-		<section
-			className={`aboutMe__wrapper${
-				browserWidth < 768 ? ' aboutMe__wrapper--mobile' : ''
-			}`}
-		>
-			<img
-				className="aboutMe__profilePic"
-				src={profilePic}
-				alt="Mikkel Sandberg profile"
-			/>
+		<section className={`aboutMe__wrapper${browserWidth < 768 ? ' aboutMe__wrapper--mobile' : ''}`}>
+			<img className="aboutMe__profilePic" src={profilePic} alt="Mikkel Sandberg profile" />
 			<article className="aboutMe__intro">
 				<section className="aboutMe__intro__stats">
 					{stats.map((item, key = 0) => {
 						return (
 							<div key={key++} className="aboutMe__intro__stat">
-								<FontAwesomeIcon
-									icon={item.icon}
-									className="aboutMe__intro__stat__icon"
-								/>
-								<p className="aboutMe__intro__stat__text">
-									{Parser(item.stat)}
-								</p>
+								<FontAwesomeIcon icon={item.icon} className="aboutMe__intro__stat__icon" />
+								<p className="aboutMe__intro__stat__text">{Parser(item.stat)}</p>
 							</div>
 						);
 					})}
@@ -52,30 +38,21 @@ const AboutMe = props => {
 				<p className="aboutMe__body__introText">{Parser(introText)}</p>
 				{bodyContent.map((item, key = 0) => {
 					return (
-						<p
-							key={key++}
-							className="aboutMe__body__text"
-							onClick={e => navigateInternal(e)}
-						>
+						<p key={key++} className="aboutMe__body__text" onClick={e => navigateInternal(e)}>
 							{Parser(bodyContent[0])}
 						</p>
 					);
 				})}
-				<a
-					className="aboutMe__body__downloadResumeButton"
-					href={resumeHref}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
+				<a className="aboutMe__body__downloadResumeButton" href={resumeHref} target="_blank" rel="noopener noreferrer">
 					View R&eacute;sum&eacute;
 				</a>
 			</article>
 		</section>
 	);
-};
+}
 
 AboutMe.propTypes = {
-	browserWidth: PropTypes.number.isRequired,
+	browserWidth: PropTypes.number.isRequired
 };
 
 export default withRouter(AboutMe);

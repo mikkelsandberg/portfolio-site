@@ -3,14 +3,18 @@ import { connect } from 'react-redux';
 import { setClearOfHeader } from '../../actions';
 import './SplashScreen.css';
 
-const mapStateToProps = state => ({
-	clearOfHeader: state.clearOfHeader,
-});
+function mapStateToProps(state) {
+	return {
+		clearOfHeader: state.clearOfHeader
+	};
+}
 
-const mapDispatchToProps = dispatch => ({
-	setClearOfHeaderFalse: () => dispatch(setClearOfHeader(false)),
-	setClearOfHeaderTrue: () => dispatch(setClearOfHeader(true)),
-});
+function mapDispatchToProps(dispatch) {
+	return {
+		setClearOfHeaderFalse: () => dispatch(setClearOfHeader(false)),
+		setClearOfHeaderTrue: () => dispatch(setClearOfHeader(true))
+	};
+}
 
 class SplashScreen extends Component {
 	componentDidMount({ setClearOfHeaderFalse } = this.props) {
@@ -34,7 +38,4 @@ class SplashScreen extends Component {
 	}
 }
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(SplashScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(SplashScreen);

@@ -5,16 +5,11 @@ import Parser from 'html-react-parser';
 import { FormatText } from '../../Util/HelperFunctions';
 import PropTypes from 'prop-types';
 
-const WorkItem = props => {
+function WorkItem(props) {
 	const { item } = props;
 
 	return (
-		<Link
-			to={`/my-work/${FormatText(item.workLabel)}-${FormatText(
-				item.workTitle
-			)}`}
-			className="workItem"
-		>
+		<Link to={`/my-work/${FormatText(item.workLabel)}-${FormatText(item.workTitle)}`} className="workItem">
 			<div
 				className="workItem__image"
 				style={{ backgroundImage: `url(${item.images[0].thumbnail})` }}
@@ -44,10 +39,10 @@ const WorkItem = props => {
 			</div>
 		</Link>
 	);
-};
+}
 
 WorkItem.propTypes = {
-	item: PropTypes.object.isRequired,
+	item: PropTypes.object.isRequired
 };
 
 export default WorkItem;

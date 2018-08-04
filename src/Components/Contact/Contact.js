@@ -1,20 +1,11 @@
 import React from 'react';
 import './Contact.css';
 
-const Contact = () => {
+function Contact() {
 	return (
 		<section className="contact__wrapper">
-			<form
-				action="https://formspree.io/hello@mikkelsandberg.com"
-				method="POST"
-				className="contact__form"
-			>
-				<input
-					className="contact__form__input contact__form__input--name"
-					type="text"
-					name="name"
-					placeholder="Name"
-				/>
+			<form action="https://formspree.io/hello@mikkelsandberg.com" method="POST" className="contact__form">
+				<input className="contact__form__input contact__form__input--name" type="text" name="name" placeholder="Name" />
 				<input
 					className="contact__form__input contact__form__input--email"
 					type="email"
@@ -34,14 +25,10 @@ const Contact = () => {
 					placeholder="Message"
 					className="contact__form__input contact__form__input--message"
 				/>
-				<input
-					className="contact__form__input contact__form__input--submit"
-					type="submit"
-					value="Send"
-				/>
+				<input className="contact__form__input contact__form__input--submit" type="submit" value="Send" />
 			</form>
 		</section>
 	);
-};
+}
 
 export default Contact;

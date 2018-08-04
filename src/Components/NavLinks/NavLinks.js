@@ -3,7 +3,7 @@ import Routes from '../../Util/Routes';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const NavLinks = props => {
+function NavLinks(props) {
 	const { hideMobileMenu } = props;
 
 	return (
@@ -25,10 +25,10 @@ const NavLinks = props => {
 			})}
 		</ul>
 	);
-};
+}
 
 NavLinks.propTypes = {
-	hideMobileMenu: PropTypes.func.isRequired,
+	hideMobileMenu: PropTypes.func.isRequired
 };
 
 export default NavLinks;

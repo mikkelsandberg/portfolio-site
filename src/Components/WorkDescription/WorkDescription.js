@@ -5,18 +5,8 @@ import './WorkDescription.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 
-const WorkDescription = props => {
-	const {
-		workTitle,
-		workLabel,
-		description,
-		skills,
-		links,
-		currentNum,
-		numItems,
-		linkToPrev,
-		linkToNext,
-	} = props;
+function WorkDescription(props) {
+	const { workTitle, workLabel, description, skills, links, currentNum, numItems, linkToPrev, linkToNext } = props;
 
 	return (
 		<section className="workDetails__info">
@@ -25,9 +15,7 @@ const WorkDescription = props => {
 				<h2 className="workDetails__header__title">{Parser(workTitle)}</h2>
 			</header>
 			<article className="workDetails__info__description">
-				<p className="workDetails__info__description__text">
-					{Parser(description)}
-				</p>
+				<p className="workDetails__info__description__text">{Parser(description)}</p>
 			</article>
 			<footer className="workDetails__info__footer">
 				<ul className="tags">
@@ -59,10 +47,7 @@ const WorkDescription = props => {
 				</section>
 				<section className="workDetails__info__footer__linkToOtherWork">
 					<p>
-						<Link
-							to={`/my-work/${linkToPrev}`}
-							className="workDetails__info__footer__linkToOtherWork__link"
-						>
+						<Link to={`/my-work/${linkToPrev}`} className="workDetails__info__footer__linkToOtherWork__link">
 							<FontAwesomeIcon
 								icon="arrow-left"
 								className="workDetails__info__footer__linkToOtherWork__icon workDetails__info__footer__linkToOtherWork__icon--previous"
@@ -73,10 +58,7 @@ const WorkDescription = props => {
 						{currentNum} of {numItems}
 					</p>
 					<p>
-						<Link
-							to={`/my-work/${linkToNext}`}
-							className="workDetails__info__footer__linkToOtherWork__link"
-						>
+						<Link to={`/my-work/${linkToNext}`} className="workDetails__info__footer__linkToOtherWork__link">
 							<FontAwesomeIcon
 								icon="arrow-right"
 								className="workDetails__info__footer__linkToOtherWork__icon workDetails__info__footer__linkToOtherWork__icon--next"
@@ -87,7 +69,7 @@ const WorkDescription = props => {
 			</footer>
 		</section>
 	);
-};
+}
 
 WorkDescription.propTypes = {
 	workTitle: PropTypes.string.isRequired,
@@ -98,7 +80,7 @@ WorkDescription.propTypes = {
 	currentNum: PropTypes.number.isRequired,
 	numItems: PropTypes.number.isRequired,
 	linkToPrev: PropTypes.string.isRequired,
-	linkToNext: PropTypes.string.isRequired,
+	linkToNext: PropTypes.string.isRequired
 };
 
 export default WorkDescription;

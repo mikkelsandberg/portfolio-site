@@ -3,19 +3,17 @@ import { withRouter } from 'react-router-dom';
 
 class RouteChange extends Component {
 	componentDidMount() {
-		this.routeChanged();
+		this.scrollToTop();
 	}
 
 	componentDidUpdate(prevProps) {
 		let { pathname } = this.props.location;
 
-		return prevProps.location.pathname === pathname
-			? null
-			: this.routeChanged();
+		return prevProps.location.pathname === pathname ? null : this.scrollToTop();
 	}
 
-	routeChanged = () => {
-		return this.props.action();
+	scrollToTop = () => {
+		return window.scroll({ top: 0 });
 	};
 
 	render() {

@@ -5,15 +5,19 @@ import Filters from '../../Util/Filters';
 import './WorkFilters.css';
 import { FormatText } from '../../Util/HelperFunctions';
 
-const mapStateToProps = state => ({
-	workFilter: state.workFilter,
-});
+function mapStateToProps(state) {
+	return {
+		workFilter: state.workFilter
+	};
+}
 
-const mapDispatchToProps = dispatch => ({
-	onClick: e => dispatch(setWorkFilter(FormatText(e.target.innerHTML))),
-});
+function mapDispatchToProps(dispatch) {
+	return {
+		onClick: e => dispatch(setWorkFilter(FormatText(e.target.innerHTML)))
+	};
+}
 
-const WorkFilters = props => {
+function WorkFilters(props) {
 	const { workFilter, onClick } = props;
 
 	return (
@@ -23,9 +27,9 @@ const WorkFilters = props => {
 					<li
 						key={filter.id}
 						onClick={onClick}
-						className={`filter${
-							workFilter === FormatText(filter.name) ? ' filter--active' : ''
-						} filter--${filter.color}`}
+						className={`filter${workFilter === FormatText(filter.name) ? ' filter--active' : ''} filter--${
+							filter.color
+						}`}
 					>
 						{filter.name}
 					</li>
@@ -33,9 +37,6 @@ const WorkFilters = props => {
 			})}
 		</ul>
 	);
-};
+}
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(WorkFilters);
+export default connect(mapStateToProps, mapDispatchToProps)(WorkFilters);

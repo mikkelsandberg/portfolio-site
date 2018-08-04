@@ -1,45 +1,45 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-	toggleMobileMenuVisible,
-	setMobileMenuVisible,
-	setClearOfHeader,
-} from '../../actions';
+import { toggleMobileMenuVisible, setMobileMenuVisible, setClearOfHeader } from '../../actions';
 import NavLinks from '../NavLinks/NavLinks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink, withRouter } from 'react-router-dom';
 import './NavBar.css';
 import PropTypes from 'prop-types';
 
-const mapStateToProps = state => ({
-	mobileMenuVisible: state.mobileMenuVisible,
-	clearOfHeader: state.clearOfHeader,
-});
+function mapStateToProps(state) {
+	return {
+		mobileMenuVisible: state.mobileMenuVisible,
+		clearOfHeader: state.clearOfHeader
+	};
+}
 
-const mapDispatchToProps = dispatch => ({
-	toggleMobileMenu: e => dispatch(toggleMobileMenuVisible(e)),
-	hideMobileMenu: () => dispatch(setMobileMenuVisible(false)),
-	setClearOfHeaderFalse: () => dispatch(setClearOfHeader(false)),
-	setClearOfHeaderTrue: () => dispatch(setClearOfHeader(true)),
-});
+function mapDispatchToProps(dispatch) {
+	return {
+		toggleMobileMenu: e => dispatch(toggleMobileMenuVisible(e)),
+		hideMobileMenu: () => dispatch(setMobileMenuVisible(false)),
+		setClearOfHeaderFalse: () => dispatch(setClearOfHeader(false)),
+		setClearOfHeaderTrue: () => dispatch(setClearOfHeader(true))
+	};
+}
 
 const socialLinks = [
 	{
 		link: 'https://github.com/MikkelSandbag',
-		icon: ['fab', 'github-square'],
+		icon: ['fab', 'github-square']
 	},
 	{
 		link: 'https://www.linkedin.com/in/mikkelsandberg/',
-		icon: ['fab', 'linkedin'],
+		icon: ['fab', 'linkedin']
 	},
 	{
 		link: 'https://twitter.com/mikkelhsandberg',
-		icon: ['fab', 'twitter-square'],
+		icon: ['fab', 'twitter-square']
 	},
 	{
 		link: 'https://www.facebook.com/mikkelhsandberg',
-		icon: ['fab', 'facebook'],
-	},
+		icon: ['fab', 'facebook']
+	}
 ];
 
 class NavBar extends Component {
@@ -51,17 +51,12 @@ class NavBar extends Component {
 		}
 	}
 
-	checkScrollTop = (
-		{ scrollTarget, setClearOfHeaderTrue, setClearOfHeaderFalse } = this.props
-	) => {
+	checkScrollTop = ({ scrollTarget, setClearOfHeaderTrue, setClearOfHeaderFalse } = this.props) => {
 		const scrollTargetElem = document.querySelector(scrollTarget) || null;
 		const navBarElem = document.querySelector('.mainNav') || null;
 
 		if (scrollTargetElem !== null && navBarElem !== null) {
-			if (
-				window.scrollY >=
-				scrollTargetElem.offsetHeight - navBarElem.offsetHeight
-			) {
+			if (window.scrollY >= scrollTargetElem.offsetHeight - navBarElem.offsetHeight) {
 				setClearOfHeaderTrue();
 			} else {
 				setClearOfHeaderFalse();
@@ -85,10 +80,7 @@ class NavBar extends Component {
 	isNotFoundPage = () => {
 		const { pathname } = this.props.location;
 		const onNotFoundPage = Boolean(
-			pathname !== '/' &&
-				pathname !== '/my-work' &&
-				pathname !== '/about-me' &&
-				pathname !== '/contact'
+			pathname !== '/' && pathname !== '/my-work' && pathname !== '/about-me' && pathname !== '/contact'
 		);
 
 		if (onNotFoundPage) {
@@ -99,7 +91,8 @@ class NavBar extends Component {
 	determineNavItems = () => {
 		const { hideMobileMenu, toggleMobileMenu } = this.props;
 		const renderItems = [];
-		const addMobileNavLinks = (key = 0) => {
+
+		function addMobileNavLinks(key = 0) {
 			return (
 				<div key={key++}>
 					<FontAwesomeIcon
@@ -114,10 +107,11 @@ class NavBar extends Component {
 					</div>
 				</div>
 			);
-		};
-		const addDesktopNavLinks = (key = 0) => {
+		}
+
+		function addDesktopNavLinks(key = 0) {
 			return <NavLinks key={key++} hideMobileMenu={hideMobileMenu} />;
-		};
+		}
 
 		if (this.isWorkItemPage()) {
 			renderItems.push(
@@ -142,23 +136,14 @@ class NavBar extends Component {
 		const { clearOfHeader } = this.props;
 
 		return (
-			<nav
-				className={`mainNav${
-					clearOfHeader === false ? ' mainNav--notClear' : ''
-				}`}
-			>
+			<nav className={`mainNav${clearOfHeader === false ? ' mainNav--notClear' : ''}`}>
 				{this.determineNavItems()}
 
 				<ul className="mainNav__social">
 					{socialLinks.map((item, key = 0) => {
 						return (
 							<li key={key++} className="mainNav__social__icon">
-								<a
-									href={item.link}
-									className="mainNav__social__icon__link"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
+								<a href={item.link} className="mainNav__social__icon__link" target="_blank" rel="noopener noreferrer">
 									<FontAwesomeIcon icon={item.icon} size="2x" />
 								</a>
 							</li>
@@ -172,12 +157,7 @@ class NavBar extends Component {
 
 NavBar.propTypes = {
 	browserWidth: PropTypes.number.isRequired,
-	scrollTarget: PropTypes.string.isRequired,
+	scrollTarget: PropTypes.string.isRequired
 };
 
-export default withRouter(
-	connect(
-		mapStateToProps,
-		mapDispatchToProps
-	)(NavBar)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar));

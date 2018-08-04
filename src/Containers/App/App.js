@@ -19,30 +19,23 @@ import './App.css';
 
 library.add(fas, fab);
 
-const mapStateToProps = state => ({
-	mobileMenuVisible: state.mobileMenuVisible,
-});
+function mapStateToProps(state) {
+	return {
+		mobileMenuVisible: state.mobileMenuVisible
+	};
+}
 
-const App = props => {
+function App(props) {
 	const browserWidth = props.size.width;
 	const { mobileMenuVisible } = props;
-
-	const scrollToTop = () => {
-		window.scroll({ top: 0 });
-	};
 
 	return (
 		<main
 			id="App"
-			className={`${browserWidth < 768 ? 'mobileView' : ''}${
-				mobileMenuVisible ? ' mobileMenuVisible' : ''
-			}`}
+			className={`${browserWidth < 768 ? 'mobileView' : ''}${mobileMenuVisible ? ' mobileMenuVisible' : ''}`}
 		>
-			<RouteChange action={scrollToTop} />
-			<NavBar
-				browserWidth={browserWidth}
-				scrollTarget=".splashScreen__wrapper"
-			/>
+			<RouteChange />
+			<NavBar browserWidth={browserWidth} scrollTarget=".splashScreen__wrapper" />
 			<Switch>
 				<Route
 					exact
@@ -66,7 +59,6 @@ const App = props => {
 				<Route
 					exact
 					path="/my-work"
-					onEnter={() => this.scrollToTop}
 					render={() => {
 						return (
 							<section className="contentWrapper">
@@ -79,15 +71,13 @@ const App = props => {
 				/>
 				<Route
 					path="/my-work/:workName"
-					onEnter={() => this.scrollToTop}
-					render={props => {
-						return <WorkDetails {...props} />;
+					render={() => {
+						return <WorkDetails />;
 					}}
 				/>
 				<Route
 					exact
 					path="/about-me"
-					onEnter={() => this.scrollToTop}
 					render={() => {
 						return (
 							<section className="contentWrapper">
@@ -100,7 +90,6 @@ const App = props => {
 				<Route
 					exact
 					path="/contact"
-					onEnter={() => this.scrollToTop}
 					render={() => {
 						return (
 							<section className="contentWrapper">
@@ -112,7 +101,6 @@ const App = props => {
 				/>
 				<Route
 					path="/*"
-					onEnter={() => this.scrollToTop}
 					render={() => {
 						return (
 							<section className="contentWrapper">
@@ -125,6 +113,6 @@ const App = props => {
 			</Switch>
 		</main>
 	);
-};
+}
 
 export default withRouter(connect(mapStateToProps)(sizeMe()(App)));

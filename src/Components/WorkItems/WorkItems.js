@@ -9,16 +9,18 @@ import { FormatText } from '../../Util/HelperFunctions';
 import WorkData from '../../Util/WorkData';
 import PropTypes from 'prop-types';
 
-const mapStateToProps = (state, ownProps) => ({
-	activeFilter: state.workFilter,
-});
+function mapStateToProps(state) {
+	return {
+		activeFilter: state.workFilter
+	};
+}
 
-const WorkItems = props => {
+function WorkItems(props) {
 	const { browserWidth, numItems, activeFilter } = props;
 	const { fade } = transitions;
 	const limitItems = !(numItems === undefined);
 
-	const filterWorkItems = () => {
+	function filterWorkItems() {
 		let filteredWork;
 
 		if (activeFilter === 'show-all') {
@@ -34,9 +36,9 @@ const WorkItems = props => {
 		}
 
 		return filteredWork;
-	};
+	}
 
-	const iterateThroughWorkItems = (length, inputArray) => {
+	function iterateThroughWorkItems(length, inputArray) {
 		const outputArray = [];
 
 		for (let i = 0; i < length; i++) {
@@ -45,9 +47,9 @@ const WorkItems = props => {
 		}
 
 		return outputArray;
-	};
+	}
 
-	const addWorkItems = () => {
+	function addWorkItems() {
 		const workItems = [];
 		const filteredWork = filterWorkItems();
 
@@ -58,10 +60,7 @@ const WorkItems = props => {
 				<Link to="/my-work" key="seeAll" className="seeAll__wrapper">
 					<p className="seeAll__text">
 						See All
-						<FontAwesomeIcon
-							icon="arrow-circle-right"
-							className="seeAll__icon"
-						/>
+						<FontAwesomeIcon icon="arrow-circle-right" className="seeAll__icon" />
 					</p>
 				</Link>
 			);
@@ -72,9 +71,9 @@ const WorkItems = props => {
 		workItems.push(iterateThroughWorkItems(filteredWork.length, filteredWork));
 
 		return workItems;
-	};
+	}
 
-	const renderDesktopOrMobile = () => {
+	function renderDesktopOrMobile() {
 		let output = '';
 
 		if (browserWidth >= 768) {
@@ -100,14 +99,14 @@ const WorkItems = props => {
 		}
 
 		return output;
-	};
+	}
 
 	return <section className="work__wrapper">{renderDesktopOrMobile()}</section>;
-};
+}
 
 WorkItems.propTypes = {
 	browserWidth: PropTypes.number.isRequired,
-	numItems: PropTypes.number,
+	numItems: PropTypes.number
 };
 
 export default connect(mapStateToProps)(WorkItems);
