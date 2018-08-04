@@ -1,11 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import App from "./Components/App/App";
+import React from 'react';
+import { render } from 'react-dom';
+import { createStore } from 'redux';
+import { portfolioApp } from './reducers';
+import Root from './Components/Root/Root';
 
-ReactDOM.render(
-	<BrowserRouter>
-		<App />
-	</BrowserRouter>,
-	document.getElementById("root")
-);
+const store = createStore(portfolioApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+render(<Root store={store} />, document.getElementById('root'));

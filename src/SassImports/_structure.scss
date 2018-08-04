@@ -2,6 +2,13 @@
 	padding: 85px 20px 0;
 }
 
-.homePage .contentWrapper {
-	padding-top: 0;
+.homePage {
+	.contentWrapper {
+		padding-top: 0;
+	}
+
+	.work__wrapper,
+	.aboutMe__wrapper {
+		margin-bottom: 100px;
+	}
 }

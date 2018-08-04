@@ -1,6 +1,6 @@
 {
   "name": "mikkel-portfolio-2018",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
@@ -14,16 +14,16 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-image-lightbox": "^5.0.0",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
     "react-sizeme": "^2.5.2",
-    "react-stack-grid": "^0.7.1"
+    "react-stack-grid": "^0.7.1",
+    "redux": "^4.0.0"
   },
   "scripts": {
-    "build-css":
-      "node-sass-chokidar --include-path ./src/SassImports src/ -o src/ --output-style compressed",
-    "watch-css":
-      "npm run build-css && node-sass-chokidar --include-path ./src/SassImports src/ -o src/ --output-style compressed --watch --recursive --usePolling",
+    "build-css": "node-sass-chokidar --include-path ./src/SassImports src/ -o src/ --output-style compressed",
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src/SassImports src/ -o src/ --output-style compressed --watch --recursive --usePolling",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build-js": "react-scripts build",

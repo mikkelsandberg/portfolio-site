@@ -1,49 +1,44 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 import WorkImages from '../WorkImages/WorkImages';
 import WorkDescription from '../WorkDescription/WorkDescription';
 import Header from '../Header/Header';
 import NotFound from '../NotFound/NotFound';
 import './WorkDetails.css';
-import PropTypes from 'prop-types';
+import { FormatText } from '../../Util/HelperFunctions';
+import WorkData from '../../Util/WorkData';
 
-class WorkDetails extends Component {
-	componentDidMount() {
-		this.props.scrollToTop();
-	}
+function WorkDetails(props) {
+	const { workName } = props.match.params;
 
-	findWorkItem = (item, matchItem) => {
-		let formattedName = `${this.props.formatText(
-			item.workLabel
-		)}-${this.props.formatText(item.workTitle)}`;
+	function findWorkItem(item, matchItem) {
+		let formattedName = `${FormatText(item.workLabel)}-${FormatText(item.workTitle)}`;
 
 		return formattedName === matchItem;
-	};
+	}
 
-	getIndexOfWorkItem = () => {
-		const { workData } = this.props;
-		const { workName } = this.props.match.params;
+	function getIndexOfWorkItem() {
 		let index;
 
-		index = workData.findIndex(item => {
-			return this.findWorkItem(item, workName);
+		index = WorkData.findIndex(item => {
+			return findWorkItem(item, workName);
 		});
 
 		return index;
-	};
+	}
 
-	filteredWork = () => {
-		const { workData } = this.props;
+	function filteredWork() {
 		const workItemObj = {
-			prev: (this.getIndexOfWorkItem() + workData.length - 1) % workData.length,
-			current: this.getIndexOfWorkItem(),
-			next: (this.getIndexOfWorkItem() + 1) % workData.length,
+			prev: (getIndexOfWorkItem() + WorkData.length - 1) % WorkData.length,
+			current: getIndexOfWorkItem(),
+			next: (getIndexOfWorkItem() + 1) % WorkData.length
 		};
 
 		return workItemObj;
-	};
+	}
 
-	showWork = () => {
-		if (this.filteredWork().current === -1) {
+	function showWork() {
+		if (filteredWork().current === -1) {
 			return (
 				<section className="contentWrapper">
 					<Header text="Not Found" />
@@ -51,32 +46,19 @@ class WorkDetails extends Component {
 				</section>
 			);
 		} else {
-			const { workData, formatText } = this.props;
-			const { filteredWork } = this;
-			const {
-				workLabel,
-				workTitle,
-				images,
-				description,
-				skills,
-				links,
-			} = workData[filteredWork().current];
+			const { workLabel, workTitle, images, description, skills, links } = WorkData[filteredWork().current];
 
-			const prevFormatted = `${formatText(
-				workData[filteredWork().prev].workLabel
-			)}-${formatText(workData[filteredWork().prev].workTitle)}`;
+			const prevFormatted = `${FormatText(WorkData[filteredWork().prev].workLabel)}-${FormatText(
+				WorkData[filteredWork().prev].workTitle
+			)}`;
 
-			const nextFormatted = `${formatText(
-				workData[filteredWork().next].workLabel
-			)}-${formatText(workData[filteredWork().next].workTitle)}`;
+			const nextFormatted = `${FormatText(WorkData[filteredWork().next].workLabel)}-${FormatText(
+				WorkData[filteredWork().next].workTitle
+			)}`;
 
 			return (
 				<section className="workDetails">
-					<WorkImages
-						images={images}
-						workLabel={workLabel}
-						workTitle={workTitle}
-					/>
+					<WorkImages images={images} workLabel={workLabel} workTitle={workTitle} />
 					<WorkDescription
 						workTitle={workTitle}
 						workLabel={workLabel}
@@ -84,24 +66,16 @@ class WorkDetails extends Component {
 						skills={skills}
 						links={links}
 						currentNum={filteredWork().current + 1}
-						numItems={workData.length}
+						numItems={WorkData.length}
 						linkToPrev={prevFormatted}
 						linkToNext={nextFormatted}
 					/>
 				</section>
 			);
 		}
-	};
-
-	render() {
-		return this.showWork();
 	}
+
+	return showWork();
 }
 
-WorkDetails.propTypes = {
-	scrollToTop: PropTypes.func.isRequired,
-	formatText: PropTypes.func.isRequired,
-	workData: PropTypes.array.isRequired,
-};
-
-export default WorkDetails;
+export default withRouter(WorkDetails);
