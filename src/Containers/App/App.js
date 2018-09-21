@@ -21,7 +21,7 @@ library.add(fas, fab);
 
 function mapStateToProps(state) {
 	return {
-		mobileMenuVisible: state.mobileMenuVisible
+		mobileMenuVisible: state.mobileMenuVisible,
 	};
 }
 
@@ -32,10 +32,15 @@ function App(props) {
 	return (
 		<main
 			id="App"
-			className={`${browserWidth < 768 ? 'mobileView' : ''}${mobileMenuVisible ? ' mobileMenuVisible' : ''}`}
+			className={`${browserWidth < 768 ? 'mobileView' : ''}${
+				mobileMenuVisible ? ' mobileMenuVisible' : ''
+			}`}
 		>
 			<RouteChange />
-			<NavBar browserWidth={browserWidth} scrollTarget=".splashScreen__wrapper" />
+			<NavBar
+				browserWidth={browserWidth}
+				scrollTarget=".splashScreen__wrapper"
+			/>
 			<Switch>
 				<Route
 					exact
