@@ -148,11 +148,11 @@ const WorkData = [
 		links: [
 			{
 				title: `Front end repository`,
-				url: `https://github.com/MikkelSandbag/face-detect-front-end`,
+				url: `https://github.com/mikkelsandberg/face-detect-front-end`,
 			},
 			{
 				title: `Back end repository`,
-				url: `https://github.com/MikkelSandbag/face-detect-api`,
+				url: `https://github.com/mikkelsandberg/face-detect-api`,
 			},
 			{
 				title: `Live site`,
@@ -185,7 +185,7 @@ const WorkData = [
 		links: [
 			{
 				title: `Repository`,
-				url: `https://github.com/MikkelSandbag/codecademy-intensive-jammming`,
+				url: `https://github.com/mikkelsandberg/codecademy-intensive-jammming`,
 			},
 			{
 				title: `Live site`,
@@ -255,7 +255,7 @@ const WorkData = [
 		links: [
 			{
 				title: `Repository`,
-				url: `https://github.com/MikkelSandbag/apc-entertainment-dev`,
+				url: `https://github.com/mikkelsandberg/apc-entertainment-dev`,
 			},
 			{
 				title: `Live site`,

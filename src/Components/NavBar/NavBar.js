@@ -25,7 +25,7 @@ function mapDispatchToProps(dispatch) {
 
 const socialLinks = [
 	{
-		link: 'https://github.com/MikkelSandbag',
+		link: 'https://github.com/mikkelsandberg',
 		icon: ['fab', 'github-square']
 	},
 	{

@@ -14,7 +14,7 @@ const AboutMeData = {
 			icon: 'map-marker-alt'
 		},
 		{
-			stat: "<a href='https://github.com/MikkelSandbag' target='_blank' rel='noopener noreferrer'>Github profile</a>",
+			stat: "<a href='https://github.com/mikkelsandberg' target='_blank' rel='noopener noreferrer'>Github profile</a>",
 			icon: ['fab', 'github']
 		}
 	],
