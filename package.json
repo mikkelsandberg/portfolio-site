@@ -1,7 +1,8 @@
 {
   "name": "mikkel-portfolio-2018",
   "version": "2.0.0",
-  "private": true,
+	"private": true,
+	"homepage": "https://mikkelsandberg.com",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
     "@fortawesome/free-brands-svg-icons": "^5.1.0",
