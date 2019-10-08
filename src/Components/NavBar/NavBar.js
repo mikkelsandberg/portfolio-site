@@ -33,7 +33,7 @@ const socialLinks = [
 		icon: ['fab', 'linkedin']
 	},
 	{
-		link: 'https://twitter.com/mikkelhsandberg',
+		link: 'https://twitter.com/sikkelmandberg',
 		icon: ['fab', 'twitter-square']
 	},
 	{
