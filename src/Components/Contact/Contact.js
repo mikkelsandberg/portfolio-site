@@ -1,10 +1,15 @@
 import React from 'react';
 import './Contact.css';
+import { BASIN_HASH } from '../../constants';
 
 function Contact() {
 	return (
 		<section className="contact__wrapper">
-			<form action="https://usebasin.com/f/31dde79131f1" method="POST" className="contact__form">
+			<form
+				action={`https://usebasin.com/f/${BASIN_HASH}`}
+				method="POST"
+				className="contact__form"
+			>
 				<input
 					className="contact__form__input contact__form__input--name"
 					type="text"
@@ -35,7 +40,12 @@ function Contact() {
 					required
 				/>
 				<input type="hidden" name="_gotcha" />
-				<button className="contact__form__input contact__form__input--submit" type="submit">Send</button>
+				<button
+					className="contact__form__input contact__form__input--submit"
+					type="submit"
+				>
+					Send
+				</button>
 			</form>
 		</section>
 	);
