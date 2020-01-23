@@ -1,4 +1,4 @@
-# portfolio-site-2018
+# portfolio-site
 
 My personal portfolio site.
 
