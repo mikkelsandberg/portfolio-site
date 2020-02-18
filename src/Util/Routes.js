@@ -11,10 +11,10 @@ const Routes = [
 		path: '/about-me',
 		name: 'About Me',
 	},
-	{
-		path: '/contact',
-		name: 'Contact',
-	},
+	// {
+	// 	path: '/contact',
+	// 	name: 'Contact',
+	// },
 ];
 
 export default Routes;

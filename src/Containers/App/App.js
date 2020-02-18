@@ -9,7 +9,7 @@ import SplashScreen from '../../Components/SplashScreen/SplashScreen';
 import WorkFilters from '../../Components/WorkFilters/WorkFilters';
 import WorkItems from '../../Components/WorkItems/WorkItems';
 import AboutMe from '../../Components/AboutMe/AboutMe';
-import Contact from '../../Components/Contact/Contact';
+// import Contact from '../../Components/Contact/Contact';
 import WorkDetails from '../../Components/WorkDetails/WorkDetails';
 import NotFound from '../../Components/NotFound/NotFound';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -34,7 +34,7 @@ function App(props) {
 			id="App"
 			className={`${browserWidth < 768 ? 'mobileView' : ''}${
 				mobileMenuVisible ? ' mobileMenuVisible' : ''
-			}`}
+				}`}
 		>
 			<RouteChange />
 			<NavBar
@@ -54,8 +54,8 @@ function App(props) {
 									<WorkItems browserWidth={browserWidth} numItems={3} />
 									<Header text="About Me" />
 									<AboutMe browserWidth={browserWidth} />
-									<Header text="Contact" />
-									<Contact />
+									{/* <Header text="Contact" />
+									<Contact /> */}
 								</section>
 							</div>
 						);
@@ -92,7 +92,7 @@ function App(props) {
 						);
 					}}
 				/>
-				<Route
+				{/* <Route
 					exact
 					path="/contact"
 					render={() => {
@@ -103,7 +103,7 @@ function App(props) {
 							</section>
 						);
 					}}
-				/>
+				/> */}
 				<Route
 					path="/*"
 					render={() => {
