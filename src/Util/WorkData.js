@@ -282,7 +282,7 @@ const WorkData = [
 		links: [
 			{
 				title: `Podcast website`,
-				url: `http://friendquestpodcast.com`,
+				url: `https://anchor.fm/friend-quest`,
 			},
 			{
 				title: `Friend Quest Twitter`,
