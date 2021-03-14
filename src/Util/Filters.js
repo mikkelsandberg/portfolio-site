@@ -6,7 +6,7 @@ const Filters = [
 	},
 	{
 		id: 1,
-		name: 'Web development',
+		name: 'Development',
 		color: 'yellow'
 	},
 	{

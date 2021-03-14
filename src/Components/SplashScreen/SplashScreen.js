@@ -29,7 +29,7 @@ class SplashScreen extends Component {
 		return (
 			<section className="splashScreen__wrapper">
 				<h1 className="splashScreen__heading">
-					Web Development &<br />
+					App Development &<br />
 					Podcasting &<br />
 					Coffee
 				</h1>
